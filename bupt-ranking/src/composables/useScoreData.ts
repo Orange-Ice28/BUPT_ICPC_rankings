@@ -11,7 +11,7 @@ export function useScoreData() {
     loading.value = true
     error.value = null
     try {
-      const resp = await fetch('/score_data.json')
+      const resp = await fetch(import.meta.env.BASE_URL + 'score_data.json')
       if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
       data.value = await resp.json()
       return data.value
