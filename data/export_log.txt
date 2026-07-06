@@ -1,0 +1,4 @@
+Personal count: 57
+Team count: 14
+Baselines: [10, 10, 9, 10, 10, 9, 11, 8, 8, 10]
+Done.
