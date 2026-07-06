@@ -691,71 +691,6 @@
       "rank": 10
     },
     {
-      "team_id": "team0976",
-      "name": "蔡佩霖",
-      "total_score": 54.02,
-      "contests": [
-        {
-          "solved": 6,
-          "rank": 170,
-          "score": 47.32
-        },
-        {
-          "solved": 7,
-          "rank": 94,
-          "score": 61.86
-        },
-        {
-          "solved": 6,
-          "rank": 134,
-          "score": 55.58
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 2,
-          "rank": 932,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1490,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1475,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1431,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1372,
-          "score": -0.0
-        },
-        {
-          "solved": 6,
-          "rank": 117,
-          "score": 51.3
-        }
-      ],
-      "best_indices": [
-        0,
-        1,
-        2,
-        9
-      ],
-      "in_team": true,
-      "rank": 11
-    },
-    {
       "team_id": "team0994",
       "name": "吴显熠",
       "total_score": 53.21,
@@ -821,7 +756,7 @@
         6
       ],
       "in_team": true,
-      "rank": 12
+      "rank": 11
     },
     {
       "team_id": "team0984",
@@ -889,7 +824,7 @@
         9
       ],
       "in_team": true,
-      "rank": 13
+      "rank": 12
     },
     {
       "team_id": "team1791",
@@ -957,7 +892,7 @@
         9
       ],
       "in_team": true,
-      "rank": 14
+      "rank": 13
     },
     {
       "team_id": "team0973",
@@ -1025,7 +960,7 @@
         9
       ],
       "in_team": true,
-      "rank": 15
+      "rank": 14
     },
     {
       "team_id": "team0986",
@@ -1093,7 +1028,7 @@
         9
       ],
       "in_team": true,
-      "rank": 16
+      "rank": 15
     },
     {
       "team_id": "team0988",
@@ -1161,74 +1096,7 @@
         9
       ],
       "in_team": true,
-      "rank": 17
-    },
-    {
-      "team_id": "team1004",
-      "name": "刘奕安",
-      "total_score": 44.63,
-      "contests": [
-        {
-          "solved": 6,
-          "rank": 172,
-          "score": 47.17
-        },
-        {
-          "solved": 6,
-          "rank": 212,
-          "score": 44.17
-        },
-        {
-          "solved": 7,
-          "rank": 39,
-          "score": 74.08
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 5,
-          "rank": 246,
-          "score": 34.69
-        },
-        {
-          "solved": 7,
-          "rank": 111,
-          "score": 67.08
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1446,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1381,
-          "score": -0.0
-        },
-        {
-          "solved": 1,
-          "rank": 753,
-          "score": 0.6
-        }
-      ],
-      "best_indices": [
-        0,
-        1,
-        2,
-        4,
-        5,
-        9
-      ],
-      "in_team": false,
-      "rank": 18
+      "rank": 16
     },
     {
       "team_id": "team0979",
@@ -1296,72 +1164,7 @@
         9
       ],
       "in_team": false,
-      "rank": 19
-    },
-    {
-      "team_id": "team1050",
-      "name": "侯尔为",
-      "total_score": 44.0,
-      "contests": [
-        {
-          "solved": 5,
-          "rank": 205,
-          "score": 37.25
-        },
-        {
-          "solved": 7,
-          "rank": 97,
-          "score": 61.6
-        },
-        {
-          "solved": 5,
-          "rank": 181,
-          "score": 43.06
-        },
-        {
-          "solved": 2,
-          "rank": 1060,
-          "score": 0.0
-        },
-        {
-          "solved": 3,
-          "rank": 879,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 5,
-          "rank": 201,
-          "score": 34.09
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        }
-      ],
-      "best_indices": [
-        0,
-        1,
-        2,
-        6
-      ],
-      "in_team": false,
-      "rank": 20
+      "rank": 17
     },
     {
       "team_id": "team1798",
@@ -1427,74 +1230,7 @@
         9
       ],
       "in_team": true,
-      "rank": 21
-    },
-    {
-      "team_id": "team1003",
-      "name": "张鲁豫",
-      "total_score": 40.4,
-      "contests": [
-        {
-          "solved": 7,
-          "rank": 67,
-          "score": 64.22
-        },
-        {
-          "solved": 6,
-          "rank": 309,
-          "score": 36.9
-        },
-        {
-          "solved": 4,
-          "rank": 420,
-          "score": 21.17
-        },
-        {
-          "solved": 7,
-          "rank": 50,
-          "score": 65.71
-        },
-        {
-          "solved": 6,
-          "rank": 92,
-          "score": 53.17
-        },
-        {
-          "solved": 3,
-          "rank": 771,
-          "score": 1.25
-        },
-        {
-          "solved": 0,
-          "rank": 1486,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1445,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1380,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1335,
-          "score": -0.0
-        }
-      ],
-      "best_indices": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "in_team": false,
-      "rank": 22
+      "rank": 18
     },
     {
       "team_id": "team0977",
@@ -1562,7 +1298,7 @@
         9
       ],
       "in_team": true,
-      "rank": 23
+      "rank": 19
     },
     {
       "team_id": "team0989",
@@ -1630,7 +1366,7 @@
         9
       ],
       "in_team": true,
-      "rank": 24
+      "rank": 20
     },
     {
       "team_id": "team0999",
@@ -1698,7 +1434,7 @@
         8
       ],
       "in_team": true,
-      "rank": 25
+      "rank": 21
     },
     {
       "team_id": "team0966",
@@ -1766,27 +1502,42 @@
         9
       ],
       "in_team": true,
-      "rank": 26
+      "rank": 22
     },
     {
-      "team_id": "team1005",
-      "name": "刘永琰",
-      "total_score": 37.61,
+      "team_id": "team1004",
+      "name": "刘奕安",
+      "total_score": 38.26,
       "contests": [
         {
-          "solved": 7,
-          "rank": 59,
-          "score": 64.92
+          "solved": 6,
+          "rank": 172,
+          "score": 47.17
         },
         {
           "solved": 6,
-          "rank": 234,
-          "score": 42.52
+          "rank": 212,
+          "score": 44.17
         },
         {
-          "solved": 3,
-          "rank": 672,
-          "score": 5.38
+          "solved": 7,
+          "rank": 39,
+          "score": 74.08
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 5,
+          "rank": 246,
+          "score": 34.69
+        },
+        {
+          "solved": 7,
+          "rank": 111,
+          "score": 67.08
         },
         {
           "solved": 0,
@@ -1795,42 +1546,31 @@
         },
         {
           "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1447,
+          "rank": 1446,
           "score": -0.0
         },
         {
           "solved": 0,
-          "rank": 0,
-          "score": 0.0
+          "rank": 1381,
+          "score": -0.0
         },
         {
-          "solved": 0,
-          "rank": 1336,
-          "score": -0.0
+          "solved": 1,
+          "rank": 753,
+          "score": 0.6
         }
       ],
       "best_indices": [
         0,
         1,
-        2
+        2,
+        3,
+        4,
+        5,
+        9
       ],
       "in_team": false,
-      "rank": 27
+      "rank": 23
     },
     {
       "team_id": "team0971",
@@ -1898,73 +1638,75 @@
         9
       ],
       "in_team": true,
-      "rank": 28
+      "rank": 24
     },
     {
-      "team_id": "team0985",
-      "name": "李子俊",
-      "total_score": 35.08,
+      "team_id": "team1003",
+      "name": "张鲁豫",
+      "total_score": 34.63,
       "contests": [
         {
-          "solved": 5,
-          "rank": 458,
-          "score": 21.44
-        },
-        {
-          "solved": 1,
-          "rank": 1427,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 5,
-          "rank": 224,
-          "score": 36.06
-        },
-        {
-          "solved": 5,
-          "rank": 369,
-          "score": 27.0
-        },
-        {
           "solved": 7,
-          "rank": 138,
-          "score": 64.46
+          "rank": 67,
+          "score": 64.22
         },
         {
-          "solved": 0,
-          "rank": 1478,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1435,
-          "score": -0.0
+          "solved": 6,
+          "rank": 309,
+          "score": 36.9
         },
         {
           "solved": 4,
-          "rank": 378,
-          "score": 26.44
+          "rank": 420,
+          "score": 21.17
+        },
+        {
+          "solved": 7,
+          "rank": 50,
+          "score": 65.71
+        },
+        {
+          "solved": 6,
+          "rank": 92,
+          "score": 53.17
+        },
+        {
+          "solved": 3,
+          "rank": 771,
+          "score": 1.25
         },
         {
           "solved": 0,
-          "rank": 1328,
+          "rank": 1486,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1445,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1380,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1335,
           "score": -0.0
         }
       ],
       "best_indices": [
         0,
+        1,
+        2,
         3,
         4,
         5,
-        8
+        6
       ],
-      "in_team": true,
-      "rank": 29
+      "in_team": false,
+      "rank": 25
     },
     {
       "team_id": "team0993",
@@ -2032,7 +1774,7 @@
         8
       ],
       "in_team": false,
-      "rank": 30
+      "rank": 26
     },
     {
       "team_id": "team0992",
@@ -2100,37 +1842,27 @@
         8
       ],
       "in_team": true,
-      "rank": 31
+      "rank": 27
     },
     {
-      "team_id": "team0995",
-      "name": "王晨阳",
-      "total_score": 32.87,
+      "team_id": "team0976",
+      "name": "蔡佩霖",
+      "total_score": 30.87,
       "contests": [
         {
-          "solved": 5,
-          "rank": 302,
-          "score": 31.19
+          "solved": 6,
+          "rank": 170,
+          "score": 47.32
+        },
+        {
+          "solved": 7,
+          "rank": 94,
+          "score": 61.86
         },
         {
           "solved": 6,
-          "rank": 272,
-          "score": 39.67
-        },
-        {
-          "solved": 5,
-          "rank": 231,
-          "score": 39.58
-        },
-        {
-          "solved": 4,
-          "rank": 337,
-          "score": 23.2
-        },
-        {
-          "solved": 5,
-          "rank": 310,
-          "score": 30.69
+          "rank": 134,
+          "score": 55.58
         },
         {
           "solved": 0,
@@ -2138,90 +1870,34 @@
           "score": 0.0
         },
         {
-          "solved": 0,
-          "rank": 1483,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1441,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1377,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1333,
-          "score": -0.0
-        }
-      ],
-      "best_indices": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
-      "in_team": false,
-      "rank": 32
-    },
-    {
-      "team_id": "team1006",
-      "name": "徐嘉晨",
-      "total_score": 31.47,
-      "contests": [
-        {
-          "solved": 3,
-          "rank": 780,
-          "score": 0.79
-        },
-        {
-          "solved": 4,
-          "rank": 674,
-          "score": 6.35
-        },
-        {
-          "solved": 4,
-          "rank": 438,
-          "score": 20.17
-        },
-        {
-          "solved": 4,
-          "rank": 261,
-          "score": 27.0
-        },
-        {
-          "solved": 7,
-          "rank": 40,
-          "score": 66.59
-        },
-        {
-          "solved": 7,
-          "rank": 102,
-          "score": 67.96
-        },
-        {
-          "solved": 0,
-          "rank": 0,
+          "solved": 2,
+          "rank": 932,
           "score": 0.0
         },
         {
           "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1337,
+          "rank": 1490,
           "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1475,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1431,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1372,
+          "score": -0.0
+        },
+        {
+          "solved": 6,
+          "rank": 117,
+          "score": 51.3
         }
       ],
       "best_indices": [
@@ -2230,10 +1906,11 @@
         2,
         3,
         4,
-        5
+        5,
+        9
       ],
       "in_team": true,
-      "rank": 33
+      "rank": 28
     },
     {
       "team_id": "team0972",
@@ -2301,7 +1978,7 @@
         9
       ],
       "in_team": true,
-      "rank": 34
+      "rank": 29
     },
     {
       "team_id": "team0983",
@@ -2369,69 +2046,7 @@
         9
       ],
       "in_team": true,
-      "rank": 35
-    },
-    {
-      "team_id": "team1342",
-      "name": "张钧睿",
-      "total_score": 29.19,
-      "contests": [
-        {
-          "solved": 5,
-          "rank": 334,
-          "score": 29.19
-        },
-        {
-          "solved": 4,
-          "rank": 903,
-          "score": 0.0
-        },
-        {
-          "solved": 2,
-          "rank": 823,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        }
-      ],
-      "best_indices": [
-        0
-      ],
-      "in_team": false,
-      "rank": 36
+      "rank": 30
     },
     {
       "team_id": "team0998",
@@ -2499,7 +2114,7 @@
         9
       ],
       "in_team": true,
-      "rank": 37
+      "rank": 31
     },
     {
       "team_id": "team0967",
@@ -2567,42 +2182,42 @@
         9
       ],
       "in_team": true,
-      "rank": 38
+      "rank": 32
     },
     {
-      "team_id": "team1788",
-      "name": "王义轩",
-      "total_score": 27.18,
+      "team_id": "team1006",
+      "name": "徐嘉晨",
+      "total_score": 26.98,
       "contests": [
         {
-          "solved": 0,
-          "rank": 1818,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1869,
-          "score": -0.0
-        },
-        {
-          "solved": 2,
-          "rank": 878,
-          "score": 0.0
+          "solved": 3,
+          "rank": 780,
+          "score": 0.79
         },
         {
           "solved": 4,
-          "rank": 387,
-          "score": 20.7
+          "rank": 674,
+          "score": 6.35
         },
         {
-          "solved": 5,
-          "rank": 366,
-          "score": 27.19
+          "solved": 4,
+          "rank": 438,
+          "score": 20.17
         },
         {
-          "solved": 2,
-          "rank": 847,
-          "score": 0.0
+          "solved": 4,
+          "rank": 261,
+          "score": 27.0
+        },
+        {
+          "solved": 7,
+          "rank": 40,
+          "score": 66.59
+        },
+        {
+          "solved": 7,
+          "rank": 102,
+          "score": 67.96
         },
         {
           "solved": 0,
@@ -2615,39 +2230,67 @@
           "score": 0.0
         },
         {
-          "solved": 4,
-          "rank": 219,
-          "score": 36.38
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
         },
         {
-          "solved": 4,
-          "rank": 312,
-          "score": 24.45
+          "solved": 0,
+          "rank": 1337,
+          "score": -0.0
         }
       ],
       "best_indices": [
+        0,
+        1,
+        2,
         3,
         4,
-        8,
-        9
+        5,
+        6
       ],
       "in_team": true,
-      "rank": 39
+      "rank": 33
     },
     {
-      "team_id": "team0974",
-      "name": "刘永琰",
-      "total_score": 25.5,
+      "team_id": "team1050",
+      "name": "侯尔为",
+      "total_score": 25.14,
       "contests": [
         {
           "solved": 5,
-          "rank": 393,
-          "score": 25.5
+          "rank": 205,
+          "score": 37.25
+        },
+        {
+          "solved": 7,
+          "rank": 97,
+          "score": 61.6
+        },
+        {
+          "solved": 5,
+          "rank": 181,
+          "score": 43.06
+        },
+        {
+          "solved": 2,
+          "rank": 1060,
+          "score": 0.0
+        },
+        {
+          "solved": 3,
+          "rank": 879,
+          "score": 0.0
         },
         {
           "solved": 0,
-          "rank": 1681,
-          "score": -0.0
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 5,
+          "rank": 201,
+          "score": 34.09
         },
         {
           "solved": 0,
@@ -2656,45 +2299,162 @@
         },
         {
           "solved": 0,
-          "rank": 1523,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        }
+      ],
+      "best_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "in_team": false,
+      "rank": 34
+    },
+    {
+      "team_id": "team0985",
+      "name": "李子俊",
+      "total_score": 25.06,
+      "contests": [
+        {
+          "solved": 5,
+          "rank": 458,
+          "score": 21.44
+        },
+        {
+          "solved": 1,
+          "rank": 1427,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 5,
+          "rank": 224,
+          "score": 36.06
+        },
+        {
+          "solved": 5,
+          "rank": 369,
+          "score": 27.0
+        },
+        {
+          "solved": 7,
+          "rank": 138,
+          "score": 64.46
+        },
+        {
+          "solved": 0,
+          "rank": 1478,
           "score": -0.0
         },
         {
           "solved": 0,
-          "rank": 1514,
+          "rank": 1435,
           "score": -0.0
         },
         {
-          "solved": 0,
-          "rank": 1488,
-          "score": -0.0
+          "solved": 4,
+          "rank": 378,
+          "score": 26.44
         },
         {
           "solved": 0,
-          "rank": 1473,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1429,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1370,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1326,
+          "rank": 1328,
           "score": -0.0
         }
       ],
       "best_indices": [
-        0
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        8
+      ],
+      "in_team": true,
+      "rank": 35
+    },
+    {
+      "team_id": "team0995",
+      "name": "王晨阳",
+      "total_score": 23.48,
+      "contests": [
+        {
+          "solved": 5,
+          "rank": 302,
+          "score": 31.19
+        },
+        {
+          "solved": 6,
+          "rank": 272,
+          "score": 39.67
+        },
+        {
+          "solved": 5,
+          "rank": 231,
+          "score": 39.58
+        },
+        {
+          "solved": 4,
+          "rank": 337,
+          "score": 23.2
+        },
+        {
+          "solved": 5,
+          "rank": 310,
+          "score": 30.69
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1483,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1441,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1377,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1333,
+          "score": -0.0
+        }
+      ],
+      "best_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
       ],
       "in_team": false,
-      "rank": 40
+      "rank": 36
     },
     {
       "team_id": "team1792",
@@ -2760,74 +2520,7 @@
         9
       ],
       "in_team": true,
-      "rank": 41
-    },
-    {
-      "team_id": "team1789",
-      "name": "魏胜新",
-      "total_score": 19.97,
-      "contests": [
-        {
-          "solved": 0,
-          "rank": 1819,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1870,
-          "score": -0.0
-        },
-        {
-          "solved": 3,
-          "rank": 726,
-          "score": 3.12
-        },
-        {
-          "solved": 2,
-          "rank": 1030,
-          "score": 0.0
-        },
-        {
-          "solved": 2,
-          "rank": 907,
-          "score": 0.0
-        },
-        {
-          "solved": 5,
-          "rank": 399,
-          "score": 27.92
-        },
-        {
-          "solved": 4,
-          "rank": 379,
-          "score": 19.18
-        },
-        {
-          "solved": 4,
-          "rank": 200,
-          "score": 37.56
-        },
-        {
-          "solved": 3,
-          "rank": 498,
-          "score": 14.2
-        },
-        {
-          "solved": 3,
-          "rank": 326,
-          "score": 17.81
-        }
-      ],
-      "best_indices": [
-        2,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "in_team": true,
-      "rank": 42
+      "rank": 37
     },
     {
       "team_id": "team1794",
@@ -2893,7 +2586,211 @@
         8
       ],
       "in_team": true,
-      "rank": 43
+      "rank": 38
+    },
+    {
+      "team_id": "team1789",
+      "name": "魏胜新",
+      "total_score": 17.11,
+      "contests": [
+        {
+          "solved": 0,
+          "rank": 1819,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1870,
+          "score": -0.0
+        },
+        {
+          "solved": 3,
+          "rank": 726,
+          "score": 3.12
+        },
+        {
+          "solved": 2,
+          "rank": 1030,
+          "score": 0.0
+        },
+        {
+          "solved": 2,
+          "rank": 907,
+          "score": 0.0
+        },
+        {
+          "solved": 5,
+          "rank": 399,
+          "score": 27.92
+        },
+        {
+          "solved": 4,
+          "rank": 379,
+          "score": 19.18
+        },
+        {
+          "solved": 4,
+          "rank": 200,
+          "score": 37.56
+        },
+        {
+          "solved": 3,
+          "rank": 498,
+          "score": 14.2
+        },
+        {
+          "solved": 3,
+          "rank": 326,
+          "score": 17.81
+        }
+      ],
+      "best_indices": [
+        0,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "in_team": true,
+      "rank": 39
+    },
+    {
+      "team_id": "team1005",
+      "name": "刘永琰",
+      "total_score": 16.12,
+      "contests": [
+        {
+          "solved": 7,
+          "rank": 59,
+          "score": 64.92
+        },
+        {
+          "solved": 6,
+          "rank": 234,
+          "score": 42.52
+        },
+        {
+          "solved": 3,
+          "rank": 672,
+          "score": 5.38
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1447,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1336,
+          "score": -0.0
+        }
+      ],
+      "best_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "in_team": false,
+      "rank": 40
+    },
+    {
+      "team_id": "team1788",
+      "name": "王义轩",
+      "total_score": 15.53,
+      "contests": [
+        {
+          "solved": 0,
+          "rank": 1818,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1869,
+          "score": -0.0
+        },
+        {
+          "solved": 2,
+          "rank": 878,
+          "score": 0.0
+        },
+        {
+          "solved": 4,
+          "rank": 387,
+          "score": 20.7
+        },
+        {
+          "solved": 5,
+          "rank": 366,
+          "score": 27.19
+        },
+        {
+          "solved": 2,
+          "rank": 847,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 4,
+          "rank": 219,
+          "score": 36.38
+        },
+        {
+          "solved": 4,
+          "rank": 312,
+          "score": 24.45
+        }
+      ],
+      "best_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8,
+        9
+      ],
+      "in_team": true,
+      "rank": 41
     },
     {
       "team_id": "team0980",
@@ -2961,7 +2858,7 @@
         9
       ],
       "in_team": true,
-      "rank": 44
+      "rank": 42
     },
     {
       "team_id": "team0968",
@@ -3029,12 +2926,12 @@
         9
       ],
       "in_team": true,
-      "rank": 45
+      "rank": 43
     },
     {
       "team_id": "team1797",
       "name": "林泽洋",
-      "total_score": 10.93,
+      "total_score": 8.75,
       "contests": [
         {
           "solved": 0,
@@ -3088,78 +2985,14 @@
         }
       ],
       "best_indices": [
+        0,
         2,
         4,
         5,
         8
       ],
       "in_team": false,
-      "rank": 46
-    },
-    {
-      "team_id": "team1000",
-      "name": "孙祥延",
-      "total_score": 6.45,
-      "contests": [
-        {
-          "solved": 3,
-          "rank": 932,
-          "score": 0.0
-        },
-        {
-          "solved": 3,
-          "rank": 1159,
-          "score": 0.0
-        },
-        {
-          "solved": 2,
-          "rank": 892,
-          "score": 0.0
-        },
-        {
-          "solved": 3,
-          "rank": 817,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 3,
-          "rank": 803,
-          "score": 0.0
-        },
-        {
-          "solved": 3,
-          "rank": 635,
-          "score": 5.66
-        },
-        {
-          "solved": 3,
-          "rank": 766,
-          "score": 1.64
-        },
-        {
-          "solved": 2,
-          "rank": 674,
-          "score": 3.97
-        },
-        {
-          "solved": 3,
-          "rank": 414,
-          "score": 14.51
-        }
-      ],
-      "best_indices": [
-        6,
-        7,
-        8,
-        9
-      ],
-      "in_team": true,
-      "rank": 47
+      "rank": 44
     },
     {
       "team_id": "team1796",
@@ -3225,71 +3058,7 @@
         8
       ],
       "in_team": true,
-      "rank": 48
-    },
-    {
-      "team_id": "team1795",
-      "name": "毕梓健",
-      "total_score": 5.86,
-      "contests": [
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 1,
-          "rank": 1120,
-          "score": 0.0
-        },
-        {
-          "solved": 3,
-          "rank": 795,
-          "score": 0.22
-        },
-        {
-          "solved": 2,
-          "rank": 927,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 2,
-          "rank": 832,
-          "score": 0.0
-        },
-        {
-          "solved": 3,
-          "rank": 746,
-          "score": 2.58
-        },
-        {
-          "solved": 3,
-          "rank": 486,
-          "score": 14.77
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        }
-      ],
-      "best_indices": [
-        3,
-        7,
-        8
-      ],
-      "in_team": true,
-      "rank": 49
+      "rank": 45
     },
     {
       "team_id": "team1793",
@@ -3355,12 +3124,282 @@
         8
       ],
       "in_team": false,
+      "rank": 46
+    },
+    {
+      "team_id": "team1342",
+      "name": "张钧睿",
+      "total_score": 4.17,
+      "contests": [
+        {
+          "solved": 5,
+          "rank": 334,
+          "score": 29.19
+        },
+        {
+          "solved": 4,
+          "rank": 903,
+          "score": 0.0
+        },
+        {
+          "solved": 2,
+          "rank": 823,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        }
+      ],
+      "best_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "in_team": false,
+      "rank": 47
+    },
+    {
+      "team_id": "team1000",
+      "name": "孙祥延",
+      "total_score": 3.68,
+      "contests": [
+        {
+          "solved": 3,
+          "rank": 932,
+          "score": 0.0
+        },
+        {
+          "solved": 3,
+          "rank": 1159,
+          "score": 0.0
+        },
+        {
+          "solved": 2,
+          "rank": 892,
+          "score": 0.0
+        },
+        {
+          "solved": 3,
+          "rank": 817,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 3,
+          "rank": 803,
+          "score": 0.0
+        },
+        {
+          "solved": 3,
+          "rank": 635,
+          "score": 5.66
+        },
+        {
+          "solved": 3,
+          "rank": 766,
+          "score": 1.64
+        },
+        {
+          "solved": 2,
+          "rank": 674,
+          "score": 3.97
+        },
+        {
+          "solved": 3,
+          "rank": 414,
+          "score": 14.51
+        }
+      ],
+      "best_indices": [
+        0,
+        1,
+        2,
+        6,
+        7,
+        8,
+        9
+      ],
+      "in_team": true,
+      "rank": 48
+    },
+    {
+      "team_id": "team0974",
+      "name": "刘永琰",
+      "total_score": 3.64,
+      "contests": [
+        {
+          "solved": 5,
+          "rank": 393,
+          "score": 25.5
+        },
+        {
+          "solved": 0,
+          "rank": 1681,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1523,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1514,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1488,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1473,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1429,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1370,
+          "score": -0.0
+        },
+        {
+          "solved": 0,
+          "rank": 1326,
+          "score": -0.0
+        }
+      ],
+      "best_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "in_team": false,
+      "rank": 49
+    },
+    {
+      "team_id": "team1795",
+      "name": "毕梓健",
+      "total_score": 3.51,
+      "contests": [
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 1,
+          "rank": 1120,
+          "score": 0.0
+        },
+        {
+          "solved": 3,
+          "rank": 795,
+          "score": 0.22
+        },
+        {
+          "solved": 2,
+          "rank": 927,
+          "score": 0.0
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        },
+        {
+          "solved": 2,
+          "rank": 832,
+          "score": 0.0
+        },
+        {
+          "solved": 3,
+          "rank": 746,
+          "score": 2.58
+        },
+        {
+          "solved": 3,
+          "rank": 486,
+          "score": 14.77
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0
+        }
+      ],
+      "best_indices": [
+        0,
+        1,
+        3,
+        7,
+        8
+      ],
+      "in_team": true,
       "rank": 50
     },
     {
       "team_id": "team0991",
       "name": "姜博然",
-      "total_score": 3.94,
+      "total_score": 2.25,
       "contests": [
         {
           "solved": 1,
@@ -3414,10 +3453,13 @@
         }
       ],
       "best_indices": [
+        0,
         1,
+        2,
         3,
         4,
-        5
+        5,
+        6
       ],
       "in_team": false,
       "rank": 51
@@ -3425,7 +3467,7 @@
     {
       "team_id": "team1343",
       "name": "刘思兰",
-      "total_score": 0.79,
+      "total_score": 0.11,
       "contests": [
         {
           "solved": 3,
@@ -3479,7 +3521,13 @@
         }
       ],
       "best_indices": [
-        4
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
       ],
       "in_team": false,
       "rank": 52
@@ -3487,7 +3535,7 @@
     {
       "team_id": "team0990",
       "name": "蒙天霄",
-      "total_score": 0.61,
+      "total_score": 0.09,
       "contests": [
         {
           "solved": 3,
@@ -3541,7 +3589,13 @@
         }
       ],
       "best_indices": [
-        2
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
       ],
       "in_team": false,
       "rank": 53
@@ -3602,7 +3656,15 @@
           "score": -0.0
         }
       ],
-      "best_indices": [],
+      "best_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "in_team": false,
       "rank": 54
     },
@@ -3662,7 +3724,15 @@
           "score": -0.0
         }
       ],
-      "best_indices": [],
+      "best_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "in_team": false,
       "rank": 55
     },
@@ -3722,7 +3792,15 @@
           "score": -0.0
         }
       ],
-      "best_indices": [],
+      "best_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "in_team": false,
       "rank": 56
     },
@@ -3782,7 +3860,15 @@
           "score": -0.0
         }
       ],
-      "best_indices": [],
+      "best_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "in_team": false,
       "rank": 57
     }
@@ -3925,26 +4011,6 @@
       "rank": 7
     },
     {
-      "name_cn": "三只企鹅",
-      "name_en": "Gu Gu Ga Ga",
-      "members": [
-        {
-          "name": "丁培钊",
-          "total_score": 39.97
-        },
-        {
-          "name": "张哲源",
-          "total_score": 27.66
-        },
-        {
-          "name": "李子俊",
-          "total_score": 35.08
-        }
-      ],
-      "team_total": 34.24,
-      "rank": 8
-    },
-    {
       "name_cn": "疑似mygo",
       "name_en": "It's mygo",
       "members": [
@@ -3962,27 +4028,27 @@
         }
       ],
       "team_total": 33.2,
-      "rank": 9
+      "rank": 8
     },
     {
-      "name_cn": "正着活，反着魔",
-      "name_en": "live_evil",
+      "name_cn": "三只企鹅",
+      "name_en": "Gu Gu Ga Ga",
       "members": [
         {
-          "name": "徐嘉晨",
-          "total_score": 31.47
+          "name": "丁培钊",
+          "total_score": 39.97
         },
         {
-          "name": "蔡佩霖",
-          "total_score": 54.02
+          "name": "张哲源",
+          "total_score": 27.66
         },
         {
-          "name": "李子熙",
-          "total_score": 0.0
+          "name": "李子俊",
+          "total_score": 25.06
         }
       ],
-      "team_total": 28.5,
-      "rank": 10
+      "team_total": 30.9,
+      "rank": 9
     },
     {
       "name_cn": "永远别放弃",
@@ -3990,7 +4056,7 @@
       "members": [
         {
           "name": "王义轩",
-          "total_score": 27.18
+          "total_score": 15.53
         },
         {
           "name": "杨鑫",
@@ -4001,28 +4067,8 @@
           "total_score": 30.31
         }
       ],
-      "team_total": 28.29,
-      "rank": 11
-    },
-    {
-      "name_cn": "超时空代码姬",
-      "name_en": "Chou Code-hime",
-      "members": [
-        {
-          "name": "丁有艺",
-          "total_score": 46.69
-        },
-        {
-          "name": "孙祥延",
-          "total_score": 6.45
-        },
-        {
-          "name": "魏胜新",
-          "total_score": 19.97
-        }
-      ],
-      "team_total": 24.37,
-      "rank": 12
+      "team_total": 24.4,
+      "rank": 10
     },
     {
       "name_cn": "重生之忘带前世记忆打acm",
@@ -4042,6 +4088,46 @@
         }
       ],
       "team_total": 23.71,
+      "rank": 11
+    },
+    {
+      "name_cn": "超时空代码姬",
+      "name_en": "Chou Code-hime",
+      "members": [
+        {
+          "name": "丁有艺",
+          "total_score": 46.69
+        },
+        {
+          "name": "孙祥延",
+          "total_score": 3.68
+        },
+        {
+          "name": "魏胜新",
+          "total_score": 17.11
+        }
+      ],
+      "team_total": 22.49,
+      "rank": 12
+    },
+    {
+      "name_cn": "正着活，反着魔",
+      "name_en": "live_evil",
+      "members": [
+        {
+          "name": "徐嘉晨",
+          "total_score": 26.98
+        },
+        {
+          "name": "蔡佩霖",
+          "total_score": 30.87
+        },
+        {
+          "name": "李子熙",
+          "total_score": 0.0
+        }
+      ],
+      "team_total": 19.28,
       "rank": 13
     },
     {
@@ -4050,7 +4136,7 @@
       "members": [
         {
           "name": "毕梓健",
-          "total_score": 5.86
+          "total_score": 3.51
         },
         {
           "name": "李健",
@@ -4061,7 +4147,7 @@
           "total_score": 0.0
         }
       ],
-      "team_total": 6.48,
+      "team_total": 5.7,
       "rank": 14
     }
   ]

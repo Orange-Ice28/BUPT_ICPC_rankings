@@ -84,13 +84,13 @@ def calc_personal_total(scores, team_id):
     match = re.search(r"team(\d+)", team_id)
     num = int(match.group(1)) if match else 0
     best_n = BEST_N_OLD if num <= TEAM_THRESHOLD else BEST_N_NEW
-    pairs = [(scores[i], i) for i in range(len(scores)) if scores[i] > 0]
+    pairs = [(scores[i], i) for i in range(len(scores))]
     if not pairs:
         return 0.0, set()
     pairs.sort(key=lambda x: x[0], reverse=True)
     top = pairs[:best_n]
     best_indices = set(p[1] for p in top)
-    total = sum(p[0] for p in top) / len(top)
+    total = sum(p[0] for p in top) / best_n
     return total, best_indices
 
 
