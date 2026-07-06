@@ -10,6 +10,7 @@ const navItems = [
   { path: '/summer', label: '暑期训练' },
   { path: '/online', label: '网络赛' },
   { path: '/overall', label: '总成绩' },
+  { path: '/contests', label: '赛站信息' },
 ]
 
 const currentPath = computed(() => route.path)

@@ -27,6 +27,11 @@ const router = createRouter({
       name: 'overall',
       component: () => import('../views/OverallScore.vue'),
     },
+    {
+      path: '/contests',
+      name: 'contests',
+      component: () => import('../views/ContestInfo.vue'),
+    },
   ],
 })
 

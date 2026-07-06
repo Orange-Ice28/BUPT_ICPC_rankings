@@ -253,6 +253,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
   border-radius: var(--radius-lg);
   padding: 24px;
   box-shadow: var(--shadow);
+  border-left: 4px solid #16a34a;
 }
 
 .page-title {
