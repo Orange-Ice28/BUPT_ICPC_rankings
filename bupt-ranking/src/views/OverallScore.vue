@@ -18,9 +18,10 @@ interface OverallTeam {
 }
 
 const overallTeams = computed(() => {
-  if (!data.value) return []
+  const d = data.value
+  if (!d) return []
 
-  const teams: OverallTeam[] = data.value.teams.map((t) => {
+  const teams: OverallTeam[] = d.teams.map((t) => {
     const spring = t.team_total
     const summer = 0
     const online = 0

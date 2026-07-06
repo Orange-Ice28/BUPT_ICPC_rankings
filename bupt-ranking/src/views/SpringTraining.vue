@@ -15,8 +15,9 @@ const CONTEST_LABELS = [
 ]
 
 const teamMembers = computed(() => {
-  if (!data.value) return []
-  const members = data.value.personal
+  const d = data.value
+  if (!d) return []
+  const members = d.personal
     .filter((p) => p.in_team)
     .sort((a, b) => b.total_score - a.total_score)
   members.forEach((p, i) => (p.rank = i + 1))
@@ -44,6 +45,14 @@ function getScoreClass(score: number): string {
   if (score >= 40) return 'score-good'
   if (score >= 20) return 'score-medium'
   return 'score-low'
+}
+
+function getMemberName(members: { name: string }[], index: number): string {
+  return members[index]?.name ?? '-'
+}
+
+function getMemberScore(members: { total_score: number }[], index: number): string {
+  return members[index]?.total_score.toFixed(2) ?? '-'
 }
 </script>
 
@@ -148,10 +157,8 @@ function getScoreClass(score: number): string {
               <td class="col-team-name">{{ team.name_cn }}</td>
               <td class="col-team-en">{{ team.name_en }}</td>
               <template v-for="i in 3" :key="i">
-                <td>{{ team.members[i - 1]?.name || '-' }}</td>
-                <td class="member-score">
-                  {{ team.members[i - 1] ? team.members[i - 1].total_score.toFixed(2) : '-' }}
-                </td>
+                <td>{{ getMemberName(team.members, i - 1) }}</td>
+                <td class="member-score">{{ getMemberScore(team.members, i - 1) }}</td>
               </template>
               <td class="col-team-total" :class="getScoreClass(team.team_total)">
                 {{ team.team_total.toFixed(2) }}
