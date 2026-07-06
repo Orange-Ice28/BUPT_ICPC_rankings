@@ -1,5 +1,8 @@
 import { ref } from 'vue'
 import type { ScoreData } from '@/types'
+import rawData from '@/data/score_data.json'
+
+const scoreData = rawData as ScoreData
 
 const data = ref<ScoreData | null>(null)
 const loading = ref(false)
@@ -11,9 +14,7 @@ export function useScoreData() {
     loading.value = true
     error.value = null
     try {
-      const resp = await fetch(import.meta.env.BASE_URL + 'score_data.json')
-      if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
-      data.value = await resp.json()
+      data.value = scoreData
       return data.value
     } catch (e: any) {
       error.value = e.message
