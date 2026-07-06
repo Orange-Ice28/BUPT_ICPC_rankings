@@ -20,7 +20,7 @@ const currentPath = computed(() => route.path)
     <div class="header-inner">
       <div class="header-brand">
         <img :src="logo" class="logo-img" alt="ICPC logo">
-        <h1 class="header-title">北京邮电大学ICPC集训队排名</h1>
+        <h1 class="header-title">北京邮电大学 ICPC 集训队排名</h1>
       </div>
       <nav class="header-nav">
         <RouterLink

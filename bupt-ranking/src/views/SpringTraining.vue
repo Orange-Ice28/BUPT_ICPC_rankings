@@ -167,6 +167,76 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
           </tbody>
         </table>
       </div>
+    <div class="rules-section">
+        <div class="rules-header">
+          <h3 class="rules-title">春季训练评分规则</h3>
+          <span class="rules-badge">2026~2027赛季</span>
+        </div>
+
+        <div class="rules-grid">
+          <div class="rule-card rule-card--general">
+            <div class="rule-card__icon">📋</div>
+            <h4 class="rule-card__title">总体规则</h4>
+            <ul class="rule-list">
+              <li>比赛数据来自 <strong>HDU 平台</strong>，共 <strong>10 场</strong>个人训练赛</li>
+              <li>由于春季没有集中时间进行组队训练，因此组队训练不计入成绩</li>
+              <li>考虑到存在新生军训的情况，取所有场次中成绩最好的 <strong>70%</strong> 场次计入总成绩</li>
+              <li>新生赛前参与训练的队员，取最好 <strong>7 场</strong>的平均成绩</li>
+              <li>新生赛后参与训练的队员，取最好 <strong>5 场</strong>的平均成绩</li>
+              <li>成绩保留到小数点后 <strong>2 位</strong></li>
+            </ul>
+          </div>
+
+          <div class="rule-card rule-card--formula">
+            <div class="rule-card__icon">🧮</div>
+            <h4 class="rule-card__title">单场得分公式</h4>
+            <div class="formula-box">
+              <div class="formula-text">得分 = 过题数 / baseline × (801 − 排名) / 800 × 100</div>
+            </div>
+            <ul class="rule-list rule-list--compact">
+              <li>排名使用 HDU 平台<strong>全场排名</strong></li>
+              <li>若得分 &lt; 0 或未参赛，按 <strong>0 分</strong>计算</li>
+              <li><strong>Baseline 题数</strong>：全场最高过题数（University 组中除特邀嘉宾外的最高过题数）</li>
+              <li>排名基数为 <strong>800</strong>，理论上平均每场位于集训队内最后 10% 左右的选手，得分 = 0 分</li>
+              <li>存在疑似违规现象的选手，其当场成绩作废，得分按 <strong>0 分</strong>计算</li>
+            </ul>
+          </div>
+
+          <div class="rule-card rule-card--team">
+            <div class="rule-card__icon">👥</div>
+            <h4 class="rule-card__title">团队总成绩</h4>
+            <div class="formula-box formula-box--small">
+              <div class="formula-text">队伍总成绩 = 队伍所有成员个人总成绩的平均值</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rule-card rule-card--baseline">
+          <div class="rule-card__icon">📊</div>
+          <h4 class="rule-card__title">各场题数 Baseline</h4>
+          <table class="baseline-table">
+            <thead>
+              <tr>
+                <th v-for="n in 10" :key="n">第{{ n }}场</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10</td>
+                <td>10</td>
+                <td>9</td>
+                <td>10</td>
+                <td>10</td>
+                <td>9</td>
+                <td>11</td>
+                <td>8</td>
+                <td>8</td>
+                <td>10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </template>
   </div>
 </template>
@@ -458,5 +528,227 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
 
 .error {
   color: var(--danger);
+}
+
+.rules-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rules-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.rules-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.rules-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.rules-grid .rule-card--team {
+  grid-column: 1 / -1;
+}
+
+.rule-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary);
+  transition: box-shadow 0.2s ease;
+}
+
+.rule-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.rule-card--general {
+  border-left-color: var(--success);
+}
+
+.rule-card--formula {
+  border-left-color: var(--accent);
+}
+
+.rule-card--team {
+  border-left-color: var(--primary-light);
+}
+
+.rule-card--baseline {
+  border-left-color: var(--danger);
+}
+
+.rule-card__icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.rule-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.rule-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rule-list--compact {
+  gap: 8px;
+}
+
+.rule-list li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.rule-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.rule-card--general .rule-list li::before {
+  background: var(--success);
+}
+
+.rule-card--formula .rule-list li::before {
+  background: var(--accent);
+}
+
+.rule-list li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.formula-box {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 2px solid #fcd34d;
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.formula-box--small {
+  padding: 14px 20px;
+}
+
+.formula-text {
+  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #92400e;
+  letter-spacing: 0.5px;
+  word-break: break-all;
+}
+
+.formula-box--small .formula-text {
+  font-size: 14px;
+}
+
+.baseline-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.baseline-table thead th {
+  background: #fef2f2;
+  color: #991b1b;
+  font-weight: 600;
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 13px;
+  border-bottom: 2px solid #fecaca;
+}
+
+.baseline-table tbody td {
+  padding: 12px 10px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: 'Courier New', 'Consolas', monospace;
+  color: var(--text-primary);
+  background: #fff;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.baseline-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.baseline-table tbody tr:hover td {
+  background: var(--primary-bg);
+}
+
+@media (max-width: 768px) {
+  .rules-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rules-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .formula-text {
+    font-size: 13px;
+  }
+
+  .baseline-table {
+    font-size: 12px;
+  }
+
+  .baseline-table tbody td {
+    font-size: 15px;
+    padding: 8px 6px;
+  }
 }
 </style>
