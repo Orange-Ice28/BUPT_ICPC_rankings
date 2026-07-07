@@ -16,6 +16,19 @@ const router = createRouter({
       path: '/summer',
       name: 'summer',
       component: () => import('../views/SummerTraining.vue'),
+      redirect: '/summer/schedule',
+      children: [
+        {
+          path: 'schedule',
+          name: 'summer-schedule',
+          component: () => import('../views/SummerTrainingSchedule.vue'),
+        },
+        {
+          path: 'scores',
+          name: 'summer-scores',
+          component: () => import('../views/SummerTrainingScores.vue'),
+        },
+      ],
     },
     {
       path: '/online',

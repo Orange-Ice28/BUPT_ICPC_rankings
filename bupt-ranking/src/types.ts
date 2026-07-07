@@ -25,6 +25,7 @@ export interface TeamResult {
   members: TeamMember[]
   team_total: number
   rank: number
+  contests?: ContestDetail[]
 }
 
 export interface ScoreData {

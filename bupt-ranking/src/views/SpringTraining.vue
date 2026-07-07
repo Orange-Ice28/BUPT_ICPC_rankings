@@ -183,12 +183,13 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
               <li>考虑到存在新生军训的情况，取所有场次中成绩最好的 <strong>70%</strong> 场次计入总成绩</li>
               <li>新生赛前参与训练的队员，取最好 <strong>7 场</strong>的平均成绩</li>
               <li>新生赛后参与训练的队员，取最好 <strong>5 场</strong>的平均成绩</li>
+              <li><strong>队伍总成绩</strong> = 队伍所有成员个人总成绩的平均值</li>
               <li>成绩保留到小数点后 <strong>2 位</strong></li>
             </ul>
           </div>
 
           <div class="rule-card rule-card--formula">
-            <div class="rule-card__icon">🧮</div>
+            <div class="rule-card__icon"></div>
             <h4 class="rule-card__title">单场得分公式</h4>
             <div class="formula-box">
               <div class="formula-text">得分 = 过题数 / baseline × (801 − 排名) / 800 × 100</div>
@@ -200,14 +201,6 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
               <li>排名基数为 <strong>800</strong>，理论上平均每场位于集训队内最后 10% 左右的选手，得分 = 0 分</li>
               <li>存在疑似违规现象的选手，其当场成绩作废，得分按 <strong>0 分</strong>计算</li>
             </ul>
-          </div>
-
-          <div class="rule-card rule-card--team">
-            <div class="rule-card__icon">👥</div>
-            <h4 class="rule-card__title">团队总成绩</h4>
-            <div class="formula-box formula-box--small">
-              <div class="formula-text">队伍总成绩 = 队伍所有成员个人总成绩的平均值</div>
-            </div>
           </div>
         </div>
 
