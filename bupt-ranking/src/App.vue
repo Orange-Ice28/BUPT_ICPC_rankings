@@ -6,6 +6,7 @@ import logo from '@/assets/ICPC_logo.png'
 const route = useRoute()
 
 const navItems = [
+  { path: '/', label: '首页' },
   { path: '/spring', label: '春季训练' },
   { path: '/summer', label: '暑期训练' },
   { path: '/online', label: '网络赛' },
