@@ -46,6 +46,16 @@ const router = createRouter({
       name: 'contests',
       component: () => import('../views/ContestInfo.vue'),
     },
+    {
+      path: '/history',
+      name: 'history',
+      component: () => import('../views/History.vue'),
+    },
+    {
+      path: '/history-team',
+      name: 'history-team',
+      component: () => import('../views/History.vue'),
+    },
   ],
 })
 

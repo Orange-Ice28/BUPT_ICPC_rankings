@@ -12,9 +12,17 @@ const navItems = [
   { path: '/online', label: '网络赛' },
   { path: '/overall', label: '总成绩' },
   { path: '/contests', label: '赛站信息' },
+  { path: '/history', label: '历史战绩' },
 ]
 
 const currentPath = computed(() => route.path)
+
+function isActive(path: string): boolean {
+  if (path === '/history') {
+    return currentPath.value === '/history' || currentPath.value === '/history-team'
+  }
+  return currentPath.value === path
+}
 </script>
 
 <template>
@@ -30,7 +38,7 @@ const currentPath = computed(() => route.path)
           :key="item.path"
           :to="item.path"
           class="nav-link"
-          :class="{ active: currentPath === item.path }"
+          :class="{ active: isActive(item.path) }"
         >
           {{ item.label }}
         </RouterLink>
