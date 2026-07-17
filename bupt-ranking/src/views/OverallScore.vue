@@ -2,9 +2,12 @@
 import { onMounted, computed } from 'vue'
 import { useScoreData } from '@/composables/useScoreData'
 
-const { data, loading, error, fetchData } = useScoreData()
+const { data, summerData, loading, error, fetchData, fetchSummerData } = useScoreData()
 
-onMounted(fetchData)
+onMounted(() => {
+  fetchData()
+  fetchSummerData()
+})
 
 interface OverallTeam {
   name_cn: string
@@ -19,11 +22,20 @@ interface OverallTeam {
 
 const overallTeams = computed(() => {
   const d = data.value
+  const sd = summerData.value
   if (!d) return []
+
+  // 构建暑期训练队伍成绩映射
+  const summerTeamMap = new Map<string, number>()
+  if (sd && sd.teams) {
+    for (const team of sd.teams) {
+      summerTeamMap.set(team.name_cn, team.team_total || 0)
+    }
+  }
 
   const teams: OverallTeam[] = d.teams.map((t) => {
     const spring = t.team_total
-    const summer = 0
+    const summer = summerTeamMap.get(t.name_cn) || 0
     const online = 0
     const overall = spring * 0.1 + summer * 0.6 + online * 0.3
     return {
@@ -42,6 +54,12 @@ const overallTeams = computed(() => {
   teams.forEach((t, i) => (t.rank = i + 1))
 
   return teams
+})
+
+const hasSummerData = computed(() => {
+  const sd = summerData.value
+  if (!sd || !sd.teams) return false
+  return sd.teams.some((t: any) => t.team_total > 0)
 })
 
 function getRankClass(rank: number): string {
@@ -67,11 +85,11 @@ function getScoreClass(score: number): string {
         总成绩 = 春季训练 × 10% + 暑期训练 × 60% + 网络赛 × 30%
       </p>
       <div class="formula-cards">
-        <div class="formula-card">
+        <div class="formula-card formula-card--spring">
           <div class="formula-label">春季训练</div>
           <div class="formula-weight">× 10%</div>
         </div>
-        <div class="formula-card pending">
+        <div class="formula-card formula-card--summer" :class="{ pending: !hasSummerData }">
           <div class="formula-label">暑期训练</div>
           <div class="formula-weight">× 60%</div>
         </div>
@@ -106,7 +124,7 @@ function getScoreClass(score: number): string {
               <td class="col-team-en">{{ team.name_en }}</td>
               <td class="col-members">{{ team.members.join('、') }}</td>
               <td class="col-score">{{ team.spring_score.toFixed(2) }}</td>
-              <td class="col-score pending-score">{{ team.summer_score.toFixed(2) }}</td>
+              <td class="col-score" :class="{ 'pending-score': team.summer_score === 0 }">{{ team.summer_score.toFixed(2) }}</td>
               <td class="col-score pending-score">{{ team.online_score.toFixed(2) }}</td>
               <td class="col-total" :class="getScoreClass(team.overall_score)">
                 {{ team.overall_score.toFixed(2) }}
@@ -158,6 +176,24 @@ function getScoreClass(score: number): string {
   border-radius: var(--radius);
   padding: 12px 16px;
   text-align: center;
+}
+
+.formula-card--spring {
+  background: #ecfdf5;
+  border-color: #10b981;
+}
+
+.formula-card--spring .formula-weight {
+  color: #10b981;
+}
+
+.formula-card--summer {
+  background: #fff7ed;
+  border-color: #f59e0b;
+}
+
+.formula-card--summer .formula-weight {
+  color: #f59e0b;
 }
 
 .formula-card.pending {

@@ -1371,7 +1371,7 @@
     {
       "team_id": "team0999",
       "name": "胡恒瑞",
-      "total_score": 38.46,
+      "total_score": 38.45,
       "contests": [
         {
           "solved": 5,
@@ -2931,7 +2931,7 @@
     {
       "team_id": "team1797",
       "name": "林泽洋",
-      "total_score": 8.75,
+      "total_score": 8.74,
       "contests": [
         {
           "solved": 0,
@@ -4000,14 +4000,14 @@
         },
         {
           "name": "胡恒瑞",
-          "total_score": 38.46
+          "total_score": 38.45
         },
         {
           "name": "吴宗阳",
           "total_score": 45.21
         }
       ],
-      "team_total": 37.7,
+      "team_total": 37.69,
       "rank": 7
     },
     {

@@ -28,6 +28,35 @@ function formatDate(dateStr: string): string {
 
 function formatContestDate(dateStr: string): string {
   if (!dateStr) return '-'
+  
+  // Handle format like "2026.10.10-11" or "2026.10.31-11.01"
+  const match = dateStr.match(/^(\d{4})\.(\d{2})\.(\d{2})-(\d{2})\.(\d{2})$/)
+  if (match) {
+    const year = match[1]
+    const month = parseInt(match[2])
+    const day1 = parseInt(match[3])
+    const month2 = parseInt(match[4])
+    const day2 = parseInt(match[5])
+    
+    if (month === month2) {
+      // Same month: 2026年10月10日~11日
+      return `${year}年${month}月${day1}日~${day2}日`
+    } else {
+      // Different months: 2026年10月31日~11月1日
+      return `${year}年${month}月${day1}日~${month2}月${day2}日`
+    }
+  }
+  
+  // Handle format like "2026.10.10-11" (no second month)
+  const match2 = dateStr.match(/^(\d{4})\.(\d{2})\.(\d{2})-(\d{2})$/)
+  if (match2) {
+    const year = match2[1]
+    const month = parseInt(match2[2])
+    const day1 = parseInt(match2[3])
+    const day2 = parseInt(match2[4])
+    return `${year}年${month}月${day1}日~${day2}日`
+  }
+  
   return dateStr
 }
 </script>
@@ -93,7 +122,7 @@ function formatContestDate(dateStr: string): string {
               <th class="col-date">办赛日期</th>
               <th class="col-host">主办学校</th>
               <th class="col-problem-setter">命题学校</th>
-              <th class="col-teams">预期队伍数量</th>
+              <th class="col-teams">赛站规模</th>
             </tr>
           </thead>
           <tbody>
@@ -236,6 +265,7 @@ function formatContestDate(dateStr: string): string {
 .contest-name {
   font-weight: 600;
   color: var(--text-primary);
+  font-size: 15px;
 }
 
 .col-platform {
@@ -271,7 +301,7 @@ function formatContestDate(dateStr: string): string {
 
 .col-teams {
   min-width: 120px;
-  text-align: center;
+  text-align: left;
 }
 
 .teams-text {

@@ -1,0 +1,2010 @@
+{
+  "baselines": [
+    9,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "teams": [
+    {
+      "name_cn": "橙雨星瞳",
+      "name_en": "Gold Astral Oculus",
+      "members": [
+        {
+          "name": "安奕轩",
+          "total_score": 37.16
+        },
+        {
+          "name": "冯仁宇",
+          "total_score": 61.6
+        },
+        {
+          "name": "安澍",
+          "total_score": 49.51
+        }
+      ],
+      "team_total": 54.44,
+      "rank": 1,
+      "contests": [
+        {
+          "solved": 6,
+          "rank": 111,
+          "score": 54.44,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "我的青春算竞物语果然有问题",
+      "name_en": "My Teen Algorithm Comp SNAFU",
+      "members": [
+        {
+          "name": "周一鸣",
+          "total_score": 29.42
+        },
+        {
+          "name": "胡恒瑞",
+          "total_score": 38.45
+        },
+        {
+          "name": "吴宗阳",
+          "total_score": 45.21
+        }
+      ],
+      "team_total": 35.46,
+      "rank": 2,
+      "contests": [
+        {
+          "solved": 5,
+          "rank": 218,
+          "score": 35.46,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "请输入文本",
+      "name_en": "nullPointerException",
+      "members": [
+        {
+          "name": "周弋然",
+          "total_score": 70.92
+        },
+        {
+          "name": "许家铭",
+          "total_score": 21.52
+        }
+      ],
+      "team_total": 33.06,
+      "rank": 3,
+      "contests": [
+        {
+          "solved": 5,
+          "rank": 244,
+          "score": 33.06,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "二阶堂艾玛",
+      "name_en": "Nikaidou Ema",
+      "members": [
+        {
+          "name": "邢瑞林",
+          "total_score": 66.71
+        },
+        {
+          "name": "缪宸瀚",
+          "total_score": 65.96
+        },
+        {
+          "name": "李奕澎",
+          "total_score": 42.88
+        }
+      ],
+      "team_total": 28.06,
+      "rank": 4,
+      "contests": [
+        {
+          "solved": 5,
+          "rank": 298,
+          "score": 28.06,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "不是清北一队",
+      "name_en": "BUPkuThu",
+      "members": [
+        {
+          "name": "许智彬",
+          "total_score": 82.97
+        },
+        {
+          "name": "杨浩琨",
+          "total_score": 76.12
+        },
+        {
+          "name": "潘毅恒",
+          "total_score": 71.36
+        }
+      ],
+      "team_total": 26.3,
+      "rank": 5,
+      "contests": [
+        {
+          "solved": 5,
+          "rank": 317,
+          "score": 26.3,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "三只企鹅",
+      "name_en": "Gu Gu Ga Ga",
+      "members": [
+        {
+          "name": "丁培钊",
+          "total_score": 39.97
+        },
+        {
+          "name": "张哲源",
+          "total_score": 27.66
+        },
+        {
+          "name": "李子俊",
+          "total_score": 25.06
+        }
+      ],
+      "team_total": 16.67,
+      "rank": 6,
+      "contests": [
+        {
+          "solved": 4,
+          "rank": 376,
+          "score": 16.67,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "超时空代码姬",
+      "name_en": "Chou Code-hime",
+      "members": [
+        {
+          "name": "丁有艺",
+          "total_score": 46.69
+        },
+        {
+          "name": "孙祥延",
+          "total_score": 3.68
+        },
+        {
+          "name": "魏胜新",
+          "total_score": 17.11
+        }
+      ],
+      "team_total": 16.07,
+      "rank": 7,
+      "contests": [
+        {
+          "solved": 4,
+          "rank": 384,
+          "score": 16.07,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "在学校咱们就练起来！",
+      "name_en": "SEISHUN://NO_HACKING",
+      "members": [
+        {
+          "name": "吴显熠",
+          "total_score": 53.21
+        },
+        {
+          "name": "詹笙平",
+          "total_score": 65.38
+        },
+        {
+          "name": "雷童",
+          "total_score": 38.3
+        }
+      ],
+      "team_total": 14.74,
+      "rank": 8,
+      "contests": [
+        {
+          "solved": 4,
+          "rank": 402,
+          "score": 14.74,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "异等小队",
+      "name_en": "The bad batch",
+      "members": [
+        {
+          "name": "张嘉麒",
+          "total_score": 77.06
+        },
+        {
+          "name": "王天宇",
+          "total_score": 56.53
+        },
+        {
+          "name": "林锐思",
+          "total_score": 33.79
+        }
+      ],
+      "team_total": 9.33,
+      "rank": 9,
+      "contests": [
+        {
+          "solved": 4,
+          "rank": 475,
+          "score": 9.33,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "永远别放弃",
+      "name_en": "nevergonnagiveyouup",
+      "members": [
+        {
+          "name": "王义轩",
+          "total_score": 15.53
+        },
+        {
+          "name": "杨鑫",
+          "total_score": 27.37
+        },
+        {
+          "name": "刘芯羽",
+          "total_score": 30.31
+        }
+      ],
+      "team_total": 8.37,
+      "rank": 10,
+      "contests": [
+        {
+          "solved": 4,
+          "rank": 488,
+          "score": 8.37,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "疑似mygo",
+      "name_en": "It's mygo",
+      "members": [
+        {
+          "name": "罗鑫宇",
+          "total_score": 46.77
+        },
+        {
+          "name": "谢兆轩",
+          "total_score": 38.67
+        },
+        {
+          "name": "朱致远",
+          "total_score": 14.16
+        }
+      ],
+      "team_total": 0.0,
+      "rank": 11,
+      "contests": [
+        {
+          "solved": 3,
+          "rank": 1101,
+          "score": 0.0,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "重生之忘带前世记忆打acm",
+      "name_en": "Re0：acm without memories",
+      "members": [
+        {
+          "name": "成伟业",
+          "total_score": 17.21
+        },
+        {
+          "name": "程博睿",
+          "total_score": 47.54
+        },
+        {
+          "name": "李梓安",
+          "total_score": 6.39
+        }
+      ],
+      "team_total": 0.0,
+      "rank": 12,
+      "contests": [
+        {
+          "solved": 3,
+          "rank": 850,
+          "score": 0.0,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "正着活，反着魔",
+      "name_en": "live_evil",
+      "members": [
+        {
+          "name": "徐嘉晨",
+          "total_score": 26.98
+        },
+        {
+          "name": "蔡佩霖",
+          "total_score": 30.87
+        },
+        {
+          "name": "李子熙",
+          "total_score": 0.0
+        }
+      ],
+      "team_total": 0.0,
+      "rank": 13,
+      "contests": [
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    },
+    {
+      "name_cn": "ClosedClaw",
+      "name_en": "ClosedClaw",
+      "members": [
+        {
+          "name": "毕梓健",
+          "total_score": 3.51
+        },
+        {
+          "name": "李健",
+          "total_score": 13.58
+        },
+        {
+          "name": "刘林果",
+          "total_score": 0.0
+        }
+      ],
+      "team_total": 0.0,
+      "rank": 14,
+      "contests": [
+        {
+          "solved": 3,
+          "rank": 1012,
+          "score": 0.0,
+          "isBest": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false
+        }
+      ]
+    }
+  ]
+}

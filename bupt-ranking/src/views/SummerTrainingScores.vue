@@ -2,9 +2,9 @@
 import { onMounted, computed } from 'vue'
 import { useScoreData } from '@/composables/useScoreData'
 
-const { data, loading, error, fetchData } = useScoreData()
+const { summerData, loading, error, fetchSummerData } = useScoreData()
 
-onMounted(fetchData)
+onMounted(fetchSummerData)
 
 // 暑期训练共20场（牛客10场 + 杭电10场），华为比赛不计入成绩
 const CONTEST_LABELS = [
@@ -16,23 +16,37 @@ const CONTEST_LABELS = [
 
 interface TeamWithRank {
   name_cn: string
-  members: { name: string }[]
+  members: { name: string; total_score: number }[]
   team_total: number
   rank: number
+  contests: any[]
 }
 
 const sortedTeams = computed<TeamWithRank[]>(() => {
-  const d = data.value
+  const d = summerData.value
   if (!d) return []
-  return d.teams
-    .filter((t) => t.team_total > 0)
-    .sort((a, b) => b.team_total - a.team_total)
-    .map((t, i) => ({
+  
+  const sorted = d.teams
+    .sort((a: any, b: any) => b.team_total - a.team_total)
+  
+  // 计算并列排名
+  let currentRank = 1
+  let prevScore = -1
+  
+  return sorted.map((t: any, i: number) => {
+    if (t.team_total !== prevScore) {
+      currentRank = i + 1
+      prevScore = t.team_total
+    }
+    
+    return {
       name_cn: t.name_cn,
       members: t.members,
       team_total: t.team_total,
-      rank: i + 1,
-    }))
+      rank: currentRank,
+      contests: t.contests,
+    }
+  })
 })
 
 function getRankClass(rank: number): string {
@@ -52,6 +66,68 @@ function getScoreClass(score: number): string {
 function getMemberNames(members: { name: string }[]): string {
   return members.map((m) => m.name).join('、')
 }
+
+function getContestData(team: TeamWithRank, contestIndex: number) {
+  if (!team.contests || !team.contests[contestIndex]) {
+    return { solved: '-', rank: '-', score: '-', isBest: false }
+  }
+  
+  const contest = team.contests[contestIndex]
+  // 过题数为0或null/undefined视为未参赛
+  const hasData = contest.solved && contest.solved > 0 &&
+                  contest.rank !== null && contest.rank !== undefined &&
+                  contest.score !== null && contest.score !== undefined
+  
+  if (!hasData) {
+    return { solved: '-', rank: '-', score: '-', isBest: false }
+  }
+  
+  return {
+    solved: contest.solved,
+    rank: contest.rank,
+    score: contest.score,
+    isBest: contest.isBest || false
+  }
+}
+
+function getSolvedClass(solved: string | number): string {
+  if (solved === '-') return ''
+  const num = typeof solved === 'number' ? solved : parseInt(solved)
+  if (num >= 8) return 'solved-excellent'
+  if (num >= 6) return 'solved-good'
+  if (num >= 4) return 'solved-medium'
+  return 'solved-low'
+}
+
+function getRankColorClass(rank: string | number): string {
+  if (rank === '-') return ''
+  const num = typeof rank === 'number' ? rank : parseInt(rank)
+  if (num <= 10) return 'rank-excellent'
+  if (num <= 50) return 'rank-good'
+  if (num <= 200) return 'rank-medium'
+  return 'rank-low'
+}
+
+function getScoreColorClass(score: string | number): string {
+  if (score === '-') return ''
+  const num = typeof score === 'number' ? score : parseFloat(score)
+  if (num >= 60) return 'score-excellent'
+  if (num >= 40) return 'score-good'
+  if (num >= 20) return 'score-medium'
+  return 'score-low'
+}
+
+function formatContestValue(value: string | number, isScore: boolean = false): string {
+  if (value === '-') return '-'
+  const num = typeof value === 'number' ? value : parseFloat(value)
+  if (isNaN(num)) return '-'
+  // 过题数和排名使用整数
+  if (!isScore) {
+    return Math.round(num).toString()
+  }
+  // 得分保留2位小数
+  return num.toFixed(2)
+}
 </script>
 
 <template>
@@ -66,7 +142,7 @@ function getMemberNames(members: { name: string }[]): string {
 
     <div v-if="loading" class="loading">加载中...</div>
     <div v-else-if="error" class="error">加载失败: {{ error }}</div>
-    <template v-else-if="data">
+    <template v-else-if="summerData">
       <div class="table-wrapper">
         <div class="table-scroll">
           <table class="team-score-table">
@@ -95,17 +171,20 @@ function getMemberNames(members: { name: string }[]): string {
                   <div class="team-name">{{ team.name_cn }}</div>
                   <div class="team-members">{{ getMemberNames(team.members) }}</div>
                 </td>
-                <td class="col-team-total col-sticky" style="left: 262px">
-                  -
+                <td class="col-team-total col-sticky" style="left: 262px" :class="getScoreClass(team.team_total)">
+                  {{ formatContestValue(team.team_total, true) }}
                 </td>
                 <td
                   v-for="(_, ci) in CONTEST_LABELS"
                   :key="ci"
                   class="col-contest"
+                  :class="{ 'not-best': !getContestData(team, ci).isBest && getContestData(team, ci).solved !== '-' }"
                 >
-                  <span class="sub-item">-</span>
-                  <span class="sub-item">-</span>
-                  <span class="sub-item">-</span>
+                  <span class="sub-item">{{ formatContestValue(getContestData(team, ci).solved) }}</span>
+                  <span class="sub-item">{{ formatContestValue(getContestData(team, ci).rank) }}</span>
+                  <span class="sub-item" :class="getScoreColorClass(getContestData(team, ci).score)">
+                    {{ formatContestValue(getContestData(team, ci).score, true) }}
+                  </span>
                 </td>
               </tr>
             </tbody>
@@ -140,12 +219,48 @@ function getMemberNames(members: { name: string }[]): string {
             <ul class="rule-list rule-list--compact">
               <li>排名使用<strong>全场排名</strong></li>
               <li>若得分 &lt; 0 或未参赛，按 <strong>0 分</strong>计算</li>
-              <li><strong>Baseline 题数</strong>：一般情况下指全场第 10 名队伍过题数，可能根据实际情况灵活调整</li>
+              <li><strong>Baseline 题数</strong>：一般情况下指全场第 20 名队伍过题数，可能根据实际情况灵活调整</li>
               <li>不取第 1 名队伍的过题数原因在于往年存在个别极强队伍（甚至有些不属于 Asia EC 赛区）过题数明显领先，导致大家的成绩被过度压缩，区分度不明显</li>
               <li>排名基数为 <strong>600</strong>，理论上平均每场位于集训队内最后 10% 左右的队伍，得分 = 0 分</li>
               <li>存在疑似违规现象的队伍，其当场成绩作废，得分按 <strong>0 分</strong>计算。如有需要，可在赛季训练群内申诉</li>
             </ul>
           </div>
+        </div>
+
+        <div class="rule-card rule-card--baseline">
+          <div class="rule-card__icon"></div>
+          <h4 class="rule-card__title">各场题数 Baseline</h4>
+          <table class="baseline-table">
+            <thead>
+              <tr>
+                <th v-for="label in CONTEST_LABELS" :key="label">{{ label }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>9</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </template>
@@ -302,7 +417,6 @@ function getMemberNames(members: { name: string }[]): string {
   display: inline-block;
   width: 42px;
   text-align: center;
-  color: var(--text-muted);
 }
 
 .team-score-table tbody tr:hover {
@@ -361,6 +475,50 @@ function getMemberNames(members: { name: string }[]): string {
 .score-low {
   color: var(--danger);
   font-weight: 600;
+}
+
+.not-best {
+  background: #f3f4f6;
+}
+
+/* Solved count color classes */
+.solved-excellent {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.solved-good {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.solved-medium {
+  color: var(--warning);
+  font-weight: 600;
+}
+
+.solved-low {
+  color: var(--text-muted);
+}
+
+/* Rank color classes */
+.rank-excellent {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.rank-good {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.rank-medium {
+  color: var(--warning);
+  font-weight: 600;
+}
+
+.rank-low {
+  color: var(--text-muted);
 }
 
 .loading,
@@ -525,6 +683,42 @@ function getMemberNames(members: { name: string }[]): string {
   font-size: 14px;
 }
 
+.rule-card--baseline {
+  border-left-color: var(--primary-light);
+}
+
+.baseline-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.baseline-table thead th {
+  background: #f8fafc;
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 2px solid var(--border);
+  font-size: 13px;
+}
+
+.baseline-table tbody td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.baseline-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.baseline-table tbody tr:hover td {
+  background: var(--primary-bg);
+}
+
 @media (max-width: 768px) {
   .rules-grid {
     grid-template-columns: 1fr;
@@ -538,6 +732,14 @@ function getMemberNames(members: { name: string }[]): string {
 
   .formula-text {
     font-size: 13px;
+  }
+
+  .baseline-table {
+    font-size: 12px;
+  }
+
+  .baseline-table tbody td {
+    padding: 8px 4px;
   }
 }
 </style>
