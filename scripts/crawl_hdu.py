@@ -3,6 +3,9 @@ import pickle
 import time
 import re
 
+# Resolve project root (script lives in scripts/)
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait

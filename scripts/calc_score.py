@@ -5,11 +5,14 @@ from collections import defaultdict
 import openpyxl
 from openpyxl.styles import PatternFill
 
+# Resolve project root (script lives in scripts/)
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 DATA_DIR = "data"
 RANK_FILE = os.path.join(DATA_DIR, "hdu_rank_all.xlsx")
 BASELINE_FILE = os.path.join(DATA_DIR, "baseline.xlsx")
 TEAM_FILE = os.path.join(DATA_DIR, "team.xlsx")
-OUTPUT_FILE = os.path.join(DATA_DIR, "score_result_outer2.xlsx")
+OUTPUT_FILE = os.path.join(DATA_DIR, "score_result.xlsx")
 
 NUM_CONTESTS = 10
 BEST_N_OLD = 7
@@ -79,7 +82,7 @@ def load_teams():
 def calc_contest_score(solved, rank, baseline):
     if baseline == 0:
         return 0.0
-    score = (solved / baseline) * (1001 - rank) / 1000 * 100
+    score = (solved / baseline) * (801 - rank) / 800 * 100
     if score < 0 or score > 100:
         return 0.0
     return score

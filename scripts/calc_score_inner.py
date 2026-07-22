@@ -5,6 +5,9 @@ from collections import defaultdict
 import openpyxl
 from openpyxl.styles import PatternFill
 
+# Resolve project root (script lives in scripts/)
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 DATA_DIR = "data"
 RANK_FILE = os.path.join(DATA_DIR, "hdu_rank_all.xlsx")
 BASELINE_FILE = os.path.join(DATA_DIR, "baseline.xlsx")

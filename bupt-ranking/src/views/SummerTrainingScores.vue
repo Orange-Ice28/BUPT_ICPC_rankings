@@ -208,6 +208,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
               <li>取所有场次中成绩最好的 <strong>80%</strong> 场次计入总成绩，即取最好 <strong>16 场</strong>的平均成绩</li>
               <li><strong>队伍总成绩</strong> = 成绩最好的 80% 场次成绩的平均值</li>
               <li>成绩保留到小数点后 <strong>2 位</strong></li>
+              <li>因公耽误比赛 k 场的队伍，如外出参与裁判工作、参与清华字节集训营等，取 <strong>成绩最好的 16-k 场</strong> 成绩的平均值 </li>
             </ul>
           </div>
 
@@ -243,7 +244,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
             <tbody>
               <tr>
                 <td>9</td>
-                <td>-</td>
+                <td>9</td>
                 <td>-</td>
                 <td>-</td>
                 <td>-</td>

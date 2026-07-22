@@ -1,6 +1,10 @@
 import json
+import os
 import re
 import openpyxl
+
+# Resolve project root (script lives in scripts/)
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 DATA_DIR = "data"
 SCORE_FILE = f"{DATA_DIR}/score_result.xlsx"
