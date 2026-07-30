@@ -51,7 +51,17 @@ const overallTeams = computed(() => {
   })
 
   teams.sort((a, b) => b.overall_score - a.overall_score)
-  teams.forEach((t, i) => (t.rank = i + 1))
+
+  // 计算并列排名
+  let currentRank = 1
+  let prevScore = -1
+  teams.forEach((t, i) => {
+    if (t.overall_score !== prevScore) {
+      currentRank = i + 1
+      prevScore = t.overall_score
+    }
+    t.rank = currentRank
+  })
 
   return teams
 })

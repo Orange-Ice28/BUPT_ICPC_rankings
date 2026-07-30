@@ -69,24 +69,37 @@ function getMemberNames(members: { name: string }[]): string {
 
 function getContestData(team: TeamWithRank, contestIndex: number) {
   if (!team.contests || !team.contests[contestIndex]) {
-    return { solved: '-', rank: '-', score: '-', isBest: false }
+    return { solved: '-', rank: '-', score: '-', isBest: false, excused: false, absent: false }
   }
-  
+
   const contest = team.contests[contestIndex]
+
+  // 因公出差：显示 ---，特殊底色标记
+  if (contest.excused) {
+    return { solved: '-', rank: '-', score: '-', isBest: false, excused: true, absent: false }
+  }
+
+  // 未参加：过题数/排名显示 --，得分显示 0，按正常计入成绩
+  if (contest.absent) {
+    return { solved: '-', rank: '-', score: 0, isBest: contest.isBest || false, excused: false, absent: true }
+  }
+
   // 过题数为0或null/undefined视为未参赛
   const hasData = contest.solved && contest.solved > 0 &&
                   contest.rank !== null && contest.rank !== undefined &&
                   contest.score !== null && contest.score !== undefined
-  
+
   if (!hasData) {
-    return { solved: '-', rank: '-', score: '-', isBest: false }
+    return { solved: '-', rank: '-', score: '-', isBest: false, excused: false, absent: false }
   }
-  
+
   return {
     solved: contest.solved,
     rank: contest.rank,
     score: contest.score,
-    isBest: contest.isBest || false
+    isBest: contest.isBest || false,
+    excused: false,
+    absent: false,
   }
 }
 
@@ -179,7 +192,10 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
                   v-for="(_, ci) in CONTEST_LABELS"
                   :key="ci"
                   class="col-contest"
-                  :class="{ 'not-best': !getContestData(team, ci).isBest && getContestData(team, ci).solved !== '-' }"
+                  :class="{
+                    'not-best': !getContestData(team, ci).isBest && !getContestData(team, ci).excused && (getContestData(team, ci).solved !== '-' || getContestData(team, ci).absent),
+                    'col-excused': getContestData(team, ci).excused,
+                  }"
                 >
                   <span class="sub-item">{{ formatContestValue(getContestData(team, ci).solved) }}</span>
                   <span class="sub-item">{{ formatContestValue(getContestData(team, ci).rank) }}</span>
@@ -246,7 +262,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
                 <td>9</td>
                 <td>9</td>
                 <td>9</td>
-                <td>-</td>
+                <td>7</td>
                 <td>-</td>
                 <td>-</td>
                 <td>-</td>
@@ -255,8 +271,8 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
                 <td>-</td>
                 <td>7</td>
                 <td>8</td>
-                <td>-</td>
-                <td>-</td>
+                <td>9</td>
+                <td>8</td>
                 <td>-</td>
                 <td>-</td>
                 <td>-</td>
@@ -484,6 +500,15 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
 
 .not-best {
   background: #f3f4f6;
+}
+
+/* 因公出差：浅琥珀色底色，区别于普通未参赛 */
+.col-excused {
+  background: #fef9e7;
+}
+
+.team-score-table tbody tr:hover .col-excused {
+  background: #fdf0d5;
 }
 
 /* Solved count color classes */

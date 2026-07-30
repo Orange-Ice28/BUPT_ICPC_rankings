@@ -77,6 +77,25 @@ NAME_MAPPING = {
 # 工具函数
 # ============================================================
 
+def parse_special_value(val):
+    """解析 Excel 单元格值，处理特殊文本（因公出差、未参加等）
+    返回 (numeric_value, special_type)
+      special_type: 'excused' (因公出差), 'absent' (未参加), None (正常)
+    """
+    if val is None:
+        return 0, None
+    if isinstance(val, str):
+        s = val.strip()
+        if '因公出差' in s:
+            return 0, 'excused'
+        if '未参加' in s:
+            return 0, 'absent'
+    try:
+        return int(val), None
+    except (ValueError, TypeError):
+        return 0, None
+
+
 def calc_score(solved, rank, baseline, rank_offset):
     """计算暑期训练单场得分
     通用公式: 得分 = 过题数 / baseline × (rank_offset − 排名) / (rank_offset − 1) × 100
@@ -118,12 +137,24 @@ def load_excel_teams(config, sheet_name):
         name = row[cn] if cn < len(row) else None
         if name is None:
             continue
+
+        raw_solved = row[cs] if cs < len(row) else None
+        raw_rank = row[cr] if cr < len(row) else None
+
+        solved_val, special_s = parse_special_value(raw_solved)
+        rank_val, special_r = parse_special_value(raw_rank)
+
+        is_excused = (special_s == 'excused' or special_r == 'excused')
+        is_absent = (special_s == 'absent' or special_r == 'absent')
+
         teams.append({
             "name": name,
-            "solved": int(row[cs]) if cs < len(row) and row[cs] else 0,
-            "rank": int(row[cr]) if cr < len(row) and row[cr] else 0,
+            "solved": solved_val,
+            "rank": rank_val,
             "baseline": int(row[cb]) if cb < len(row) and row[cb] else 0,
             "score": row[config["col_score"]] if config["col_score"] < len(row) else None,
+            "excused": is_excused,
+            "absent": is_absent,
         })
 
     return wb, ws, teams
@@ -181,11 +212,27 @@ def match_team(excel_name, summer_teams):
 
 
 def recalc_team_totals(data):
-    """重新计算所有队伍的总成绩和排名（best 80% 规则）"""
+    """重新计算所有队伍的总成绩和排名
+    - 正常队伍：best 80% 规则（最终 best 16 / 20）
+    - 因公出差 k 场的队伍：best (16-k) / (20-k) 规则
+    - 未参加的场次按 0 分计入有效场次
+    """
+    TOTAL_CONTESTS = 20
+    BASE_BEST = 16
+
     for team in data["teams"]:
-        contests_with_data = sum(
-            1 for c in team["contests"] if c["solved"] > 0 or c["score"] > 0
-        )
+        # 统计有效场次：有数据 或 标记为"未参加"（得 0 分也算有效场次），排除因公出差
+        def is_effective(c):
+            if c.get("excused", False):
+                return False
+            if c.get("absent", False):
+                return True  # 未参加按 0 分计入有效场次
+            return c["solved"] > 0 or c["score"] > 0
+
+        contests_with_data = sum(1 for c in team["contests"] if is_effective(c))
+
+        # 统计因公出差场次
+        excused_count = sum(1 for c in team["contests"] if c.get("excused", False))
 
         # 重置所有 isBest
         for contest in team["contests"]:
@@ -195,16 +242,23 @@ def recalc_team_totals(data):
             team["team_total"] = 0.0
         elif contests_with_data == 1:
             for i, c in enumerate(team["contests"]):
-                if c["solved"] > 0 or c["score"] > 0:
+                if is_effective(c):
                     team["team_total"] = round(c["score"], 2)
                     c["isBest"] = True
                     break
         else:
-            best_n = math.ceil(contests_with_data * 0.8)
+            if excused_count > 0:
+                # 因公出差: best (16-k) out of (20-k)
+                best_ratio = (BASE_BEST - excused_count) / (TOTAL_CONTESTS - excused_count)
+            else:
+                best_ratio = 0.8
+
+            best_n = max(1, math.ceil(contests_with_data * best_ratio))
+
             pairs = [
                 (i, c["score"])
                 for i, c in enumerate(team["contests"])
-                if c["solved"] > 0 or c["score"] > 0
+                if is_effective(c)
             ]
             pairs.sort(key=lambda x: x[1], reverse=True)
             best_pairs = pairs[:best_n]
@@ -279,16 +333,27 @@ def main():
     print()
 
     for team in excel_teams:
-        baseline = default_baseline or team["baseline"] or config["default_baseline"]
-        if team["baseline"] == 0 or team["baseline"] is None:
-            team["baseline"] = baseline
+        if team["excused"]:
+            # 因公出差：不计分，不参与排名计算
+            team["score"] = 0.0
+            team["baseline"] = default_baseline or team["baseline"] or config["default_baseline"]
+            print(f"  {team['name']:<35s}  ⚠ 因公出差 → 不计入成绩")
+        elif team["absent"]:
+            # 未参加：按 0 分计算
+            team["score"] = 0.0
+            team["baseline"] = default_baseline or team["baseline"] or config["default_baseline"]
+            print(f"  {team['name']:<35s}  ✘ 未参加 → 得分=0.00")
+        else:
+            baseline = default_baseline or team["baseline"] or config["default_baseline"]
+            if team["baseline"] == 0 or team["baseline"] is None:
+                team["baseline"] = baseline
 
-        score = calc_score(team["solved"], team["rank"], baseline, rank_offset)
-        team["score"] = score
-        team["baseline"] = baseline
-        print(f"  {team['name']:<35s}  "
-              f"solved={team['solved']:<3d}  rank={team['rank']:<6d}  "
-              f"baseline={baseline}  →  score={score:>7.2f}")
+            score = calc_score(team["solved"], team["rank"], baseline, rank_offset)
+            team["score"] = score
+            team["baseline"] = baseline
+            print(f"  {team['name']:<35s}  "
+                  f"solved={team['solved']:<3d}  rank={team['rank']:<6d}  "
+                  f"baseline={baseline}  →  score={score:>7.2f}")
 
     # ---- 第3步：写回 Excel ----
     print()
@@ -298,6 +363,7 @@ def main():
 
     for i, team in enumerate(excel_teams):
         row_idx = i + 2  # 第1行是表头
+        # 因公出差/未参加：得分写 0，保留原始文字
         ws.cell(row=row_idx, column=score_col).value = team["score"]
         existing_baseline = ws.cell(row=row_idx, column=baseline_col).value
         if existing_baseline is None or existing_baseline == 0:
@@ -332,6 +398,8 @@ def main():
                 "rank": excel_team["rank"],
                 "score": excel_team["score"],
                 "isBest": False,
+                "excused": excel_team["excused"],
+                "absent": excel_team["absent"],
             }
             matched_count += 1
             print(f"  OK '{excel_team['name']}' → '{matched['name_cn']}' "
@@ -356,9 +424,13 @@ def main():
     print()
     print("  Top 10 队伍总成绩:")
     for team in data["teams"][:10]:
-        n_data = sum(1 for c in team["contests"] if c["solved"] > 0 or c["score"] > 0)
+        n_data = sum(1 for c in team["contests"]
+                     if (c["solved"] > 0 or c["score"] > 0 or c.get("absent", False))
+                     and not c.get("excused", False))
+        n_excused = sum(1 for c in team["contests"] if c.get("excused", False))
+        extra = f"  (因公出差: {n_excused}场)" if n_excused > 0 else ""
         print(f"    {team['rank']:>2}. {team['name_cn']:<20s}  "
-              f"{team['team_total']:>6.2f}  (有效场次: {n_data})")
+              f"{team['team_total']:>6.2f}  (有效场次: {n_data}){extra}")
 
     save_summer_data(data)
 
