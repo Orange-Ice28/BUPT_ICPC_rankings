@@ -238,7 +238,7 @@ function formatContestDate(dateStr: string): string {
 }
 
 .contest-table tbody td {
-  padding: 16px 20px;
+  padding: 10px 20px;
   border-bottom: 1px solid var(--border-light);
   vertical-align: middle;
 }

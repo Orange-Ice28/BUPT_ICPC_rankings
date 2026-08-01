@@ -424,7 +424,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
 }
 
 .col-team-name {
-  min-width: 200px;
+  min-width: 180px;
   text-align: left !important;
 }
 

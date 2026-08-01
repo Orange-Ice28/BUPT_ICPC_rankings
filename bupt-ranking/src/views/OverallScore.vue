@@ -248,7 +248,7 @@ function getScoreClass(score: number): string {
 
 .overall-table th,
 .overall-table td {
-  padding: 12px 16px;
+  padding: 8px 16px;
   text-align: center;
   border-bottom: 1px solid var(--border-light);
 }
@@ -256,7 +256,7 @@ function getScoreClass(score: number): string {
 /* --- 表头增强 --- */
 .overall-table thead th {
   font-size: 14px;
-  padding: 14px 16px;
+  padding: 10px 16px;
   border-bottom: 2px solid var(--border);
   background: var(--primary-bg);
   color: var(--primary-dark);
@@ -269,7 +269,7 @@ function getScoreClass(score: number): string {
 }
 
 .col-team-name {
-  width: 200px;
+  width: 180px;
   text-align: left !important;
 }
 
@@ -355,7 +355,7 @@ function getScoreClass(score: number): string {
 
 /* --- 表格数据行 --- */
 .overall-table tbody td {
-  padding: 14px 16px;
+  padding: 10px 16px;
   vertical-align: middle;
 }
 

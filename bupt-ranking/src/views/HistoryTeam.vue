@@ -69,8 +69,7 @@ function getRankClass(rank: number): string {
         <thead>
           <tr>
             <th class="col-rank">排名</th>
-            <th class="col-team-name">中文队名</th>
-            <th class="col-team-en">英文队名</th>
+            <th class="col-team-name">队名</th>
             <th class="col-members">队员</th>
             <th class="col-medal">🥇 金牌</th>
             <th class="col-medal">🥈 银牌</th>
@@ -81,8 +80,10 @@ function getRankClass(rank: number): string {
         <tbody>
           <tr v-for="team in teams" :key="team.name_cn">
             <td class="col-rank" :class="getRankClass(team.rank)">{{ getRankDisplay(team.rank) }}</td>
-            <td class="col-team-name">{{ team.name_cn }}</td>
-            <td class="col-team-en">{{ team.name_en }}</td>
+            <td class="col-team-name">
+              <span class="team-cn">{{ team.name_cn }}</span>
+              <span class="team-en">{{ team.name_en }}</span>
+            </td>
             <td class="col-members">{{ team.members.join('、') }}</td>
             <td class="col-medal" :class="getMedalClass(team.gold)">{{ team.gold }}</td>
             <td class="col-medal" :class="getMedalClass(team.silver)">{{ team.silver }}</td>
@@ -119,7 +120,7 @@ function getRankClass(rank: number): string {
   background: #f8fafc;
   color: var(--text-secondary);
   font-weight: 600;
-  padding: 14px 20px;
+  padding: 10px 20px;
   text-align: center;
   border-bottom: 2px solid var(--border);
   white-space: nowrap;
@@ -132,7 +133,7 @@ function getRankClass(rank: number): string {
 }
 
 .history-table tbody td {
-  padding: 16px 20px;
+  padding: 10px 20px;
   border-bottom: 1px solid var(--border-light);
   text-align: center;
   vertical-align: middle;
@@ -158,16 +159,23 @@ function getRankClass(rank: number): string {
 }
 
 .col-team-name {
-  min-width: 120px;
-  font-weight: 600;
-  color: var(--text-primary);
-  font-size: 16px;
+  min-width: 180px;
+  text-align: left !important;
 }
 
-.col-team-en {
-  min-width: 100px;
+.team-cn {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.team-en {
+  display: block;
+  font-size: 12px;
   color: var(--text-secondary);
-  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  margin-top: 2px;
 }
 
 .col-members {
@@ -219,8 +227,5 @@ function getRankClass(rank: number): string {
     padding: 10px 12px;
   }
 
-  .col-team-en {
-    display: none;
-  }
 }
 </style>

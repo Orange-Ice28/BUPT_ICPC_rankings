@@ -116,7 +116,7 @@ function getRankClass(rank: number): string {
   background: #f8fafc;
   color: var(--text-secondary);
   font-weight: 600;
-  padding: 14px 20px;
+  padding: 10px 20px;
   text-align: center;
   border-bottom: 2px solid var(--border);
   white-space: nowrap;
@@ -129,7 +129,7 @@ function getRankClass(rank: number): string {
 }
 
 .history-table tbody td {
-  padding: 16px 20px;
+  padding: 10px 20px;
   border-bottom: 1px solid var(--border-light);
   text-align: center;
   vertical-align: middle;
