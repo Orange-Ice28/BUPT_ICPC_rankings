@@ -234,7 +234,7 @@ function formatContestDate(dateStr: string): string {
   text-align: left;
   border-bottom: 2px solid var(--border);
   white-space: nowrap;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .contest-table tbody td {
@@ -274,7 +274,7 @@ function formatContestDate(dateStr: string): string {
 
 .platform-text {
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .col-station {
@@ -296,7 +296,7 @@ function formatContestDate(dateStr: string): string {
 
 .problem-setter-text {
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .col-teams {

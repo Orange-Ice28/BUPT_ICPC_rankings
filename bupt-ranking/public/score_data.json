@@ -1845,74 +1845,6 @@
       "rank": 27
     },
     {
-      "team_id": "team0976",
-      "name": "蔡佩霖",
-      "total_score": 30.87,
-      "contests": [
-        {
-          "solved": 6,
-          "rank": 170,
-          "score": 47.32
-        },
-        {
-          "solved": 7,
-          "rank": 94,
-          "score": 61.86
-        },
-        {
-          "solved": 6,
-          "rank": 134,
-          "score": 55.58
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 2,
-          "rank": 932,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1490,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1475,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1431,
-          "score": -0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1372,
-          "score": -0.0
-        },
-        {
-          "solved": 6,
-          "rank": 117,
-          "score": 51.3
-        }
-      ],
-      "best_indices": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        9
-      ],
-      "in_team": true,
-      "rank": 28
-    },
-    {
       "team_id": "team0972",
       "name": "刘芯羽",
       "total_score": 30.31,
@@ -2183,74 +2115,6 @@
       ],
       "in_team": true,
       "rank": 32
-    },
-    {
-      "team_id": "team1006",
-      "name": "徐嘉晨",
-      "total_score": 26.98,
-      "contests": [
-        {
-          "solved": 3,
-          "rank": 780,
-          "score": 0.79
-        },
-        {
-          "solved": 4,
-          "rank": 674,
-          "score": 6.35
-        },
-        {
-          "solved": 4,
-          "rank": 438,
-          "score": 20.17
-        },
-        {
-          "solved": 4,
-          "rank": 261,
-          "score": 27.0
-        },
-        {
-          "solved": 7,
-          "rank": 40,
-          "score": 66.59
-        },
-        {
-          "solved": 7,
-          "rank": 102,
-          "score": 67.96
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0
-        },
-        {
-          "solved": 0,
-          "rank": 1337,
-          "score": -0.0
-        }
-      ],
-      "best_indices": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "in_team": true,
-      "rank": 33
     },
     {
       "team_id": "team1050",
@@ -4111,26 +3975,6 @@
       "rank": 12
     },
     {
-      "name_cn": "正着活，反着魔",
-      "name_en": "live_evil",
-      "members": [
-        {
-          "name": "徐嘉晨",
-          "total_score": 26.98
-        },
-        {
-          "name": "蔡佩霖",
-          "total_score": 30.87
-        },
-        {
-          "name": "李子熙",
-          "total_score": 0.0
-        }
-      ],
-      "team_total": 19.28,
-      "rank": 13
-    },
-    {
       "name_cn": "ClosedClaw",
       "name_en": "ClosedClaw",
       "members": [
@@ -4148,7 +3992,7 @@
         }
       ],
       "team_total": 5.7,
-      "rank": 14
+      "rank": 13
     }
   ]
 }

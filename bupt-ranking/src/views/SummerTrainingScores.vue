@@ -311,7 +311,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
 }
 
 .page-desc {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.8;
 }
@@ -331,7 +331,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  font-size: 13px;
+  font-size: 14px;
   white-space: nowrap;
 }
 
@@ -591,7 +591,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
   padding: 4px 14px;
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -730,7 +730,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
   padding: 10px 12px;
   text-align: center;
   border-bottom: 2px solid var(--border);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .baseline-table tbody td {
@@ -761,7 +761,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
   }
 
   .formula-text {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .baseline-table {

@@ -118,8 +118,7 @@ function getScoreClass(score: number): string {
           <thead>
             <tr>
               <th class="col-rank">排名</th>
-              <th class="col-team-name">中文队名</th>
-              <th class="col-team-en">英文队名</th>
+              <th class="col-team-name">队名</th>
               <th class="col-members">队员</th>
               <th class="col-score">春季训练 (×10%)</th>
               <th class="col-score">暑期训练 (×60%)</th>
@@ -130,8 +129,10 @@ function getScoreClass(score: number): string {
           <tbody>
             <tr v-for="team in overallTeams" :key="team.name_cn">
               <td class="col-rank" :class="getRankClass(team.rank)">{{ team.rank }}</td>
-              <td class="col-team-name">{{ team.name_cn }}</td>
-              <td class="col-team-en">{{ team.name_en }}</td>
+              <td class="col-team-name">
+                <span class="team-cn">{{ team.name_cn }}</span>
+                <span class="team-en">{{ team.name_en }}</span>
+              </td>
               <td class="col-members">{{ team.members.join('、') }}</td>
               <td class="col-score">{{ team.spring_score.toFixed(2) }}</td>
               <td class="col-score" :class="{ 'pending-score': team.summer_score === 0 }">{{ team.summer_score.toFixed(2) }}</td>
@@ -252,53 +253,61 @@ function getScoreClass(score: number): string {
   border-bottom: 1px solid var(--border-light);
 }
 
+/* --- 表头增强 --- */
 .overall-table thead th {
+  font-size: 14px;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--border);
   background: var(--primary-bg);
   color: var(--primary-dark);
   font-weight: 600;
 }
 
 .col-rank {
-  width: 60px;
+  width: 70px;
   font-weight: 600;
 }
 
 .col-team-name {
-  width: 140px;
-  font-weight: 500;
+  width: 200px;
   text-align: left !important;
 }
 
-.col-team-en {
-  width: 200px;
-  font-size: 13px;
+.team-cn {
+  display: block;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.team-en {
+  display: block;
+  font-size: 12px;
   color: var(--text-secondary);
   font-family: 'Courier New', monospace;
-  text-align: left !important;
+  margin-top: 2px;
 }
 
 .col-members {
   width: 160px;
-  font-size: 13px;
+  font-size: 14px;
   text-align: left !important;
 }
 
 .col-score {
   width: 150px;
+  font-variant-numeric: tabular-nums;
 }
 
 .col-total {
   width: 100px;
   font-weight: 700;
+  font-size: 15px;
 }
 
 .pending-score {
   color: var(--text-muted);
   font-style: italic;
-}
-
-.overall-table tbody tr:hover {
-  background: var(--primary-bg);
 }
 
 .rank-gold {
@@ -329,6 +338,30 @@ function getScoreClass(score: number): string {
 .rank-bronze::before {
   content: '🥉';
   margin-right: 2px;
+}
+
+/* --- 表格斑马纹 --- */
+.overall-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.overall-table tbody tr:nth-child(even):hover {
+  background: var(--primary-bg);
+}
+
+.overall-table tbody tr:hover {
+  background: var(--primary-bg);
+}
+
+/* --- 表格数据行 --- */
+.overall-table tbody td {
+  padding: 14px 16px;
+  vertical-align: middle;
+}
+
+/* --- 总分列数值强调 --- */
+.col-total {
+  font-variant-numeric: tabular-nums;
 }
 
 .score-excellent {

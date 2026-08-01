@@ -140,8 +140,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
           <thead>
             <tr>
               <th class="col-rank">排名</th>
-              <th class="col-team-name">中文队名</th>
-              <th class="col-team-en">英文队名</th>
+              <th class="col-team-name">队名</th>
               <th>队员1</th>
               <th>成绩</th>
               <th>队员2</th>
@@ -154,8 +153,10 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
           <tbody>
             <tr v-for="team in data.teams" :key="team.name_cn">
               <td class="col-rank" :class="getRankClass(team.rank)">{{ team.rank }}</td>
-              <td class="col-team-name">{{ team.name_cn }}</td>
-              <td class="col-team-en">{{ team.name_en }}</td>
+              <td class="col-team-name">
+                <span class="team-cn">{{ team.name_cn }}</span>
+                <span class="team-en">{{ team.name_en }}</span>
+              </td>
               <template v-for="i in 3" :key="i">
                 <td>{{ getMemberName(team.members, i - 1) }}</td>
                 <td class="member-score">{{ getMemberScore(team.members, i - 1) }}</td>
@@ -257,7 +258,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
 }
 
 .page-desc {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.8;
 }
@@ -309,14 +310,14 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  font-size: 13px;
+  font-size: 14px;
   white-space: nowrap;
 }
 
 .team-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 14px;
   white-space: nowrap;
 }
 
@@ -423,16 +424,23 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
 }
 
 .col-team-name {
-  min-width: 120px;
+  min-width: 200px;
   text-align: left !important;
-  font-weight: 500;
 }
 
-.col-team-en {
-  min-width: 140px;
+.team-cn {
+  display: block;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.team-en {
+  display: block;
   font-size: 12px;
   color: var(--text-secondary);
   font-family: 'Courier New', monospace;
+  margin-top: 2px;
 }
 
 .col-team-total {
@@ -552,7 +560,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
   padding: 4px 14px;
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -698,7 +706,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
   font-weight: 600;
   padding: 12px 10px;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
   border-bottom: 2px solid #fecaca;
 }
 
@@ -733,7 +741,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
   }
 
   .formula-text {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .baseline-table {

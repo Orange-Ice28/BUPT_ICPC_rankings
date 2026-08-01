@@ -291,7 +291,7 @@ function getDayClass(day: CalendarDay): string {
 }
 
 .day-label {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   text-align: center;
   padding: 4px 8px;
