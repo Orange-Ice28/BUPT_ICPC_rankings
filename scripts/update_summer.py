@@ -213,13 +213,10 @@ def match_team(excel_name, summer_teams):
 
 def recalc_team_totals(data):
     """重新计算所有队伍的总成绩和排名
-    - 正常队伍：best 80% 规则（最终 best 16 / 20）
-    - 因公出差 k 场的队伍：best (16-k) / (20-k) 规则
+    - 正常队伍：best 80% 规则（取已举行场次数 × 80%）
+    - 因公出差 k 场的队伍：取 已举行场次数 × 80% − k 场
     - 未参加的场次按 0 分计入有效场次
     """
-    TOTAL_CONTESTS = 20
-    BASE_BEST = 16
-
     for team in data["teams"]:
         # 统计有效场次：有数据 或 标记为"未参加"（得 0 分也算有效场次），排除因公出差
         def is_effective(c):
@@ -248,12 +245,11 @@ def recalc_team_totals(data):
                     break
         else:
             if excused_count > 0:
-                # 因公出差: best (16-k) out of (20-k)
-                best_ratio = (BASE_BEST - excused_count) / (TOTAL_CONTESTS - excused_count)
+                # 因公出差: 取 已举行总场次×80% − 出差场次
+                total_held = sum(1 for b in data["baselines"] if b > 0)
+                best_n = max(1, (total_held * 4) // 5 - excused_count)
             else:
-                best_ratio = 0.8
-
-            best_n = max(1, math.ceil(contests_with_data * best_ratio))
+                best_n = max(1, math.ceil(contests_with_data * 0.8))
 
             pairs = [
                 (i, c["score"])
