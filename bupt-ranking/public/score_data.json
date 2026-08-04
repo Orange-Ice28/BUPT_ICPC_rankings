@@ -2793,6 +2793,73 @@
       "rank": 43
     },
     {
+      "name": "刘林果",
+      "team_id": "team0023",
+      "in_team": true,
+      "total_score": 11.64,
+      "best_indices": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "contests": [
+        {
+          "solved": 1,
+          "rank": 1323,
+          "score": 0.0
+        },
+        {
+          "solved": 4,
+          "rank": 817,
+          "score": 0.0
+        },
+        {
+          "solved": 2,
+          "rank": 926,
+          "score": 0.0
+        },
+        {
+          "solved": 3,
+          "rank": 718,
+          "score": 3.11
+        },
+        {
+          "solved": 4,
+          "rank": 598,
+          "score": 10.15
+        },
+        {
+          "solved": 3,
+          "rank": 653,
+          "score": 6.17
+        },
+        {
+          "solved": 4,
+          "rank": 388,
+          "score": 18.77
+        },
+        {
+          "solved": 3,
+          "rank": 331,
+          "score": 22.03
+        },
+        {
+          "solved": 3,
+          "rank": 476,
+          "score": 15.23
+        },
+        {
+          "solved": 2,
+          "rank": 559,
+          "score": 6.05
+        }
+      ]
+    },
+    {
       "team_id": "team1797",
       "name": "林泽洋",
       "total_score": 8.74,
@@ -3988,10 +4055,10 @@
         },
         {
           "name": "刘林果",
-          "total_score": 0.0
+          "total_score": 11.64
         }
       ],
-      "team_total": 5.7,
+      "team_total": 9.58,
       "rank": 13
     }
   ]
