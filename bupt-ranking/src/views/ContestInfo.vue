@@ -21,10 +21,10 @@ const icpcContests = [
 ]
 
 const ccpcContests = [
-  { station: '长春', date: '2026.10.17-18', host: '东北师范大学', expectedTeams: '260', problemSetter: '' },
-  { station: '武汉/荆州', date: '2026.11.07-08', host: '武汉大学/长江大学', expectedTeams: '260', problemSetter: '' },
-  { station: '乐山', date: '2026.11.14-15', host: '乐山师范学院', expectedTeams: '260', problemSetter: '' },
-  { station: '厦门', date: '2026.11.21-22', host: '厦门大学', expectedTeams: '260', problemSetter: '' },
+  { station: '长春', date: '2026.10.17-18', host: '东北师范大学', expectedTeams: '300', problemSetter: '' },
+  { station: '武汉/荆州', date: '2026.11.07-08', host: '武汉大学/长江大学', expectedTeams: '300', problemSetter: '' },
+  { station: '乐山', date: '2026.11.14-15', host: '乐山师范学院', expectedTeams: '300', problemSetter: '' },
+  { station: '厦门', date: '2026.11.21-22', host: '厦门大学', expectedTeams: '300', problemSetter: '' },
   { station: '总决赛', date: '', host: '', expectedTeams: '', problemSetter: '' },
 ]
 
