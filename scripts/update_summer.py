@@ -247,7 +247,7 @@ def recalc_team_totals(data):
             if excused_count > 0:
                 # 因公出差: 取 已举行总场次×80% − 出差场次
                 total_held = sum(1 for b in data["baselines"] if b > 0)
-                best_n = max(1, (total_held * 4) // 5 - excused_count)
+                best_n = max(1, math.ceil(total_held * 0.8) - excused_count)
             else:
                 best_n = max(1, math.ceil(contests_with_data * 0.8))
 

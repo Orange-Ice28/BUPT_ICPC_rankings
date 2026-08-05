@@ -3,9 +3,9 @@ import icpcLogo from '@/assets/ICPC_logo.png'
 import ccpcLogo from '@/assets/CCPC_logo.png'
 
 const contests = [
-  { name: 'ICPC 网络赛 第1场', date: '2026-09-06', weekday: '周日', platform: '' },
-  { name: 'ICPC 网络赛 第2场', date: '2026-09-12', weekday: '周六', platform: '' },
-  { name: 'CCPC 网络赛', date: '', weekday: '', platform: '' },
+  { name: 'ICPC 网络赛 第1场', date: '2026-09-06', weekday: '周日', platform: '', problemSetter: '北京大学' },
+  { name: 'ICPC 网络赛 第2场', date: '2026-09-12', weekday: '周六', platform: '', problemSetter: '杭州师范大学、浙江大学' },
+  { name: 'CCPC 网络赛', date: '2026-09-19', weekday: '周六', platform: '', problemSetter: '' },
 ]
 
 const icpcContests = [
@@ -20,24 +20,32 @@ const icpcContests = [
   { station: '杭州（EC Final）', date: '2027.01.26-28', host: '杭州师范大学、浙江大学', expectedTeams: 300, problemSetter: '' },
 ]
 
+const ccpcContests = [
+  { station: '长春', date: '2026.10.17-18', host: '东北师范大学', expectedTeams: '260', problemSetter: '' },
+  { station: '武汉/荆州', date: '2026.11.07-08', host: '武汉大学/长江大学', expectedTeams: '260', problemSetter: '' },
+  { station: '乐山', date: '2026.11.14-15', host: '乐山师范学院', expectedTeams: '260', problemSetter: '' },
+  { station: '厦门', date: '2026.11.21-22', host: '厦门大学', expectedTeams: '260', problemSetter: '' },
+  { station: '总决赛', date: '', host: '', expectedTeams: '', problemSetter: '' },
+]
+
 function formatDate(dateStr: string): string {
   if (!dateStr) return '-'
   const parts = dateStr.split('-')
-  return `${parseInt(parts[1])}月${parseInt(parts[2])}日`
+  return `${parseInt(parts[1]!)}月${parseInt(parts[2]!)}日`
 }
 
 function formatContestDate(dateStr: string): string {
   if (!dateStr) return '-'
-  
+
   // Handle format like "2026.10.10-11" or "2026.10.31-11.01"
   const match = dateStr.match(/^(\d{4})\.(\d{2})\.(\d{2})-(\d{2})\.(\d{2})$/)
   if (match) {
-    const year = match[1]
-    const month = parseInt(match[2])
-    const day1 = parseInt(match[3])
-    const month2 = parseInt(match[4])
-    const day2 = parseInt(match[5])
-    
+    const year = match[1]!
+    const month = parseInt(match[2]!)
+    const day1 = parseInt(match[3]!)
+    const month2 = parseInt(match[4]!)
+    const day2 = parseInt(match[5]!)
+
     if (month === month2) {
       // Same month: 2026年10月10日~11日
       return `${year}年${month}月${day1}日~${day2}日`
@@ -46,17 +54,17 @@ function formatContestDate(dateStr: string): string {
       return `${year}年${month}月${day1}日~${month2}月${day2}日`
     }
   }
-  
+
   // Handle format like "2026.10.10-11" (no second month)
   const match2 = dateStr.match(/^(\d{4})\.(\d{2})\.(\d{2})-(\d{2})$/)
   if (match2) {
-    const year = match2[1]
-    const month = parseInt(match2[2])
-    const day1 = parseInt(match2[3])
-    const day2 = parseInt(match2[4])
+    const year = match2[1]!
+    const month = parseInt(match2[2]!)
+    const day1 = parseInt(match2[3]!)
+    const day2 = parseInt(match2[4]!)
     return `${year}年${month}月${day1}日~${day2}日`
   }
-  
+
   return dateStr
 }
 </script>
@@ -80,6 +88,7 @@ function formatContestDate(dateStr: string): string {
               <th class="col-index">序号</th>
               <th class="col-name">比赛名称</th>
               <th class="col-date">日期</th>
+              <th class="col-problem-setter">命题学校</th>
               <th class="col-platform">平台</th>
             </tr>
           </thead>
@@ -98,6 +107,9 @@ function formatContestDate(dateStr: string): string {
                   >{{ item.weekday }}</span>
                 </template>
                 <span v-else class="date-text date-empty">-</span>
+              </td>
+              <td class="col-problem-setter">
+                <span class="host-text">{{ item.problemSetter || '-' }}</span>
               </td>
               <td class="col-platform">
                 <span class="platform-text">{{ item.platform || '-' }}</span>
@@ -154,8 +166,39 @@ function formatContestDate(dateStr: string): string {
         <img :src="ccpcLogo" class="section-logo" alt="CCPC">
         <h3 class="section-title">CCPC</h3>
       </div>
-      <div class="placeholder-box">
-        <p class="placeholder-text">待公布</p>
+      <div class="table-wrapper">
+        <table class="contest-table">
+          <thead>
+            <tr>
+              <th class="col-index">序号</th>
+              <th class="col-station">赛站</th>
+              <th class="col-date">办赛日期</th>
+              <th class="col-host">主办学校</th>
+              <th class="col-problem-setter">命题学校</th>
+              <th class="col-teams">赛站规模</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, i) in ccpcContests" :key="item.station">
+              <td class="col-index">{{ i + 1 }}</td>
+              <td class="col-station">
+                <span class="contest-name">{{ item.station }}</span>
+              </td>
+              <td class="col-date">
+                <span class="date-text">{{ item.date ? formatContestDate(item.date) : '-' }}</span>
+              </td>
+              <td class="col-host">
+                <span class="host-text">{{ item.host || '-' }}</span>
+              </td>
+              <td class="col-problem-setter">
+                <span class="problem-setter-text">{{ item.problemSetter || '-' }}</span>
+              </td>
+              <td class="col-teams">
+                <span class="teams-text">{{ item.expectedTeams || '-' }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
