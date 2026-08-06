@@ -327,7 +327,8 @@
         {
           "solved": 10,
           "rank": 1,
-          "score": 0.0
+          "score": 0.0,
+          "violation": true
         },
         {
           "solved": 0,

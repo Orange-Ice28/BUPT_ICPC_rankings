@@ -148,9 +148,12 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
     <div class="page-header">
       <h2 class="page-title">暑期训练成绩</h2>
       <p class="page-desc">
-        牛客得分 = 过题数 / baseline × (601 − 排名) / 600 × 100 | 
+        牛客得分 = 过题数 / baseline × (601 − 排名) / 600 × 100 |
         杭电得分 = 过题数 / baseline × (501 − 排名) / 500 × 100 |
-        取最好 16 场（80%）的平均成绩计入总成绩
+        取最好 16 场（80%）的平均成绩计入总成绩 |
+        灰色底 = 未计入成绩的场次 |
+        淡红底 = 违规，成绩作废 |
+        淡橙色 = 因公事务缺席
       </p>
     </div>
 
@@ -224,7 +227,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
               <li>取所有场次中成绩最好的 <strong>80%</strong> 场次计入总成绩，即取最好 <strong>16 场</strong>的平均成绩</li>
               <li><strong>队伍总成绩</strong> = 成绩最好的 80% 场次成绩的平均值</li>
               <li>成绩保留到小数点后 <strong>2 位</strong></li>
-              <li>因公耽误比赛 k 场的队伍，如外出参与裁判工作、参与清华字节集训营等，取 <strong>成绩最好的 16-k 场</strong> 成绩的平均值 </li>
+              <li>因公耽误比赛 k 场的队伍，如外出参与裁判工作、参与集训营等，取 <strong>成绩最好的 16-k 场</strong> 成绩的平均值，成绩表格中以 <strong style="background:#fff3e0;padding:2px 6px;border-radius:3px;">淡橙色</strong> 标记 </li>
             </ul>
           </div>
 
@@ -243,7 +246,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
               <li><strong>Baseline 题数</strong>：一般情况下指全场第 20 名队伍过题数，可能根据实际情况灵活调整</li>
               <li>不取第 1 名队伍的过题数原因在于往年存在个别极强队伍（甚至有些不属于 Asia EC 赛区）过题数明显领先，导致大家的成绩被过度压缩，区分度不明显</li>
               <li>排名基数为 <strong>牛客 600，杭电 500</strong>，因为牛客参与队伍数较多。理论上平均每场位于集训队内最后 20% 左右的队伍，得分 = 0 分</li>
-              <li>存在疑似违规现象的队伍，其当场成绩作废，得分按 <strong>0 分</strong>计算。如有需要，可在赛季训练群内申诉</li>
+              <li>存在疑似违规现象的队伍，其当场成绩作废，得分按 <strong>0 分</strong>计算，成绩表格中以 <strong style="background:#fee2e2;padding:2px 6px;border-radius:3px;">淡红色</strong> 标记。如有需要，可在赛季训练群内申诉</li>
             </ul>
           </div>
         </div>
@@ -502,13 +505,13 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
   background: #f3f4f6;
 }
 
-/* 因公出差：浅琥珀色底色，区别于普通未参赛 */
+/* 因公事务缺席：淡橙色底色 */
 .col-excused {
-  background: #fef9e7;
+  background: #fff3e0;
 }
 
 .team-score-table tbody tr:hover .col-excused {
-  background: #fdf0d5;
+  background: #ffe0b2;
 }
 
 /* Solved count color classes */

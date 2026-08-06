@@ -2,6 +2,8 @@ export interface ContestDetail {
   solved: number
   rank: number
   score: number
+  violation?: boolean
+  excused?: boolean
 }
 
 export interface PersonalResult {

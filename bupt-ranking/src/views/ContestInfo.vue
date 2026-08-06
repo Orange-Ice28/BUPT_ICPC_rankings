@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import icpcLogo from '@/assets/ICPC_logo.png'
 import ccpcLogo from '@/assets/CCPC_logo.png'
+import ccspLogo from '@/assets/CCSP_logo.png'
+import caccLogo from '@/assets/CACC_logo.png'
 
 const contests = [
   { name: 'ICPC 网络赛 第1场', date: '2026-09-06', weekday: '周日', platform: '', problemSetter: '北京大学' },
@@ -27,6 +30,21 @@ const ccpcContests = [
   { station: '厦门', date: '2026.11.21-22', host: '厦门大学', expectedTeams: '300', problemSetter: '' },
   { station: '总决赛', date: '', host: '', expectedTeams: '', problemSetter: '' },
 ]
+
+const ccspContests = [
+  { station: '成都', date: '2026.10.21-22', host: '', expectedTeams: '500' },
+]
+
+const caccContests = [
+  { station: '北京（区域赛）', date: '2026年12月', host: '北京邮电大学', expectedTeams: '' },
+  { station: '宁波（总决赛）', date: '2027年4月', host: '宁波海曙区委党校', expectedTeams: '500' },
+]
+
+const showCCPCSubtables = ref(false)
+
+function toggleCCPCSubtables() {
+  showCCPCSubtables.value = !showCCPCSubtables.value
+}
 
 function formatDate(dateStr: string): string {
   if (!dateStr) return '-'
@@ -123,7 +141,7 @@ function formatContestDate(dateStr: string): string {
     <div class="section">
       <div class="section-header">
         <img :src="icpcLogo" class="section-logo" alt="ICPC">
-        <h3 class="section-title">ICPC</h3>
+        <h3 class="section-title">ICPC 国际大学生程序设计竞赛</h3>
       </div>
       <div class="table-wrapper">
         <table class="contest-table">
@@ -162,9 +180,10 @@ function formatContestDate(dateStr: string): string {
     </div>
 
     <div class="section">
-      <div class="section-header">
-        <img :src="ccpcLogo" class="section-logo" alt="CCPC">
-        <h3 class="section-title">CCPC</h3>
+      <div class="section-header ccpc-header" @click="toggleCCPCSubtables" title="点击展开/收起 CCSP 和 CACC 赛站信息">
+        <img :src="ccpcLogo" class="section-logo ccpc-logo-clickable" alt="CCPC">
+        <h3 class="section-title">CCPC 中国大学生程序设计竞赛</h3>
+        <span class="expand-arrow" :class="{ expanded: showCCPCSubtables }">▶</span>
       </div>
       <div class="table-wrapper">
         <table class="contest-table">
@@ -201,6 +220,84 @@ function formatContestDate(dateStr: string): string {
         </table>
       </div>
     </div>
+
+    <Transition name="section-fade">
+      <div v-if="showCCPCSubtables" class="section">
+        <div class="section-header">
+          <img :src="ccspLogo" class="section-logo" alt="CCSP">
+          <h3 class="section-title">CCSP  大学生计算机系统与程序设计竞赛</h3>
+        </div>
+        <div class="table-wrapper">
+          <table class="contest-table">
+            <thead>
+              <tr>
+                <th class="col-index">序号</th>
+                <th class="col-station">赛站</th>
+                <th class="col-date">办赛日期</th>
+                <th class="col-host">承办方</th>
+                <th class="col-teams">赛站规模</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, i) in ccspContests" :key="i">
+                <td class="col-index">{{ i + 1 }}</td>
+                <td class="col-station">
+                  <span class="contest-name">{{ item.station || '-' }}</span>
+                </td>
+                <td class="col-date">
+                  <span class="date-text">{{ item.date ? formatContestDate(item.date) : '-' }}</span>
+                </td>
+                <td class="col-host">
+                  <span class="host-text">{{ item.host || '-' }}</span>
+                </td>
+                <td class="col-teams">
+                  <span class="teams-text">{{ item.expectedTeams || '-' }}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </Transition>
+
+    <Transition name="section-fade">
+      <div v-if="showCCPCSubtables" class="section">
+        <div class="section-header">
+          <img :src="caccLogo" class="section-logo" alt="CACC">
+          <h3 class="section-title">CACC 算法能力大赛</h3>
+        </div>
+        <div class="table-wrapper">
+          <table class="contest-table">
+            <thead>
+              <tr>
+                <th class="col-index">序号</th>
+                <th class="col-station">赛站</th>
+                <th class="col-date">办赛日期</th>
+                <th class="col-host">承办方</th>
+                <th class="col-teams">赛站规模</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, i) in caccContests" :key="i">
+                <td class="col-index">{{ i + 1 }}</td>
+                <td class="col-station">
+                  <span class="contest-name">{{ item.station || '-' }}</span>
+                </td>
+                <td class="col-date">
+                  <span class="date-text">{{ item.date ? formatContestDate(item.date) : '-' }}</span>
+                </td>
+                <td class="col-host">
+                  <span class="host-text">{{ item.host || '-' }}</span>
+                </td>
+                <td class="col-teams">
+                  <span class="teams-text">{{ item.expectedTeams || '-' }}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -417,5 +514,66 @@ function formatContestDate(dateStr: string): string {
   .col-platform {
     min-width: 80px;
   }
+}
+
+/* CCPC 可点击头部 */
+.ccpc-header {
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.ccpc-header:hover {
+  background: #e8ecf1;
+}
+
+.ccpc-logo-clickable {
+  transition: transform 0.2s;
+}
+
+.ccpc-header:hover .ccpc-logo-clickable {
+  transform: scale(1.08);
+}
+
+.expand-arrow {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.expand-arrow.expanded {
+  transform: rotate(90deg);
+}
+
+.section-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.section-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+/* 区块级过渡动画 */
+.section-fade-enter-active {
+  transition: all 0.4s ease;
+}
+
+.section-fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.section-fade-enter-from {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+.section-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 </style>

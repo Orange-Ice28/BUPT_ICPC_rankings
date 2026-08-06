@@ -28,6 +28,14 @@ function isBest(person: PersonalResult, contestIndex: number): boolean {
   return person.best_indices.includes(contestIndex)
 }
 
+function isViolation(person: PersonalResult, contestIndex: number): boolean {
+  return person.contests[contestIndex]?.violation === true
+}
+
+function isExcused(person: PersonalResult, contestIndex: number): boolean {
+  return person.contests[contestIndex]?.excused === true
+}
+
 function formatScore(score: number): string {
   if (score === 0 && score !== 0) return '0'
   return score.toFixed(2)
@@ -63,7 +71,9 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
       <p class="page-desc">
         得分 = 过题数 / baseline × (801 − 排名) / 800 × 100 | 
         team编号 ≤ team1791 取最佳7场，> team1791 取最佳5场 | 
-        灰色底 = 未计入成绩的场次
+        灰色底 = 未计入成绩的场次 |
+        淡红底 = 违规，成绩作废 |
+        淡橙色 = 因公事务缺席
       </p>
     </div>
 
@@ -121,7 +131,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
                   v-for="(contest, ci) in person.contests"
                   :key="ci"
                   class="col-contest"
-                  :class="{ 'not-best': !isBest(person, ci) }"
+                  :class="{ 'not-best': !isBest(person, ci), 'col-violation': isViolation(person, ci), 'col-excused': isExcused(person, ci) }"
                 >
                   <span class="sub-item">{{ contest.solved }}</span>
                   <span class="sub-item">{{ contest.rank || '-' }}</span>
@@ -186,6 +196,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
               <li>新生赛后参与训练的队员，取最好 <strong>5 场</strong>的平均成绩</li>
               <li><strong>队伍总成绩</strong> = 队伍所有成员个人总成绩的平均值</li>
               <li>成绩保留到小数点后 <strong>2 位</strong></li>
+              <li>因公事务缺席训练（如外出参与裁判工作、参与集训营等），成绩表格中以 <strong style="background:#fff3e0;padding:2px 6px;border-radius:3px;">淡橙色</strong> 标记，该场次不占用最佳场次名额</li>
             </ul>
           </div>
 
@@ -200,7 +211,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
               <li>若得分 &lt; 0 或未参赛，按 <strong>0 分</strong>计算</li>
               <li><strong>Baseline 题数</strong>：全场最高过题数（University 组中除特邀嘉宾外的最高过题数）</li>
               <li>排名基数为 <strong>800</strong>，理论上平均每场位于集训队内最后 10% 左右的选手，得分 = 0 分</li>
-              <li>存在疑似违规现象的选手，其当场成绩作废，得分按 <strong>0 分</strong>计算</li>
+              <li>存在疑似违规现象的选手，其当场成绩作废，得分按 <strong>0 分</strong>计算，成绩表格中以 <strong style="background:#fee2e2;padding:2px 6px;border-radius:3px;">淡红色</strong> 标记</li>
             </ul>
           </div>
         </div>
@@ -453,6 +464,23 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
 
 .not-best {
   background: var(--gray-bg) !important;
+}
+
+.col-violation {
+  background: #fee2e2 !important;
+}
+
+.score-table tbody tr:hover .col-violation {
+  background: #fecaca !important;
+}
+
+/* 因公事务缺席：淡橙色底色 */
+.col-excused {
+  background: #fff3e0 !important;
+}
+
+.score-table tbody tr:hover .col-excused {
+  background: #ffe0b2 !important;
 }
 
 .score-table tbody tr:hover,
