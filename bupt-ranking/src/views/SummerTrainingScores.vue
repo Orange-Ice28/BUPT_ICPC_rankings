@@ -243,7 +243,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
             <ul class="rule-list rule-list--compact">
               <li>排名使用<strong>全场排名</strong></li>
               <li>若得分 &lt; 0 或未参赛，按 <strong>0 分</strong>计算</li>
-              <li><strong>Baseline 题数</strong>：一般情况下指全场第 20 名队伍过题数，可能根据实际情况灵活调整</li>
+              <li><strong>Baseline 题数</strong>：一般情况下指 max（校内第 1 名过题数，全场第 20 名队伍过题数），可能根据实际情况灵活调整</li>
               <li>不取第 1 名队伍的过题数原因在于往年存在个别极强队伍（甚至有些不属于 Asia EC 赛区）过题数明显领先，导致大家的成绩被过度压缩，区分度不明显</li>
               <li>排名基数为 <strong>牛客 600，杭电 500</strong>，因为牛客参与队伍数较多。理论上平均每场位于集训队内最后 20% 左右的队伍，得分 = 0 分</li>
               <li>存在疑似违规现象的队伍，其当场成绩作废，得分按 <strong>0 分</strong>计算，成绩表格中以 <strong style="background:#fee2e2;padding:2px 6px;border-radius:3px;">淡红色</strong> 标记。如有需要，可在赛季训练群内申诉</li>
@@ -268,7 +268,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
                 <td>7</td>
                 <td>8</td>
                 <td>7</td>
-                <td>-</td>
+                <td>8</td>
                 <td>-</td>
                 <td>-</td>
                 <td>-</td>
