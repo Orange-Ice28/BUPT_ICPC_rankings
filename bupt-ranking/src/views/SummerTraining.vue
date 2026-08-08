@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
@@ -10,7 +10,7 @@ const activeTab = ref<'schedule' | 'scores'>('schedule')
 watch(
   () => route.name,
   (name) => {
-    if (name === 'summer-scores') {
+    if (name === 'summer-scores' || name === 'summer-scores-alt') {
       activeTab.value = 'scores'
     } else {
       activeTab.value = 'schedule'
@@ -19,16 +19,34 @@ watch(
   { immediate: true },
 )
 
+const isAltPage = computed(() => route.name === 'summer-scores-alt')
+
 function switchTab(tab: 'schedule' | 'scores') {
   activeTab.value = tab
   router.push({ name: tab === 'schedule' ? 'summer-schedule' : 'summer-scores' })
+}
+
+function handleSunClick() {
+  if (isAltPage.value) {
+    router.push({ name: 'summer-scores' })
+  } else {
+    router.push({ name: 'summer-scores-alt' })
+  }
 }
 </script>
 
 <template>
   <div class="summer-training">
     <div class="page-header">
-      <h2 class="page-title">☀️ 暑期训练</h2>
+      <h2 class="page-title">
+        <span
+          class="sun-icon"
+          :class="{ 'sun-icon--alt': isAltPage }"
+          @click="handleSunClick"
+          :title="isAltPage ? '点击切换至默认评分规则' : '点击切换至备选评分规则'"
+        >☀️</span>
+        暑期训练
+      </h2>
       <div class="tab-bar">
         <button
           class="tab-btn"
@@ -71,6 +89,22 @@ function switchTab(tab: 'schedule' | 'scores') {
   font-weight: 700;
   color: var(--primary-dark);
   margin-bottom: 16px;
+}
+
+.sun-icon {
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  user-select: none;
+}
+
+.sun-icon:hover {
+  transform: scale(1.2);
+  filter: brightness(1.3);
+}
+
+.sun-icon--alt {
+  filter: drop-shadow(0 0 6px #f59e0b);
 }
 
 .tab-bar {

@@ -2,6 +2,7 @@
 import { onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useScoreData } from '@/composables/useScoreData'
+import { recalcTeam } from '@/utils/summerAltScoring'
 
 const route = useRoute()
 const router = useRouter()
@@ -39,11 +40,12 @@ const overallTeams = computed(() => {
   const sd = summerData.value
   if (!d) return []
 
-  // 构建暑期训练队伍成绩映射
+  // 构建暑期训练队伍成绩映射（使用备选评分规则）
   const summerTeamMap = new Map<string, number>()
   if (sd && sd.teams) {
     for (const team of sd.teams) {
-      summerTeamMap.set(team.name_cn, team.team_total || 0)
+      const recalculated = recalcTeam(team)
+      summerTeamMap.set(team.name_cn, recalculated.team_total)
     }
   }
 
@@ -106,15 +108,15 @@ function getScoreClass(score: number): string {
     <div class="page-header">
       <h2 class="page-title">
         <span
-          class="sun-icon"
-          :class="{ 'sun-icon--alt': isAltPage }"
+          class="sun-icon sun-icon--alt"
           @click="handleSunClick"
-          :title="isAltPage ? '点击切换至默认评分规则' : '点击切换至备选评分规则'"
+          title="点击切换至默认评分规则"
         >☀️</span>
-        总成绩
+        总成绩（备选方案）
       </h2>
       <p class="page-desc">
-        总成绩 = 春季训练 × 10% + 暑期训练 × 60% + 网络赛 × 30%
+        总成绩 = 春季训练 × 10% + 暑期训练 × 60% + 网络赛 × 30% |
+        暑期训练采用<strong>备选评分规则</strong>：因公出差场次按其余正常场次最高 5 场平均分估算，违规场次按 0 分计算
       </p>
       <div class="formula-cards">
         <div class="formula-card formula-card--spring">
@@ -122,7 +124,7 @@ function getScoreClass(score: number): string {
           <div class="formula-weight">× 10%</div>
         </div>
         <div class="formula-card formula-card--summer" :class="{ pending: !hasSummerData }">
-          <div class="formula-label">暑期训练</div>
+          <div class="formula-label">暑期训练（备选规则）</div>
           <div class="formula-weight">× 60%</div>
         </div>
         <div class="formula-card pending">
@@ -182,6 +184,7 @@ function getScoreClass(score: number): string {
   border-radius: var(--radius-lg);
   padding: 24px;
   box-shadow: var(--shadow);
+  border-left: 4px solid #f59e0b;
 }
 
 .page-title {
@@ -211,6 +214,7 @@ function getScoreClass(score: number): string {
   font-size: 14px;
   color: var(--text-secondary);
   margin-bottom: 16px;
+  line-height: 1.8;
 }
 
 .formula-cards {
@@ -291,7 +295,6 @@ function getScoreClass(score: number): string {
   border-bottom: 1px solid var(--border-light);
 }
 
-/* --- 表头增强 --- */
 .overall-table thead th {
   font-size: 14px;
   padding: 10px 16px;
@@ -378,7 +381,6 @@ function getScoreClass(score: number): string {
   margin-right: 2px;
 }
 
-/* --- 表格斑马纹 --- */
 .overall-table tbody tr:nth-child(even) {
   background: #f8fafc;
 }
@@ -391,13 +393,11 @@ function getScoreClass(score: number): string {
   background: var(--primary-bg);
 }
 
-/* --- 表格数据行 --- */
 .overall-table tbody td {
   padding: 10px 16px;
   vertical-align: middle;
 }
 
-/* --- 总分列数值强调 --- */
 .col-total {
   font-variant-numeric: tabular-nums;
 }
