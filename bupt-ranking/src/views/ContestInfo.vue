@@ -6,8 +6,8 @@ import ccspLogo from '@/assets/CCSP_logo.png'
 import caccLogo from '@/assets/CACC_logo.png'
 
 const contests = [
-  { name: 'ICPC 网络赛 第1场', date: '2026-09-06', weekday: '周日', platform: '', problemSetter: '北京大学' },
-  { name: 'ICPC 网络赛 第2场', date: '2026-09-12', weekday: '周六', platform: '', problemSetter: '杭州师范大学、浙江大学' },
+  { name: 'ICPC 网络赛 第1场', date: '2026-09-06', weekday: '周日', platform: 'PTA', problemSetter: '北京大学' },
+  { name: 'ICPC 网络赛 第2场', date: '2026-09-12', weekday: '周六', platform: 'PTA', problemSetter: '杭州师范大学、浙江大学' },
   { name: 'CCPC 网络赛', date: '2026-09-19', weekday: '周六', platform: '', problemSetter: '' },
 ]
 
