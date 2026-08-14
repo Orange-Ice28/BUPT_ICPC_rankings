@@ -8,7 +8,7 @@
     7,
     8,
     9,
-    0,
+    9,
     0,
     7,
     8,
@@ -39,14 +39,14 @@
           "total_score": 71.36
         }
       ],
-      "team_total": 61.26,
+      "team_total": 58.76,
       "rank": 1,
       "contests": [
         {
           "solved": 5,
           "rank": 317,
           "score": 26.3,
-          "isBest": false,
+          "isBest": true,
           "excused": false
         },
         {
@@ -61,7 +61,8 @@
           "rank": 43,
           "score": 82.67,
           "isBest": true,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 5,
@@ -104,11 +105,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 4,
+          "rank": 272,
+          "score": 24.37,
           "isBest": false,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -212,7 +214,7 @@
           "total_score": 33.79
         }
       ],
-      "team_total": 58.43,
+      "team_total": 57.4,
       "rank": 2,
       "contests": [
         {
@@ -234,7 +236,8 @@
           "rank": 97,
           "score": 65.33,
           "isBest": true,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 5,
@@ -277,11 +280,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "solved": 5,
+          "rank": 125,
+          "score": 44.07,
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -385,7 +389,7 @@
           "total_score": 38.3
         }
       ],
-      "team_total": 49.34,
+      "team_total": 47.05,
       "rank": 3,
       "contests": [
         {
@@ -407,7 +411,8 @@
           "rank": 103,
           "score": 64.56,
           "isBest": true,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 5,
@@ -450,11 +455,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 4,
+          "rank": 572,
+          "score": 2.15,
           "isBest": false,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -497,7 +503,7 @@
           "solved": 3,
           "rank": 271,
           "score": 17.25,
-          "isBest": false,
+          "isBest": true,
           "excused": false,
           "absent": false
         },
@@ -558,7 +564,7 @@
           "total_score": 49.51
         }
       ],
-      "team_total": 45.73,
+      "team_total": 44.98,
       "rank": 4,
       "contests": [
         {
@@ -580,7 +586,8 @@
           "rank": 261,
           "score": 31.48,
           "isBest": true,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -623,11 +630,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "solved": 5,
+          "rank": 196,
+          "score": 37.5,
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -731,7 +739,7 @@
           "total_score": 42.88
         }
       ],
-      "team_total": 45.31,
+      "team_total": 44.35,
       "rank": 5,
       "contests": [
         {
@@ -753,7 +761,8 @@
           "rank": 243,
           "score": 33.15,
           "isBest": true,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 5,
@@ -796,11 +805,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 5,
+          "rank": 257,
+          "score": 31.85,
           "isBest": false,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -813,7 +823,7 @@
           "solved": 4,
           "rank": 222,
           "score": 31.89,
-          "isBest": false,
+          "isBest": true,
           "excused": false
         },
         {
@@ -888,179 +898,6 @@
       ]
     },
     {
-      "name_cn": "疑似mygo",
-      "name_en": "It's mygo",
-      "members": [
-        {
-          "name": "罗鑫宇",
-          "total_score": 46.77
-        },
-        {
-          "name": "谢兆轩",
-          "total_score": 38.67
-        },
-        {
-          "name": "朱致远",
-          "total_score": 14.16
-        }
-      ],
-      "team_total": 27.87,
-      "rank": 6,
-      "contests": [
-        {
-          "solved": 3,
-          "rank": 1101,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
-        },
-        {
-          "solved": 4,
-          "rank": 359,
-          "score": 17.93,
-          "isBest": true,
-          "excused": false
-        },
-        {
-          "solved": 3,
-          "rank": 730,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
-        },
-        {
-          "solved": 3,
-          "rank": 460,
-          "score": 10.07,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 5,
-          "rank": 265,
-          "score": 35.0,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 4,
-          "rank": 475,
-          "score": 12.0,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 5,
-          "rank": 155,
-          "score": 46.46,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 6,
-          "rank": 152,
-          "score": 49.89,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
-        },
-        {
-          "solved": 4,
-          "rank": 193,
-          "score": 35.2,
-          "isBest": true,
-          "excused": false
-        },
-        {
-          "solved": 2,
-          "rank": 430,
-          "score": 3.55,
-          "isBest": false,
-          "excused": false
-        },
-        {
-          "solved": 5,
-          "rank": 393,
-          "score": 12.0,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 5,
-          "rank": 193,
-          "score": 38.5,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 3,
-          "rank": 283,
-          "score": 16.35,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 5,
-          "rank": 149,
-          "score": 39.11,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 5,
-          "rank": 264,
-          "score": 26.33,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 5,
-          "rank": 266,
-          "score": 23.5,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
-        }
-      ]
-    },
-    {
       "name_cn": "我的青春算竞物语果然有问题",
       "name_en": "My Teen Algorithm Comp SNAFU",
       "members": [
@@ -1077,8 +914,8 @@
           "total_score": 45.21
         }
       ],
-      "team_total": 27.44,
-      "rank": 7,
+      "team_total": 27.18,
+      "rank": 6,
       "contests": [
         {
           "solved": 5,
@@ -1099,7 +936,8 @@
           "rank": 249,
           "score": 32.59,
           "isBest": true,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 3,
@@ -1142,11 +980,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "solved": 4,
+          "rank": 279,
+          "score": 23.85,
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -1234,6 +1073,181 @@
       ]
     },
     {
+      "name_cn": "疑似mygo",
+      "name_en": "It's mygo",
+      "members": [
+        {
+          "name": "罗鑫宇",
+          "total_score": 46.77
+        },
+        {
+          "name": "谢兆轩",
+          "total_score": 38.67
+        },
+        {
+          "name": "朱致远",
+          "total_score": 14.16
+        }
+      ],
+      "team_total": 26.13,
+      "rank": 7,
+      "contests": [
+        {
+          "solved": 3,
+          "rank": 1101,
+          "score": 0.0,
+          "isBest": false,
+          "excused": false
+        },
+        {
+          "solved": 4,
+          "rank": 359,
+          "score": 17.93,
+          "isBest": true,
+          "excused": false
+        },
+        {
+          "solved": 3,
+          "rank": 730,
+          "score": 0.0,
+          "isBest": false,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 3,
+          "rank": 460,
+          "score": 10.07,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 5,
+          "rank": 265,
+          "score": 35.0,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 4,
+          "rank": 475,
+          "score": 12.0,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 5,
+          "rank": 155,
+          "score": 46.46,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 6,
+          "rank": 152,
+          "score": 49.89,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 3,
+          "rank": 706,
+          "score": 0.0,
+          "isBest": false,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false,
+          "excused": false
+        },
+        {
+          "solved": 4,
+          "rank": 193,
+          "score": 35.2,
+          "isBest": true,
+          "excused": false
+        },
+        {
+          "solved": 2,
+          "rank": 430,
+          "score": 3.55,
+          "isBest": true,
+          "excused": false
+        },
+        {
+          "solved": 5,
+          "rank": 393,
+          "score": 12.0,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 5,
+          "rank": 193,
+          "score": 38.5,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 3,
+          "rank": 283,
+          "score": 16.35,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 5,
+          "rank": 149,
+          "score": 39.11,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 5,
+          "rank": 264,
+          "score": 26.33,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 5,
+          "rank": 266,
+          "score": 23.5,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false,
+          "excused": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false,
+          "excused": false
+        }
+      ]
+    },
+    {
       "name_cn": "三只企鹅",
       "name_en": "Gu Gu Ga Ga",
       "members": [
@@ -1250,7 +1264,7 @@
           "total_score": 25.06
         }
       ],
-      "team_total": 26.18,
+      "team_total": 25.11,
       "rank": 8,
       "contests": [
         {
@@ -1272,7 +1286,8 @@
           "rank": 300,
           "score": 27.87,
           "isBest": true,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 4,
@@ -1315,11 +1330,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 4,
+          "rank": 564,
+          "score": 2.74,
           "isBest": false,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -1362,7 +1378,7 @@
           "solved": 3,
           "rank": 352,
           "score": 11.18,
-          "isBest": false,
+          "isBest": true,
           "excused": false,
           "absent": false
         },
@@ -1419,7 +1435,7 @@
           "total_score": 21.52
         }
       ],
-      "team_total": 13.82,
+      "team_total": 12.84,
       "rank": 9,
       "contests": [
         {
@@ -1441,7 +1457,8 @@
           "rank": 1164,
           "score": 0.0,
           "isBest": true,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -1484,11 +1501,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
+          "solved": 3,
+          "rank": 1099,
           "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -1592,7 +1610,7 @@
           "total_score": 6.39
         }
       ],
-      "team_total": 11.19,
+      "team_total": 11.05,
       "rank": 10,
       "contests": [
         {
@@ -1614,7 +1632,8 @@
           "rank": 310,
           "score": 26.94,
           "isBest": true,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 4,
@@ -1657,11 +1676,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "solved": 4,
+          "rank": 476,
+          "score": 9.26,
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -1765,7 +1785,7 @@
           "total_score": 30.31
         }
       ],
-      "team_total": 10.28,
+      "team_total": 9.81,
       "rank": 11,
       "contests": [
         {
@@ -1787,7 +1807,8 @@
           "rank": 472,
           "score": 9.56,
           "isBest": true,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 3,
@@ -1830,11 +1851,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "solved": 4,
+          "rank": 552,
+          "score": 3.63,
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -1938,7 +1960,7 @@
           "total_score": 17.11
         }
       ],
-      "team_total": 8.66,
+      "team_total": 8.04,
       "rank": 12,
       "contests": [
         {
@@ -1960,7 +1982,8 @@
           "rank": 728,
           "score": 0.0,
           "isBest": true,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 3,
@@ -1974,7 +1997,7 @@
           "solved": 2,
           "rank": 1064,
           "score": 0.0,
-          "isBest": false,
+          "isBest": true,
           "excused": false,
           "absent": false
         },
@@ -2003,11 +2026,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
+          "solved": 3,
+          "rank": 905,
           "score": 0.0,
           "isBest": false,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -2133,7 +2157,8 @@
           "rank": 821,
           "score": 0.0,
           "isBest": true,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 2,
@@ -2176,11 +2201,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
+          "solved": 3,
+          "rank": 1062,
           "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
