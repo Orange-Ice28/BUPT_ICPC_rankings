@@ -280,7 +280,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
                 <td>9</td>
                 <td>9</td>
                 <td>10</td>
-                <td>-</td>
+                <td>9</td>
                 <td>-</td>
               </tr>
             </tbody>

@@ -18,7 +18,7 @@
     9,
     9,
     10,
-    0,
+    9,
     0
   ],
   "teams": [
@@ -186,7 +186,8 @@
           "rank": 0,
           "score": 0.0,
           "isBest": false,
-          "excused": false
+          "excused": true,
+          "absent": false
         },
         {
           "solved": 0,
@@ -214,7 +215,7 @@
           "total_score": 33.79
         }
       ],
-      "team_total": 57.4,
+      "team_total": 57.75,
       "rank": 2,
       "contests": [
         {
@@ -357,11 +358,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "solved": 7,
+          "rank": 98,
+          "score": 62.69,
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -389,7 +391,7 @@
           "total_score": 38.3
         }
       ],
-      "team_total": 47.05,
+      "team_total": 45.49,
       "rank": 3,
       "contests": [
         {
@@ -532,186 +534,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
-        }
-      ]
-    },
-    {
-      "name_cn": "橙雨星瞳",
-      "name_en": "Gold Astral Oculus",
-      "members": [
-        {
-          "name": "安奕轩",
-          "total_score": 37.16
-        },
-        {
-          "name": "冯仁宇",
-          "total_score": 61.6
-        },
-        {
-          "name": "安澍",
-          "total_score": 49.51
-        }
-      ],
-      "team_total": 44.98,
-      "rank": 4,
-      "contests": [
-        {
-          "solved": 6,
-          "rank": 111,
-          "score": 54.44,
-          "isBest": true,
-          "excused": false
-        },
-        {
-          "solved": 6,
-          "rank": 117,
-          "score": 53.78,
-          "isBest": true,
-          "excused": false
-        },
-        {
           "solved": 5,
-          "rank": 261,
-          "score": 31.48,
+          "rank": 288,
+          "score": 23.67,
           "isBest": true,
           "excused": false,
           "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": true,
-          "absent": false
-        },
-        {
-          "solved": 5,
-          "rank": 182,
-          "score": 43.65,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 4,
-          "rank": 224,
-          "score": 35.9,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 5,
-          "rank": 151,
-          "score": 46.88,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 7,
-          "rank": 69,
-          "score": 68.96,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 5,
-          "rank": 196,
-          "score": 37.5,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
-        },
-        {
-          "solved": 4,
-          "rank": 195,
-          "score": 34.97,
-          "isBest": true,
-          "excused": false
-        },
-        {
-          "solved": 4,
-          "rank": 232,
-          "score": 26.9,
-          "isBest": false,
-          "excused": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": true,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": true,
-          "absent": false
-        },
-        {
-          "solved": 3,
-          "rank": 229,
-          "score": 20.4,
-          "isBest": false,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 5,
-          "rank": 131,
-          "score": 41.11,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 6,
-          "rank": 155,
-          "score": 46.13,
-          "isBest": true,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 5,
-          "rank": 326,
-          "score": 17.5,
-          "isBest": false,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
         },
         {
           "solved": 0,
@@ -739,8 +567,8 @@
           "total_score": 42.88
         }
       ],
-      "team_total": 44.35,
-      "rank": 5,
+      "team_total": 45.31,
+      "rank": 4,
       "contests": [
         {
           "solved": 5,
@@ -882,11 +710,188 @@
           "absent": false
         },
         {
+          "solved": 7,
+          "rank": 124,
+          "score": 58.64,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
           "solved": 0,
           "rank": 0,
           "score": 0.0,
           "isBest": false,
           "excused": false
+        }
+      ]
+    },
+    {
+      "name_cn": "橙雨星瞳",
+      "name_en": "Gold Astral Oculus",
+      "members": [
+        {
+          "name": "安奕轩",
+          "total_score": 37.16
+        },
+        {
+          "name": "冯仁宇",
+          "total_score": 61.6
+        },
+        {
+          "name": "安澍",
+          "total_score": 49.51
+        }
+      ],
+      "team_total": 43.48,
+      "rank": 5,
+      "contests": [
+        {
+          "solved": 6,
+          "rank": 111,
+          "score": 54.44,
+          "isBest": true,
+          "excused": false
+        },
+        {
+          "solved": 6,
+          "rank": 117,
+          "score": 53.78,
+          "isBest": true,
+          "excused": false
+        },
+        {
+          "solved": 5,
+          "rank": 261,
+          "score": 31.48,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false,
+          "excused": true,
+          "absent": false
+        },
+        {
+          "solved": 5,
+          "rank": 182,
+          "score": 43.65,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 4,
+          "rank": 224,
+          "score": 35.9,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 5,
+          "rank": 151,
+          "score": 46.88,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 7,
+          "rank": 69,
+          "score": 68.96,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 5,
+          "rank": 196,
+          "score": 37.5,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false,
+          "excused": false
+        },
+        {
+          "solved": 4,
+          "rank": 195,
+          "score": 34.97,
+          "isBest": true,
+          "excused": false
+        },
+        {
+          "solved": 4,
+          "rank": 232,
+          "score": 26.9,
+          "isBest": true,
+          "excused": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false,
+          "excused": true,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "isBest": false,
+          "excused": true,
+          "absent": false
+        },
+        {
+          "solved": 3,
+          "rank": 229,
+          "score": 20.4,
+          "isBest": false,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 5,
+          "rank": 131,
+          "score": 41.11,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 6,
+          "rank": 155,
+          "score": 46.13,
+          "isBest": true,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 5,
+          "rank": 326,
+          "score": 17.5,
+          "isBest": false,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 4,
+          "rank": 314,
+          "score": 16.62,
+          "isBest": false,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -914,7 +919,7 @@
           "total_score": 45.21
         }
       ],
-      "team_total": 27.18,
+      "team_total": 26.46,
       "rank": 6,
       "contests": [
         {
@@ -1057,11 +1062,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "solved": 4,
+          "rank": 317,
+          "score": 16.36,
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -1089,7 +1095,7 @@
           "total_score": 14.16
         }
       ],
-      "team_total": 26.13,
+      "team_total": 25.45,
       "rank": 7,
       "contests": [
         {
@@ -1232,11 +1238,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "solved": 4,
+          "rank": 323,
+          "score": 15.82,
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -1264,7 +1271,7 @@
           "total_score": 25.06
         }
       ],
-      "team_total": 25.11,
+      "team_total": 24.22,
       "rank": 8,
       "contests": [
         {
@@ -1407,11 +1414,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "solved": 4,
+          "rank": 368,
+          "score": 11.82,
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -1435,7 +1443,7 @@
           "total_score": 21.52
         }
       ],
-      "team_total": 12.84,
+      "team_total": 11.98,
       "rank": 9,
       "contests": [
         {
@@ -1549,7 +1557,7 @@
           "solved": 0,
           "rank": 0,
           "score": 0.0,
-          "isBest": false,
+          "isBest": true,
           "excused": false,
           "absent": true
         },
@@ -1578,11 +1586,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
+          "solved": 2,
+          "rank": 609,
           "score": 0.0,
           "isBest": false,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -1610,7 +1619,7 @@
           "total_score": 6.39
         }
       ],
-      "team_total": 11.05,
+      "team_total": 11.32,
       "rank": 10,
       "contests": [
         {
@@ -1753,11 +1762,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "solved": 4,
+          "rank": 331,
+          "score": 15.11,
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -1785,7 +1795,7 @@
           "total_score": 30.31
         }
       ],
-      "team_total": 9.81,
+      "team_total": 9.15,
       "rank": 11,
       "contests": [
         {
@@ -1869,7 +1879,7 @@
           "solved": 2,
           "rank": 672,
           "score": 0.0,
-          "isBest": false,
+          "isBest": true,
           "excused": false
         },
         {
@@ -1928,11 +1938,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
+          "solved": 2,
+          "rank": 539,
           "score": 0.0,
           "isBest": false,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -1960,7 +1971,7 @@
           "total_score": 17.11
         }
       ],
-      "team_total": 8.04,
+      "team_total": 7.66,
       "rank": 12,
       "contests": [
         {
@@ -2103,11 +2114,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "isBest": false,
-          "excused": false
+          "solved": 3,
+          "rank": 465,
+          "score": 2.4,
+          "isBest": true,
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
@@ -2257,7 +2269,7 @@
           "solved": 2,
           "rank": 566,
           "score": 0.0,
-          "isBest": false,
+          "isBest": true,
           "excused": false,
           "absent": false
         },
@@ -2278,11 +2290,12 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
+          "solved": 3,
+          "rank": 517,
           "score": 0.0,
           "isBest": false,
-          "excused": false
+          "excused": false,
+          "absent": false
         },
         {
           "solved": 0,
