@@ -27,12 +27,12 @@ const router = createRouter({
         {
           path: 'scores',
           name: 'summer-scores',
-          component: () => import('../views/SummerTrainingScores.vue'),
+          component: () => import('../views/SummerTrainingScoresAlt.vue'),
         },
         {
           path: 'scores-alt',
           name: 'summer-scores-alt',
-          component: () => import('../views/SummerTrainingScoresAlt.vue'),
+          component: () => import('../views/SummerTrainingScores.vue'),
         },
       ],
     },
@@ -44,12 +44,12 @@ const router = createRouter({
     {
       path: '/overall',
       name: 'overall',
-      component: () => import('../views/OverallScore.vue'),
+      component: () => import('../views/OverallScoreAlt.vue'),
     },
     {
       path: '/overall-alt',
       name: 'overall-alt',
-      component: () => import('../views/OverallScoreAlt.vue'),
+      component: () => import('../views/OverallScore.vue'),
     },
     {
       path: '/contests',

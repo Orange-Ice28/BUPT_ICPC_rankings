@@ -146,9 +146,9 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
 <template>
   <div class="summer-scores">
     <div class="page-header">
-      <h2 class="page-title">暑期训练成绩</h2>
+      <h2 class="page-title">☀️ 暑期训练成绩（备选方案）</h2>
       <p class="page-desc">
-        牛客得分 = 过题数 / baseline × (601 − 排名) / 600 × 100 |
+        牛客得分 = 过题数 / baseline × (751 − 排名) / 750 × 100 |
         杭电得分 = 过题数 / baseline × (501 − 排名) / 500 × 100 |
         取最好 16 场（80%）的平均成绩计入总成绩 |
         灰色底 = 未计入成绩的场次 |
@@ -214,7 +214,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
 
       <div class="rules-section">
         <div class="rules-header">
-          <h3 class="rules-title">暑期训练评分规则</h3>
+          <h3 class="rules-title">暑期训练评分规则（备选方案）</h3>
           <span class="rules-badge">2026~2027赛季</span>
         </div>
 
@@ -227,7 +227,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
               <li>取所有场次中成绩最好的 <strong>80%</strong> 场次计入总成绩，即取最好 <strong>16 场</strong>的平均成绩</li>
               <li><strong>队伍总成绩</strong> = 成绩最好的 80% 场次成绩的平均值</li>
               <li>成绩保留到小数点后 <strong>2 位</strong></li>
-              <li>因公耽误比赛 k 场的队伍，如外出参与裁判工作、参与集训营等，取 <strong>成绩最好的 16-k 场</strong> 成绩的平均值，成绩表格中以 <strong style="background:#fff3e0;padding:2px 6px;border-radius:3px;">淡橙色</strong> 标记 </li>
+              <li>因公耽误比赛 k 场的队伍，如外出参与裁判工作、参与清华集训营等，取 <strong>成绩最好的 16-k 场</strong> 成绩的平均值，成绩表格中以 <strong style="background:#fff3e0;padding:2px 6px;border-radius:3px;">淡橙色</strong> 标记 </li>
             </ul>
           </div>
 
@@ -235,7 +235,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
             <div class="rule-card__icon"></div>
             <h4 class="rule-card__title">单场得分公式</h4>
             <div class="formula-box">
-              <div class="formula-text">牛客得分 = 过题数 / baseline × (601 − 排名) / 600 × 100</div>
+              <div class="formula-text">牛客得分 = 过题数 / baseline × (751 − 排名) / 750 × 100</div>
             </div>
             <div class="formula-box">
               <div class="formula-text">杭电得分 = 过题数 / baseline × (501 − 排名) / 500 × 100</div>
@@ -245,7 +245,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
               <li>若得分 &lt; 0 或未参赛，按 <strong>0 分</strong>计算</li>
               <li><strong>Baseline 题数</strong>：一般情况下指 max（校内第 1 名过题数，全场第 20 名队伍过题数），可能根据实际情况灵活调整</li>
               <li>不取第 1 名队伍的过题数原因在于往年存在个别极强队伍（甚至有些不属于 Asia EC 赛区）过题数明显领先，导致大家的成绩被过度压缩，区分度不明显</li>
-              <li>排名基数为 <strong>牛客 600，杭电 500</strong>，因为牛客参与队伍数较多。理论上平均每场位于集训队内最后 20% 左右的队伍，得分 = 0 分</li>
+              <li>杭电、牛客、网络赛参与人数分别约为 700+、1400+、2000+，大体比例1:2:3。考虑到随总队伍数量增加，强队增加比例优先，因此排名基数为 <strong>杭电 500，牛客 750，网络赛 1000</strong>，比例为 1:1.5:2。</li>
               <li>存在疑似违规现象的队伍，其当场成绩作废，得分按 <strong>0 分</strong>计算，成绩表格中以 <strong style="background:#fee2e2;padding:2px 6px;border-radius:3px;">淡红色</strong> 标记。如有需要，可在赛季训练群内申诉</li>
             </ul>
           </div>

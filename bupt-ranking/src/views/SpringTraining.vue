@@ -216,6 +216,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
           </div>
         </div>
 
+        <!-- 各场题数 Baseline 暂不展示
         <div class="rule-card rule-card--baseline">
           <div class="rule-card__icon">📊</div>
           <h4 class="rule-card__title">各场题数 Baseline</h4>
@@ -241,6 +242,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
             </tbody>
           </table>
         </div>
+        -->
       </div>
     </template>
   </div>

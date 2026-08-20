@@ -36,7 +36,7 @@ CONTEST_CONFIG = {
         "excel_file": "data/nowcoder_contest.xlsx",
         "sheet_template": "nc{num}",       # nc1, nc2, ...
         "index_base": 0,                    # nc1 → summer[0], nc2 → summer[1], ...
-        "rank_offset": 601,                 # 公式中的排名上限参数
+        "rank_offset": 751,                 # 公式中的排名上限参数
         "default_baseline": 9,
         # Excel 列映射（0-based）: 姓名, 学校, 过题数, 排名, Baseline, 得分
         "col_name": 0,

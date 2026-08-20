@@ -106,15 +106,15 @@ function getScoreClass(score: number): string {
     <div class="page-header">
       <h2 class="page-title">
         <span
-          class="sun-icon"
-          :class="{ 'sun-icon--alt': isAltPage }"
+          class="sun-icon sun-icon--alt"
           @click="handleSunClick"
-          :title="isAltPage ? '点击切换至默认评分规则' : '点击切换至备选评分规则'"
+          title="点击切换至默认评分规则"
         >☀️</span>
-        总成绩
+        总成绩（备选方案）
       </h2>
       <p class="page-desc">
-        总成绩 = 春季训练 × 10% + 暑期训练 × 60% + 网络赛 × 30%
+        总成绩 = 春季训练 × 10% + 暑期训练 × 60% + 网络赛 × 30% |
+        暑期训练采用<strong>默认评分规则</strong>：取最好 80% 场次成绩的平均值
       </p>
       <div class="formula-cards">
         <div class="formula-card formula-card--spring">
@@ -122,7 +122,7 @@ function getScoreClass(score: number): string {
           <div class="formula-weight">× 10%</div>
         </div>
         <div class="formula-card formula-card--summer" :class="{ pending: !hasSummerData }">
-          <div class="formula-label">暑期训练</div>
+          <div class="formula-label">暑期训练（默认规则）</div>
           <div class="formula-weight">× 60%</div>
         </div>
         <div class="formula-card pending">
@@ -182,6 +182,7 @@ function getScoreClass(score: number): string {
   border-radius: var(--radius-lg);
   padding: 24px;
   box-shadow: var(--shadow);
+  border-left: 4px solid #f59e0b;
 }
 
 .page-title {
