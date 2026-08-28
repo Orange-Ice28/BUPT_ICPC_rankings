@@ -55,6 +55,19 @@ const router = createRouter({
       path: '/contests',
       name: 'contests',
       component: () => import('../views/ContestInfo.vue'),
+      redirect: '/contests/calendar',
+      children: [
+        {
+          path: 'calendar',
+          name: 'contest-calendar',
+          component: () => import('../views/ContestCalendar.vue'),
+        },
+        {
+          path: 'table',
+          name: 'contest-table',
+          component: () => import('../views/ContestTable.vue'),
+        },
+      ],
     },
     {
       path: '/history',
