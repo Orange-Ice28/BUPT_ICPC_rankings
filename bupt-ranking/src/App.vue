@@ -24,6 +24,9 @@ function isActive(path: string): boolean {
   if (path === '/summer') {
     return currentPath.value === '/summer' || currentPath.value.startsWith('/summer/')
   }
+  if (path === '/contests') {
+    return currentPath.value === '/contests' || currentPath.value.startsWith('/contests/')
+  }
   return currentPath.value === path
 }
 </script>
