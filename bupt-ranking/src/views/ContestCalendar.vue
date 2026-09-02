@@ -132,7 +132,6 @@ const monthHasEvents = computed(() =>
       <div class="section-header">
         <span class="section-icon">📅</span>
         <h3 class="section-title">赛季日历</h3>
-        <span class="section-subtitle">ICPC / CCPC 正式赛 & 网络赛</span>
       </div>
       <div class="calendar-container">
         <div class="calendar-nav">

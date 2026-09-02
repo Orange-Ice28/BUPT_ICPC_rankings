@@ -26,25 +26,26 @@ function switchTab(tab: 'schedule' | 'scores') {
   router.push({ name: tab === 'schedule' ? 'summer-schedule' : 'summer-scores' })
 }
 
-function handleSunClick() {
-  if (isAltPage.value) {
-    router.push({ name: 'summer-scores' })
-  } else {
-    router.push({ name: 'summer-scores-alt' })
-  }
-}
+// function handleSunClick() {
+//   if (isAltPage.value) {
+//     router.push({ name: 'summer-scores' })
+//   } else {
+//     router.push({ name: 'summer-scores-alt' })
+//   }
+// }
 </script>
 
 <template>
   <div class="summer-training">
     <div class="page-header">
       <h2 class="page-title">
-        <span
+        <!-- <span
           class="sun-icon"
           :class="{ 'sun-icon--alt': isAltPage }"
           @click="handleSunClick"
           :title="isAltPage ? '点击切换至默认评分规则' : '点击切换至备选评分规则'"
-        >☀️</span>
+        >☀️</span> -->
+        <span class="sun-icon">☀️</span>
         暑期训练
       </h2>
       <div class="tab-bar">

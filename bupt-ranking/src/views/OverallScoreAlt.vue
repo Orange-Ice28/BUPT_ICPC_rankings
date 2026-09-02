@@ -11,13 +11,13 @@ const { data, summerData, loading, error, fetchData, fetchSummerData } = useScor
 
 const isAltPage = computed(() => route.name === 'overall-alt')
 
-function handleSunClick() {
-  if (isAltPage.value) {
-    router.push({ name: 'overall' })
-  } else {
-    router.push({ name: 'overall-alt' })
-  }
-}
+// function handleSunClick() {
+//   if (isAltPage.value) {
+//     router.push({ name: 'overall' })
+//   } else {
+//     router.push({ name: 'overall-alt' })
+//   }
+// }
 
 onMounted(() => {
   fetchData()
@@ -107,12 +107,13 @@ function getScoreClass(score: number): string {
   <div class="overall-score">
     <div class="page-header">
       <h2 class="page-title">
-        <span
+        <!-- <span
           class="sun-icon"
           :class="{ 'sun-icon--alt': isAltPage }"
           @click="handleSunClick"
           :title="isAltPage ? '点击切换至默认评分规则' : '点击切换至备选评分规则'"
-        >☀️</span>
+        >🌸</span> -->
+        <span class="sun-icon">🌸</span>
         总成绩
       </h2>
       <p class="page-desc">

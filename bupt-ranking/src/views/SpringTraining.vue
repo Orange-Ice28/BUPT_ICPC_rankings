@@ -67,7 +67,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
 <template>
   <div class="spring-training">
     <div class="page-header">
-      <h2 class="page-title">春季训练成绩</h2>
+      <h2 class="page-title">🍃 春季训练成绩</h2>
       <p class="page-desc">
         得分 = 过题数 / baseline × (801 − 排名) / 800 × 100 | 
         team编号 ≤ team1791 取最佳7场，> team1791 取最佳5场 | 
@@ -573,7 +573,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
   align-items: center;
   gap: 16px;
   padding: 20px 24px;
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  background: linear-gradient(135deg, #15803d, #16a34a);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
 }

@@ -12,12 +12,12 @@ const contests = [
 ]
 
 const icpcContests = [
-  { station: '西安', date: '2026.10.17-18', host: '西北工业大学', expectedTeams: 350, problemSetter: '' },
+  { station: '西安', date: '2026.10.17-18', host: '西北工业大学', expectedTeams: 380, problemSetter: '' },
   { station: '成都', date: '2026.10.24-25', host: '电子科技大学', expectedTeams: 320, problemSetter: '' },
   { station: '武汉', date: '2026.10.31-11.01', host: '武汉大学', expectedTeams: 300, problemSetter: '' },
   { station: '南京', date: '2026.11.07-08', host: '南京航空航天大学', expectedTeams: 360, problemSetter: '' },
   { station: '沈阳', date: '2026.11.14-15', host: '东北大学', expectedTeams: 400, problemSetter: '' },
-  { station: '上海', date: '2026.12.05-06', host: '上海大学', expectedTeams: 336, problemSetter: '' },
+  { station: '上海', date: '2026.12.05-06', host: '上海大学', expectedTeams: '336（正式）+48（打星）', problemSetter: '' },
   { station: '南昌', date: '2026.12.19-20', host: '江西师范大学', expectedTeams: 360, problemSetter: '' },
   { station: '香港', date: '2027.01.09-10', host: '香港大学', expectedTeams: 120, problemSetter: '' },
   { station: '杭州（EC Final）', date: '2027.01.26-28', host: '杭州师范大学、浙江大学', expectedTeams: 300, problemSetter: '' },
@@ -150,7 +150,7 @@ watch(
           :class="{ active: activeTab === 'table' }"
           @click="switchTab('table')"
         >
-          表格展示
+          详细信息
         </button>
       </div>
     </div>
