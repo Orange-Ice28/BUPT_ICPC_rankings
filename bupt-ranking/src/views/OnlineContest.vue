@@ -1,46 +1,640 @@
 <script setup lang="ts">
+import { onMounted, computed } from 'vue'
+import { useScoreData } from '@/composables/useScoreData'
+
+const NET_CONTEST_LABELS = ['ICPC 网络赛 1', 'ICPC 网络赛 2', 'CCPC 网络赛']
+
+const { netData, loading, error, fetchNetData } = useScoreData()
+
+onMounted(fetchNetData)
+
+interface NetTeam {
+  name_cn: string
+  name_en: string
+  members: { name: string }[]
+  team_total: number
+  rank: number
+  contests: {
+    solved: number
+    rank: number
+    score: number
+    excused: boolean
+    absent: boolean
+  }[]
+}
+
+const sortedTeams = computed<NetTeam[]>(() => {
+  const d = netData.value
+  if (!d) return []
+  // 过滤掉"请输入文本"队伍（nullPointerException 是占位数据），并重新计算排名
+  const filtered = d.teams.filter((t: NetTeam) => t.name_cn !== '请输入文本')
+  let currentRank = 1
+  let prevScore = -1
+  return filtered.map((t: NetTeam, i: number) => {
+    if (t.team_total !== prevScore) {
+      currentRank = i + 1
+      prevScore = t.team_total
+    }
+    return { ...t, rank: currentRank }
+  })
+})
+
+function getRankClass(rank: number): string {
+  if (rank === 1) return 'rank-gold'
+  if (rank === 2) return 'rank-silver'
+  if (rank === 3) return 'rank-bronze'
+  return ''
+}
+
+function getScoreClass(score: number): string {
+  if (score >= 60) return 'score-excellent'
+  if (score >= 40) return 'score-good'
+  if (score >= 20) return 'score-medium'
+  return 'score-low'
+}
+
+function getMemberNames(members: { name: string }[]): string {
+  return members.map((m) => m.name).join('、')
+}
+
+function getContestData(team: NetTeam, contestIndex: number) {
+  if (!team.contests || !team.contests[contestIndex]) {
+    return { solved: '-', rank: '-', score: '-', excused: false, absent: false }
+  }
+
+  const contest = team.contests[contestIndex]
+
+  if (contest.excused) {
+    return { solved: '-', rank: '-', score: '-', excused: true, absent: false }
+  }
+
+  if (contest.absent) {
+    return { solved: '-', rank: '-', score: 0, excused: false, absent: true }
+  }
+
+  const hasData = contest.solved > 0 ||
+    (contest.rank !== null && contest.rank !== undefined && contest.rank > 0) ||
+    (contest.score !== null && contest.score !== undefined && contest.score > 0)
+
+  if (!hasData) {
+    return { solved: '-', rank: '-', score: '-', excused: false, absent: false }
+  }
+
+  return {
+    solved: contest.solved,
+    rank: contest.rank,
+    score: contest.score,
+    excused: false,
+    absent: false,
+  }
+}
+
+function getSolvedClass(solved: string | number): string {
+  if (solved === '-') return ''
+  const num = typeof solved === 'number' ? solved : parseInt(solved)
+  if (num >= 8) return 'solved-excellent'
+  if (num >= 6) return 'solved-good'
+  if (num >= 4) return 'solved-medium'
+  return 'solved-low'
+}
+
+function getRankColorClass(rank: string | number): string {
+  if (rank === '-') return ''
+  const num = typeof rank === 'number' ? rank : parseInt(rank)
+  if (num <= 10) return 'rank-excellent'
+  if (num <= 50) return 'rank-good'
+  if (num <= 200) return 'rank-medium'
+  return 'rank-low'
+}
+
+function getScoreColorClass(score: string | number): string {
+  if (score === '-') return ''
+  const num = typeof score === 'number' ? score : parseFloat(score)
+  if (num >= 60) return 'score-excellent'
+  if (num >= 40) return 'score-good'
+  if (num >= 20) return 'score-medium'
+  return 'score-low'
+}
+
+function formatContestValue(value: string | number, isScore: boolean = false): string {
+  if (value === '-') return '-'
+  const num = typeof value === 'number' ? value : parseFloat(value)
+  if (isNaN(num)) return '-'
+  if (!isScore) {
+    return Math.round(num).toString()
+  }
+  return num.toFixed(2)
+}
 </script>
 
 <template>
-  <div class="placeholder-page">
-    <div class="placeholder-card">
-      <div class="placeholder-icon">🌐</div>
-      <h2 class="placeholder-title">网络赛</h2>
-      <p class="placeholder-desc">网络赛成绩暂未公布，敬请期待</p>
+  <div class="net-scores">
+    <div class="page-header">
+      <h2 class="page-title">🌐 网络赛成绩</h2>
+      <p class="page-desc">
+        网络赛共 <strong>3 场</strong>，全部计入总成绩，取平均分 |
+        总成绩中权重为 <strong>30%</strong>
+      </p>
     </div>
+
+    <div v-if="loading" class="loading">加载中...</div>
+    <div v-else-if="error" class="error">加载失败: {{ error }}</div>
+    <template v-else-if="netData">
+      <div class="table-wrapper">
+        <div class="table-scroll">
+          <table class="team-score-table">
+            <thead>
+              <tr class="orange-header">
+                <th class="col-rank col-sticky" style="left: 0">排名</th>
+                <th class="col-team col-sticky" style="left: 62px">队伍</th>
+                <th class="col-team-total col-sticky" style="left: 262px">队伍总成绩</th>
+                <th v-for="(label, i) in NET_CONTEST_LABELS" :key="i" class="col-contest">
+                  {{ label }}
+                </th>
+              </tr>
+              <tr class="sub-header orange-sub-header">
+                <th colspan="3" class="col-sticky-group" style="left: 0"></th>
+                <th v-for="(_, i) in NET_CONTEST_LABELS" :key="i" class="col-contest-sub">
+                  <span class="sub-item">过题</span>
+                  <span class="sub-item">排名</span>
+                  <span class="sub-item">得分</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="team in sortedTeams" :key="team.name_cn">
+                <td class="col-rank col-sticky" style="left: 0" :class="getRankClass(team.rank)">{{ team.rank }}</td>
+                <td class="col-team col-sticky" style="left: 62px">
+                  <div class="team-name">{{ team.name_cn }}</div>
+                  <div class="team-members">{{ getMemberNames(team.members) }}</div>
+                </td>
+                <td class="col-team-total col-sticky" style="left: 262px" :class="getScoreClass(team.team_total)">
+                  {{ formatContestValue(team.team_total, true) }}
+                </td>
+                <td
+                  v-for="(_, ci) in NET_CONTEST_LABELS"
+                  :key="ci"
+                  class="col-contest"
+                  :class="{
+                    'col-absent': getContestData(team, ci).absent,
+                  }"
+                >
+                  <template v-if="getContestData(team, ci).excused">
+                    <span class="sub-item">-</span>
+                    <span class="sub-item">-</span>
+                    <span class="sub-item excused-text">因公出差</span>
+                  </template>
+                  <template v-else-if="getContestData(team, ci).absent">
+                    <span class="sub-item absent-text">-</span>
+                    <span class="sub-item absent-text">-</span>
+                    <span class="sub-item absent-text">0.00</span>
+                  </template>
+                  <template v-else>
+                    <span class="sub-item">{{ formatContestValue(getContestData(team, ci).solved) }}</span>
+                    <span class="sub-item">{{ formatContestValue(getContestData(team, ci).rank) }}</span>
+                    <span class="sub-item" :class="getScoreColorClass(getContestData(team, ci).score)">
+                      {{ formatContestValue(getContestData(team, ci).score, true) }}
+                    </span>
+                  </template>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="rules-section">
+        <div class="rules-header">
+          <h3 class="rules-title">网络赛评分规则</h3>
+          <span class="rules-badge">2026~2027赛季</span>
+        </div>
+
+        <div class="rules-grid">
+          <div class="rule-card rule-card--general">
+            <div class="rule-card__icon">📋</div>
+            <h4 class="rule-card__title">总体规则</h4>
+            <ul class="rule-list">
+              <li>网络赛共 <strong>3 场</strong>，全部计入总成绩</li>
+              <li><strong>队伍总成绩</strong> = 3 场得分取平均值</li>
+              <li>成绩保留到小数点后 <strong>2 位</strong></li>
+              <li>总成绩中网络赛权重为 <strong>30%</strong></li>
+            </ul>
+          </div>
+
+          <div class="rule-card rule-card--formula">
+            <div class="rule-card__icon"></div>
+            <h4 class="rule-card__title">单场得分公式</h4>
+            <div class="formula-box">
+              <div class="formula-text">网络赛得分 = 过题数 / baseline × (1001 − 排名) / 1000 × 100</div>
+            </div>
+            <ul class="rule-list rule-list--compact">
+              <li>排名使用<strong>全场排名</strong></li>
+              <li>若得分 &lt; 0 或未参赛，按 <strong>0 分</strong>计算</li>
+              <li><strong>Baseline 题数</strong>：全场第 1 名过题数</li>
+              <li>由于网络赛参与队伍数约 2000+，排名基数设为 <strong>1000</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </template>
   </div>
 </template>
 
 <style scoped>
-.placeholder-page {
+.net-scores {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 60vh;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.placeholder-card {
+.page-header {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
-  padding: 60px 80px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid #06b6d4;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
+.page-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.table-wrapper {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.team-score-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.team-score-table th,
+.team-score-table td {
+  padding: 10px 12px;
   text-align: center;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.col-sticky {
+  position: sticky;
+  z-index: 2;
+  background: var(--bg-card);
+}
+
+.col-sticky-group {
+  position: sticky;
+  z-index: 2;
+  background: #fef3c7;
+}
+
+.team-score-table thead .col-sticky {
+  background: var(--primary-bg);
+  z-index: 4;
+}
+
+.orange-header th {
+  background: var(--primary-bg) !important;
+  color: var(--primary-dark) !important;
+}
+
+.orange-header th.col-sticky {
+  background: var(--primary-bg) !important;
+}
+
+.orange-sub-header th {
+  background: #dbeafe !important;
+}
+
+.orange-sub-header th.col-sticky-group {
+  background: #dbeafe !important;
+}
+
+.team-score-table thead th {
+  background: var(--primary-bg);
+  color: var(--primary-dark);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.team-score-table .sub-header th {
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: #fef3c7;
+}
+
+.col-contest-sub .sub-item {
+  display: inline-block;
+  width: 42px;
+  text-align: center;
+}
+
+.col-rank {
+  width: 62px;
+  min-width: 62px;
+  font-weight: 600;
+}
+
+.col-team {
+  width: 200px;
+  min-width: 200px;
+  text-align: left !important;
+}
+
+.team-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.team-members {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.col-team-total {
+  width: 100px;
+  min-width: 100px;
+  font-weight: 700;
+}
+
+.col-contest {
+  min-width: 130px;
+}
+
+.col-contest .sub-item {
+  display: inline-block;
+  width: 42px;
+  text-align: center;
+}
+
+.team-score-table tbody tr:hover {
+  background: var(--primary-bg);
+}
+
+.team-score-table tbody tr:hover .col-sticky:not(.orange-header th) {
+  background: var(--primary-bg);
+}
+
+.rank-gold {
+  color: #b45309;
+  font-weight: 700;
+}
+
+.rank-gold::before {
+  content: '🥇';
+  margin-right: 2px;
+}
+
+.rank-silver {
+  color: #6b7280;
+  font-weight: 700;
+}
+
+.rank-silver::before {
+  content: '🥈';
+  margin-right: 2px;
+}
+
+.rank-bronze {
+  color: #92400e;
+  font-weight: 700;
+}
+
+.rank-bronze::before {
+  content: '🥉';
+  margin-right: 2px;
+}
+
+.score-excellent {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.score-good {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.score-medium {
+  color: var(--warning);
+  font-weight: 600;
+}
+
+.score-low {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* 未参加 */
+.col-absent {
+  background: #f3f4f6;
+}
+
+.team-score-table tbody tr:hover .col-absent {
+  background: #e5e7eb;
+}
+
+.absent-text {
+  color: var(--text-muted);
+}
+
+.excused-text {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Solved count color classes - 过题和排名统一黑色，不单独着色 */
+
+/* Rank color classes - 过题和排名统一黑色，不单独着色 */
+
+.loading,
+.error {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.error {
+  color: var(--danger);
+}
+
+.rules-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rules-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #0891b2, #06b6d4);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
 }
 
-.placeholder-icon {
-  font-size: 64px;
-  margin-bottom: 20px;
-}
-
-.placeholder-title {
-  font-size: 28px;
+.rules-title {
+  font-size: 20px;
   font-weight: 700;
-  color: var(--primary-dark);
-  margin-bottom: 12px;
+  color: #fff;
+  margin: 0;
 }
 
-.placeholder-desc {
+.rules-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.rule-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary);
+  transition: box-shadow 0.2s ease;
+}
+
+.rule-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.rule-card--general {
+  border-left-color: var(--success);
+}
+
+.rule-card--formula {
+  border-left-color: var(--accent);
+}
+
+.rule-card__icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.rule-card__title {
   font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.rule-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rule-list--compact {
+  gap: 8px;
+}
+
+.rule-list li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14px;
   color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.rule-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.rule-card--general .rule-list li::before {
+  background: var(--success);
+}
+
+.rule-card--formula .rule-list li::before {
+  background: var(--accent);
+}
+
+.rule-list li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.formula-box {
+  background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+  border: 2px solid #67e8f9;
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.formula-text {
+  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #155e75;
+  letter-spacing: 0.5px;
+  word-break: break-all;
+}
+
+@media (max-width: 768px) {
+  .rules-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rules-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .formula-text {
+    font-size: 14px;
+  }
 }
 </style>

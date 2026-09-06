@@ -7,7 +7,7 @@ import { recalcTeam } from '@/utils/summerAltScoring'
 const route = useRoute()
 const router = useRouter()
 
-const { data, summerData, loading, error, fetchData, fetchSummerData } = useScoreData()
+const { data, summerData, netData, loading, error, fetchData, fetchSummerData, fetchNetData } = useScoreData()
 
 const isAltPage = computed(() => route.name === 'overall-alt')
 
@@ -22,6 +22,7 @@ const isAltPage = computed(() => route.name === 'overall-alt')
 onMounted(() => {
   fetchData()
   fetchSummerData()
+  fetchNetData()
 })
 
 interface OverallTeam {
@@ -38,6 +39,7 @@ interface OverallTeam {
 const overallTeams = computed(() => {
   const d = data.value
   const sd = summerData.value
+  const nd = netData.value
   if (!d) return []
 
   // 构建暑期训练队伍成绩映射（使用备选评分规则）
@@ -49,10 +51,20 @@ const overallTeams = computed(() => {
     }
   }
 
-  const teams: OverallTeam[] = d.teams.map((t) => {
+  // 构建网络赛队伍成绩映射
+  const netTeamMap = new Map<string, number>()
+  if (nd && nd.teams) {
+    for (const team of nd.teams) {
+      netTeamMap.set(team.name_cn, team.team_total || 0)
+    }
+  }
+
+  const teams: OverallTeam[] = d.teams
+    .filter((t) => t.name_cn !== '请输入文本')
+    .map((t) => {
     const spring = t.team_total
     const summer = summerTeamMap.get(t.name_cn) || 0
-    const online = 0
+    const online = netTeamMap.get(t.name_cn) || 0
     const overall = spring * 0.1 + summer * 0.6 + online * 0.3
     return {
       name_cn: t.name_cn,
@@ -86,6 +98,12 @@ const hasSummerData = computed(() => {
   const sd = summerData.value
   if (!sd || !sd.teams) return false
   return sd.teams.some((t: any) => t.team_total > 0)
+})
+
+const hasNetData = computed(() => {
+  const nd = netData.value
+  if (!nd || !nd.teams) return false
+  return nd.teams.some((t: any) => t.team_total > 0)
 })
 
 function getRankClass(rank: number): string {
@@ -128,7 +146,7 @@ function getScoreClass(score: number): string {
           <div class="formula-label">暑期训练</div>
           <div class="formula-weight">× 60%</div>
         </div>
-        <div class="formula-card pending">
+        <div class="formula-card formula-card--net" :class="{ pending: !hasNetData }">
           <div class="formula-label">网络赛</div>
           <div class="formula-weight">× 30%</div>
         </div>
@@ -161,7 +179,7 @@ function getScoreClass(score: number): string {
               <td class="col-members">{{ team.members.join('、') }}</td>
               <td class="col-score">{{ team.spring_score.toFixed(2) }}</td>
               <td class="col-score" :class="{ 'pending-score': team.summer_score === 0 }">{{ team.summer_score.toFixed(2) }}</td>
-              <td class="col-score pending-score">{{ team.online_score.toFixed(2) }}</td>
+              <td class="col-score" :class="{ 'pending-score': !hasNetData }">{{ team.online_score.toFixed(2) }}</td>
               <td class="col-total" :class="getScoreClass(team.overall_score)">
                 {{ team.overall_score.toFixed(2) }}
               </td>
@@ -248,6 +266,15 @@ function getScoreClass(score: number): string {
 
 .formula-card--summer .formula-weight {
   color: #f59e0b;
+}
+
+.formula-card--net {
+  background: #eff6ff;
+  border-color: #3b82f6;
+}
+
+.formula-card--net .formula-weight {
+  color: #3b82f6;
 }
 
 .formula-card.pending {

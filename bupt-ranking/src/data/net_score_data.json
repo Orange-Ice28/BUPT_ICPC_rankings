@@ -1,0 +1,526 @@
+{
+  "baselines": [
+    12,
+    0,
+    0
+  ],
+  "teams": [
+    {
+      "name_cn": "不是清北一队",
+      "name_en": "BUPkuThu",
+      "members": [
+        {
+          "name": "许智彬"
+        },
+        {
+          "name": "杨浩琨"
+        },
+        {
+          "name": "潘毅恒"
+        }
+      ],
+      "team_total": 23.6,
+      "rank": 1,
+      "contests": [
+        {
+          "solved": 9,
+          "rank": 57,
+          "score": 70.8,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "异等小队",
+      "name_en": "The bad batch",
+      "members": [
+        {
+          "name": "张嘉麒"
+        },
+        {
+          "name": "王天宇"
+        },
+        {
+          "name": "林锐思"
+        }
+      ],
+      "team_total": 20.51,
+      "rank": 2,
+      "contests": [
+        {
+          "solved": 8,
+          "rank": 78,
+          "score": 61.53,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "二阶堂艾玛",
+      "name_en": "Nikaidou Ema",
+      "members": [
+        {
+          "name": "邢瑞林"
+        },
+        {
+          "name": "缪宸瀚"
+        },
+        {
+          "name": "李奕澎"
+        }
+      ],
+      "team_total": 16.8,
+      "rank": 3,
+      "contests": [
+        {
+          "solved": 7,
+          "rank": 137,
+          "score": 50.4,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "橙雨星瞳",
+      "name_en": "Gold Astral Oculus",
+      "members": [
+        {
+          "name": "安奕轩"
+        },
+        {
+          "name": "冯仁宇"
+        },
+        {
+          "name": "安澍"
+        }
+      ],
+      "team_total": 12.68,
+      "rank": 4,
+      "contests": [
+        {
+          "solved": 6,
+          "rank": 240,
+          "score": 38.05,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "永远别放弃",
+      "name_en": "nevergonnagiveyouup",
+      "members": [
+        {
+          "name": "王义轩"
+        },
+        {
+          "name": "杨鑫"
+        },
+        {
+          "name": "刘芯羽"
+        }
+      ],
+      "team_total": 12.23,
+      "rank": 5,
+      "contests": [
+        {
+          "solved": 6,
+          "rank": 267,
+          "score": 36.7,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "三只企鹅",
+      "name_en": "Gu Gu Ga Ga",
+      "members": [
+        {
+          "name": "丁培钊"
+        },
+        {
+          "name": "张哲源"
+        },
+        {
+          "name": "李子俊"
+        }
+      ],
+      "team_total": 11.92,
+      "rank": 6,
+      "contests": [
+        {
+          "solved": 6,
+          "rank": 286,
+          "score": 35.75,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "超时空代码姬",
+      "name_en": "Chou Code-hime",
+      "members": [
+        {
+          "name": "丁有艺"
+        },
+        {
+          "name": "孙祥延"
+        },
+        {
+          "name": "魏胜新"
+        }
+      ],
+      "team_total": 11.45,
+      "rank": 7,
+      "contests": [
+        {
+          "solved": 6,
+          "rank": 314,
+          "score": 34.35,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "在学校咱们就练起来！",
+      "name_en": "SEISHUN://NO_HACKING",
+      "members": [
+        {
+          "name": "吴显熠"
+        },
+        {
+          "name": "詹笙平"
+        },
+        {
+          "name": "雷童"
+        }
+      ],
+      "team_total": 8.87,
+      "rank": 8,
+      "contests": [
+        {
+          "solved": 6,
+          "rank": 469,
+          "score": 26.6,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "疑似mygo",
+      "name_en": "It's mygo",
+      "members": [
+        {
+          "name": "罗鑫宇"
+        },
+        {
+          "name": "谢兆轩"
+        },
+        {
+          "name": "朱致远"
+        }
+      ],
+      "team_total": 4.64,
+      "rank": 9,
+      "contests": [
+        {
+          "solved": 5,
+          "rank": 667,
+          "score": 13.92,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "我的青春算竞物语果然有问题",
+      "name_en": "My Teen Algorithm Comp SNAFU",
+      "members": [
+        {
+          "name": "周一鸣"
+        },
+        {
+          "name": "胡恒瑞"
+        },
+        {
+          "name": "吴宗阳"
+        }
+      ],
+      "team_total": 0.63,
+      "rank": 10,
+      "contests": [
+        {
+          "solved": 4,
+          "rank": 944,
+          "score": 1.9,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "请输入文本",
+      "name_en": "nullPointerException",
+      "members": [
+        {
+          "name": "周弋然"
+        },
+        {
+          "name": "许家铭"
+        }
+      ],
+      "team_total": 0.0,
+      "rank": 11,
+      "contests": [
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": true
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "重生之忘带前世记忆打acm",
+      "name_en": "Re0：acm without memories",
+      "members": [
+        {
+          "name": "成伟业"
+        },
+        {
+          "name": "程博睿"
+        },
+        {
+          "name": "李梓安"
+        }
+      ],
+      "team_total": 0.0,
+      "rank": 12,
+      "contests": [
+        {
+          "solved": 4,
+          "rank": 1072,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "ClosedClaw",
+      "name_en": "ClosedClaw",
+      "members": [
+        {
+          "name": "毕梓健"
+        },
+        {
+          "name": "李健"
+        },
+        {
+          "name": "刘林果"
+        }
+      ],
+      "team_total": 0.0,
+      "rank": 13,
+      "contests": [
+        {
+          "solved": 4,
+          "rank": 1188,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    }
+  ]
+}
