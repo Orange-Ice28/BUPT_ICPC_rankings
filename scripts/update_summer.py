@@ -2,10 +2,11 @@
 暑期集训成绩更新脚本（统一版：牛客 + 杭电）
 =============================================
 用法:
-  python scripts/update_summer.py nc 3       # 更新牛客第3场
-  python scripts/update_summer.py nc 3 10    # 更新牛客第3场，指定 baseline=10
-  python scripts/update_summer.py hdu 1      # 更新杭电第1场
-  python scripts/update_summer.py hdu 2 7    # 更新杭电第2场，指定 baseline=7
+  python scripts/update_summer.py nc 3        # 更新牛客第3场
+  python scripts/update_summer.py nc 3 10     # 更新牛客第3场，指定 baseline=10
+  python scripts/update_summer.py nc 3 10 750  # 更新牛客第3场，指定 baseline=10, max_rank=750
+  python scripts/update_summer.py hdu 1       # 更新杭电第1场
+  python scripts/update_summer.py hdu 2 7 500  # 更新杭电第2场，指定 baseline=7, max_rank=500
 
 功能:
   1. 读取对应 Excel sheet 的队伍数据
@@ -28,7 +29,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # ============================================================
-# 比赛类型配置
+# 比赛类型配置（列索引更新：在 Baseline 和 得分之间插入 max_rank）
 # ============================================================
 CONTEST_CONFIG = {
     "nc": {
@@ -36,28 +37,30 @@ CONTEST_CONFIG = {
         "excel_file": "data/nowcoder_contest.xlsx",
         "sheet_template": "nc{num}",       # nc1, nc2, ...
         "index_base": 0,                    # nc1 → summer[0], nc2 → summer[1], ...
-        "rank_offset": 751,                 # 公式中的排名上限参数
         "default_baseline": 9,
-        # Excel 列映射（0-based）: 姓名, 学校, 过题数, 排名, Baseline, 得分
+        "default_max_rank": 750,
+        # Excel 列映射（0-based）: 姓名(0), 学校(1), 过题数(2), 排名(3), Baseline(4), Max Rank(5), 得分(6)
         "col_name": 0,
         "col_solved": 2,
         "col_rank": 3,
         "col_baseline": 4,
-        "col_score": 5,
+        "col_max_rank": 5,
+        "col_score": 6,
     },
     "hdu": {
         "label": "杭电",
         "excel_file": "data/hdu_contest.xlsx",
         "sheet_template": "hdu{num}",       # hdu1, hdu2, ...
         "index_base": 10,                   # hdu1 → summer[10], hdu2 → summer[11], ...
-        "rank_offset": 501,                 # 公式中的排名上限参数
         "default_baseline": 7,
-        # Excel 列映射（0-based）: 姓名, 学校, 排名, 过题数, Baseline, 得分
+        "default_max_rank": 500,
+        # Excel 列映射（0-based）: 姓名(0), 学校(1), 排名(2), 过题数(3), Baseline(4), Max Rank(5), 得分(6)
         "col_name": 0,
         "col_solved": 3,                    # HDU: 过题数在第4列
         "col_rank": 2,                      # HDU: 排名在第3列
         "col_baseline": 4,
-        "col_score": 5,
+        "col_max_rank": 5,
+        "col_score": 6,
     },
 }
 
@@ -96,14 +99,14 @@ def parse_special_value(val):
         return 0, None
 
 
-def calc_score(solved, rank, baseline, rank_offset):
+def calc_score(solved, rank, baseline, max_rank):
     """计算暑期训练单场得分
-    通用公式: 得分 = 过题数 / baseline × (rank_offset − 排名) / (rank_offset − 1) × 100
+    公式: 得分 = 过题数 / baseline × (max_rank + 1 − 排名) / max_rank × 100
     得分 clamp 到 [0, 100]
     """
-    if baseline == 0 or rank_offset <= 1:
+    if baseline == 0 or max_rank <= 0:
         return 0.0
-    score = (solved / baseline) * (rank_offset - rank) / (rank_offset - 1) * 100
+    score = (solved / baseline) * ((max_rank + 1) - rank) / max_rank * 100
     if score < 0 or score > 100:
         return 0.0
     return round(score, 2)
@@ -132,6 +135,7 @@ def load_excel_teams(config, sheet_name):
     cs = config["col_solved"]
     cr = config["col_rank"]
     cb = config["col_baseline"]
+    cmr = config["col_max_rank"]
 
     for row in ws.iter_rows(min_row=2, values_only=True):
         name = row[cn] if cn < len(row) else None
@@ -152,6 +156,7 @@ def load_excel_teams(config, sheet_name):
             "solved": solved_val,
             "rank": rank_val,
             "baseline": int(row[cb]) if cb < len(row) and row[cb] else 0,
+            "max_rank": int(row[cmr]) if cmr < len(row) and row[cmr] else 0,
             "score": row[config["col_score"]] if config["col_score"] < len(row) else None,
             "excused": is_excused,
             "absent": is_absent,
@@ -181,24 +186,20 @@ def save_summer_data(data):
 
 def match_team(excel_name, summer_teams):
     """将 Excel 中的队伍名匹配到 summer_score_data.json 中的队伍"""
-    # 先检查映射表
     if excel_name in NAME_MAPPING:
         mapped = NAME_MAPPING[excel_name]
         for t in summer_teams:
             if t["name_cn"] == mapped:
                 return t
 
-    # 精确匹配中文名
     for t in summer_teams:
         if t["name_cn"] == excel_name:
             return t
 
-    # 模糊匹配中文名
     for t in summer_teams:
         if excel_name in t["name_cn"] or t["name_cn"] in excel_name:
             return t
 
-    # 匹配英文名（标准化后比较）
     def normalize(s):
         return s.replace(" ", "").replace("://", "").replace("!", "").lower()
 
@@ -218,20 +219,16 @@ def recalc_team_totals(data):
     - 未参加的场次按 0 分计入有效场次
     """
     for team in data["teams"]:
-        # 统计有效场次：有数据 或 标记为"未参加"（得 0 分也算有效场次），排除因公出差
         def is_effective(c):
             if c.get("excused", False):
                 return False
             if c.get("absent", False):
-                return True  # 未参加按 0 分计入有效场次
+                return True
             return c["solved"] > 0 or c["score"] > 0
 
         contests_with_data = sum(1 for c in team["contests"] if is_effective(c))
-
-        # 统计因公出差场次
         excused_count = sum(1 for c in team["contests"] if c.get("excused", False))
 
-        # 重置所有 isBest
         for contest in team["contests"]:
             contest["isBest"] = False
 
@@ -245,7 +242,6 @@ def recalc_team_totals(data):
                     break
         else:
             if excused_count > 0:
-                # 因公出差: 取 已举行总场次×80% − 出差场次
                 total_held = sum(1 for b in data["baselines"] if b > 0)
                 best_n = max(1, math.ceil(total_held * 0.8) - excused_count)
             else:
@@ -266,7 +262,6 @@ def recalc_team_totals(data):
             best_scores = [p[1] for p in best_pairs]
             team["team_total"] = round(sum(best_scores) / best_n, 2)
 
-    # 排序并更新排名
     data["teams"].sort(key=lambda x: x["team_total"], reverse=True)
     for i, team in enumerate(data["teams"]):
         team["rank"] = i + 1
@@ -277,19 +272,17 @@ def recalc_team_totals(data):
 # ============================================================
 
 def main():
-    # 解析命令行参数
     if len(sys.argv) < 2:
-        print("用法: python scripts/update_summer.py <类型> <场次> [baseline]")
+        print("用法: python scripts/update_summer.py <类型> <场次> [baseline] [max_rank]")
         print()
         print("类型:")
         print("  nc    牛客比赛 (sheet: nc{num}, 索引: 0~9)")
         print("  hdu   杭电比赛 (sheet: hdu{num}, 索引: 10~19)")
         print()
         print("示例:")
-        print("  python scripts/update_summer.py nc 3       # 牛客第3场")
-        print("  python scripts/update_summer.py nc 3 10    # 牛客第3场，baseline=10")
-        print("  python scripts/update_summer.py hdu 1      # 杭电第1场")
-        print("  python scripts/update_summer.py hdu 2 7    # 杭电第2场，baseline=7")
+        print("  python scripts/update_summer.py nc 3         # 牛客第3场")
+        print("  python scripts/update_summer.py nc 3 10      # 牛客第3场，baseline=10")
+        print("  python scripts/update_summer.py nc 3 10 750  # 牛客第3场，baseline=10, max_rank=750")
         sys.exit(1)
 
     contest_type = sys.argv[1].lower()
@@ -308,7 +301,7 @@ def main():
     sheet_name = config["sheet_template"].format(num=contest_num)
     contest_idx = config["index_base"] + contest_num - 1
     default_baseline = int(sys.argv[3]) if len(sys.argv) >= 4 else None
-    rank_offset = config["rank_offset"]
+    default_max_rank = int(sys.argv[4]) if len(sys.argv) >= 5 else None
 
     print("=" * 65)
     print(f"  更新{config['label']}第 {contest_num} 场 (sheet: {sheet_name}, idx: {contest_idx})")
@@ -324,46 +317,41 @@ def main():
 
     # ---- 第2步：计算得分 ----
     print()
-    formula_desc = f"(solved/baseline) x ({rank_offset} - rank) / {rank_offset - 1} x 100"
-    print(f"[2/5] 计算得分 — 公式: {formula_desc}")
+    print("[2/5] 计算得分 — 公式: (solved/baseline) x (max_rank + 1 - rank) / max_rank x 100")
     print()
 
     for team in excel_teams:
+        baseline = default_baseline or team["baseline"] or config["default_baseline"]
+        team["baseline"] = baseline
+
+        max_rank = default_max_rank or team["max_rank"] or config["default_max_rank"]
+        team["max_rank"] = max_rank
+
         if team["excused"]:
-            # 因公出差：不计分，不参与排名计算
             team["score"] = 0.0
-            team["baseline"] = default_baseline or team["baseline"] or config["default_baseline"]
             print(f"  {team['name']:<35s}  ⚠ 因公出差 → 不计入成绩")
         elif team["absent"]:
-            # 未参加：按 0 分计算
             team["score"] = 0.0
-            team["baseline"] = default_baseline or team["baseline"] or config["default_baseline"]
             print(f"  {team['name']:<35s}  ✘ 未参加 → 得分=0.00")
         else:
-            baseline = default_baseline or team["baseline"] or config["default_baseline"]
-            if team["baseline"] == 0 or team["baseline"] is None:
-                team["baseline"] = baseline
-
-            score = calc_score(team["solved"], team["rank"], baseline, rank_offset)
+            score = calc_score(team["solved"], team["rank"], baseline, max_rank)
             team["score"] = score
-            team["baseline"] = baseline
             print(f"  {team['name']:<35s}  "
                   f"solved={team['solved']:<3d}  rank={team['rank']:<6d}  "
-                  f"baseline={baseline}  →  score={score:>7.2f}")
+                  f"baseline={baseline}  max_rank={max_rank}  →  score={score:>7.2f}")
 
     # ---- 第3步：写回 Excel ----
     print()
     print("[3/5] 写回 Excel...")
-    score_col = config["col_score"] + 1  # openpyxl 1-indexed
+    score_col = config["col_score"] + 1      # openpyxl 1-indexed
     baseline_col = config["col_baseline"] + 1
+    max_rank_col = config["col_max_rank"] + 1
 
     for i, team in enumerate(excel_teams):
         row_idx = i + 2  # 第1行是表头
-        # 因公出差/未参加：得分写 0，保留原始文字
         ws.cell(row=row_idx, column=score_col).value = team["score"]
-        existing_baseline = ws.cell(row=row_idx, column=baseline_col).value
-        if existing_baseline is None or existing_baseline == 0:
-            ws.cell(row=row_idx, column=baseline_col).value = team["baseline"]
+        ws.cell(row=row_idx, column=baseline_col).value = team["baseline"]
+        ws.cell(row=row_idx, column=max_rank_col).value = team["max_rank"]
 
     wb.save(config["excel_file"])
     wb.close()
@@ -374,7 +362,6 @@ def main():
     print("[4/5] 更新 summer_score_data.json...")
     data = load_summer_data()
 
-    # 确保 baselines 数组足够长
     while len(data["baselines"]) <= contest_idx:
         data["baselines"].append(0)
 
@@ -382,7 +369,15 @@ def main():
     data["baselines"][contest_idx] = used_baseline
     print(f"  baselines[{contest_idx}] = {used_baseline}")
 
-    # 更新每支队伍的 contest 数据
+    if "max_ranks" not in data:
+        data["max_ranks"] = [0] * len(data["baselines"])
+    while len(data["max_ranks"]) <= contest_idx:
+        data["max_ranks"].append(0)
+
+    used_max_rank = excel_teams[0]["max_rank"] if excel_teams else config["default_max_rank"]
+    data["max_ranks"][contest_idx] = used_max_rank
+    print(f"  max_ranks[{contest_idx}] = {used_max_rank}")
+
     matched_count = 0
     unmatched = []
 
@@ -416,7 +411,6 @@ def main():
     print("[5/5] 重新计算队伍总成绩...")
     recalc_team_totals(data)
 
-    # 打印排名
     print()
     print("  Top 10 队伍总成绩:")
     for team in data["teams"][:10]:
@@ -430,7 +424,6 @@ def main():
 
     save_summer_data(data)
 
-    # ---- 完成 ----
     print()
     print("=" * 65)
     print(f"  {config['label']}第 {contest_num} 场更新完成! 共处理 {len(excel_teams)} 支队伍")

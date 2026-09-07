@@ -209,7 +209,7 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
             <ul class="rule-list rule-list--compact">
               <li>排名使用<strong>全场排名</strong></li>
               <li>若得分 &lt; 0 或未参赛，按 <strong>0 分</strong>计算</li>
-              <li><strong>baseline 题数</strong>：全场最高过题数（University 组中除特邀嘉宾外的最高过题数）</li>
+              <li><strong>Baseline 题数</strong>：全场最高过题数（University 组中除特邀嘉宾外的最高过题数）</li>
               <li><strong>max_rank 队伍数</strong>：全场至少通过一题的队伍数目</li>
               <li>存在疑似违规现象的选手，其当场成绩作废，得分按 <strong>0 分</strong>计算，成绩表格中以 <strong style="background:#fee2e2;padding:2px 6px;border-radius:3px;">淡红色</strong> 标记</li>
             </ul>

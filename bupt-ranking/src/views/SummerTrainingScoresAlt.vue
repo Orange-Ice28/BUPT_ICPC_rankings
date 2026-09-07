@@ -163,9 +163,9 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
     <div class="page-header">
       <h2 class="page-title">☀️ 暑期训练成绩</h2>
       <p class="page-desc">
-        取最好 <strong>16 场</strong>（80%）的平均成绩计入总成绩 |
-        淡灰色 = 未计入成绩的场次 |
-        淡红色 = 违规，成绩作废 |
+        取最好 <strong>16 场</strong>（80%）的平均成绩计入总成绩<br>
+        淡灰色 = 未计入成绩的场次<br>
+        淡红色 = 违规，成绩作废<br>
         淡橙色 = 因公事务缺席（估算分）
       </p>
     </div>
@@ -277,17 +277,14 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
             <div class="rule-card__icon"></div>
             <h4 class="rule-card__title">单场得分公式</h4>
             <div class="formula-box">
-              <div class="formula-text">牛客得分 = 过题数 / baseline × (751 − 排名) / 750 × 100</div>
-            </div>
-            <div class="formula-box">
-              <div class="formula-text">杭电得分 = 过题数 / baseline × (501 − 排名) / 500 × 100</div>
+              <div class="formula-text">得分 = 过题数/baseline × (max_rank+1−排名)/max_rank × 100</div>
             </div>
             <ul class="rule-list rule-list--compact">
               <li>排名使用<strong>全场排名</strong></li>
               <li>若得分 &lt; 0 或未参赛，按 <strong>0 分</strong>计算</li>
-              <li><strong>Baseline 题数</strong>：一般情况下指 max（校内第 1 名过题数，全场第 20 名队伍过题数），可能根据实际情况灵活调整</li>
+              <li><strong>Baseline 题数</strong>：全场最高过题数</li>
+              <li><strong>max_rank 队伍数</strong>：全场至少通过一题的队伍数目</li>
               <li>因公出差场次得分 = 该队其余正常场次中<strong>最高 5 场得分的平均值</strong></li>
-              <li>杭电、牛客、网络赛参与队伍数分别约为 700+、1400+、2000+，大体比例 1:2:3。考虑到随总队伍数量增加，强队增加比例有限，因此排名基数为 <strong>杭电 500，牛客 750，网络赛 1000</strong>，比例为 1:1.5:2。</li>
             </ul>
           </div>
         </div>
