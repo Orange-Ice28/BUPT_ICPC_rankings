@@ -53,11 +53,18 @@ def load_rank_data():
 def load_baseline():
     wb = openpyxl.load_workbook(BASELINE_FILE)
     ws = wb.active
-    baselines = []
+    baselines_data = []
     for row in ws.iter_rows(min_row=2, values_only=True):
-        baselines.append(int(row[1]))
+        # row[0] 是场数, row[1] 是 baseline, row[2] 是 max_rank
+        baseline_val = int(row[1]) if row[1] is not None else 0
+        max_rank_val = int(row[2]) if len(row) > 2 and row[2] is not None else 800
+        
+        baselines_data.append({
+            "baseline": baseline_val,
+            "max_rank": max_rank_val
+        })
     wb.close()
-    return baselines
+    return baselines_data
 
 
 def load_teams():
@@ -79,10 +86,10 @@ def load_teams():
     return teams
 
 
-def calc_contest_score(solved, rank, baseline):
-    if baseline == 0:
+def calc_contest_score(solved, rank, baseline, max_rank):
+    if baseline == 0 or max_rank == 0:
         return 0.0
-    score = (solved / baseline) * (801 - rank) / 800 * 100
+    score = (solved / baseline) * ((max_rank + 1) - rank) / max_rank * 100
     if score < 0 or score > 100:
         return 0.0
     return score
@@ -107,7 +114,7 @@ def calc_personal_total(scores, team_id):
 def main():
     rank_data = load_rank_data()
     rank_data = [item for item in rank_data if item["team_id"] != "team1790"]
-    baselines = load_baseline()
+    baselines_data = load_baseline()
     teams = load_teams()
 
     name_to_team_id = {}
@@ -127,7 +134,12 @@ def main():
         scores = []
         details = []
         for i, c in enumerate(item["contests"]):
-            s = calc_contest_score(c["solved"], c["rank"], baselines[i])
+            # 获取当前场次的 baseline 和 max_rank
+            b_val = baselines_data[i]["baseline"]
+            m_rank = baselines_data[i]["max_rank"]
+            
+            # 将它们传入计算函数
+            s = calc_contest_score(c["solved"], c["rank"], b_val, m_rank)
             scores.append(s)
             details.append({
                 "solved": c["solved"],

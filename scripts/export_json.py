@@ -21,11 +21,16 @@ TEAM_THRESHOLD = 1791
 def load_baseline():
     wb = openpyxl.load_workbook(BASELINE_FILE)
     ws = wb.active
-    baselines = []
+    baselines_data = []
     for row in ws.iter_rows(min_row=2, values_only=True):
-        baselines.append(int(row[1]))
+        baseline_val = int(row[1]) if row[1] is not None else 0
+        max_rank_val = int(row[2]) if len(row) > 2 and row[2] is not None else 800
+        baselines_data.append({
+            "baseline": baseline_val,
+            "max_rank": max_rank_val
+        })
     wb.close()
-    return baselines
+    return baselines_data
 
 
 def load_teams():
@@ -75,10 +80,10 @@ def load_rank_data():
     return data
 
 
-def calc_contest_score(solved, rank, baseline):
-    if baseline == 0:
+def calc_contest_score(solved, rank, baseline, max_rank):
+    if baseline == 0 or max_rank == 0:
         return 0.0
-    score = (solved / baseline) * (801 - rank) / 800 * 100
+    score = (solved / baseline) * ((max_rank + 1) - rank) / max_rank * 100
     if score < 0 or score > 100:
         return 0.0
     return score
@@ -99,7 +104,7 @@ def calc_personal_total(scores, team_id):
 
 
 def main():
-    baselines = load_baseline()
+    baselines_data = load_baseline()
     teams = load_teams()
     rank_data = load_rank_data()
     rank_data = [item for item in rank_data if item["team_id"] != "team1790"]
@@ -123,7 +128,10 @@ def main():
         scores = []
         contest_details = []
         for i, c in enumerate(item["contests"]):
-            s = calc_contest_score(c["solved"], c["rank"], baselines[i])
+            b_val = baselines_data[i]["baseline"]
+            m_rank = baselines_data[i]["max_rank"]
+            
+            s = calc_contest_score(c["solved"], c["rank"], b_val, m_rank)
             scores.append(s)
             contest_details.append({
                 "solved": c["solved"],
@@ -189,8 +197,9 @@ def main():
     for i, t in enumerate(team_results):
         t["rank"] = i + 1
 
+    baselines_list = [b["baseline"] for b in baselines_data]
     result = {
-        "baselines": baselines,
+        "baselines": baselines_list,
         "personal": personal_results,
         "teams": team_results,
     }
@@ -201,7 +210,7 @@ def main():
     with open(f"{DATA_DIR}/export_log.txt", "w", encoding="utf-8") as f:
         f.write(f"Personal count: {len(personal_results)}\n")
         f.write(f"Team count: {len(team_results)}\n")
-        f.write(f"Baselines: {baselines}\n")
+        f.write(f"Baselines: {baselines_list}\n")
         f.write("Done.\n")
 
 

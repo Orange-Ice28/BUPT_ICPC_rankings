@@ -67,15 +67,15 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
 <template>
   <div class="spring-training">
     <div class="page-header">
-      <h2 class="page-title">🍃 春季训练成绩</h2>
-      <p class="page-desc">
-        得分 = 过题数 / baseline × (801 − 排名) / 800 × 100 | 
-        team编号 ≤ team1791 取最佳7场，> team1791 取最佳5场 | 
-        灰色底 = 未计入成绩的场次 |
-        淡红底 = 违规，成绩作废 |
-        淡橙色 = 因公事务缺席
-      </p>
-    </div>
+    <h2 class="page-title">🍃 春季训练成绩</h2>
+    <p class="page-desc">
+      得分 = 过题数 / baseline × (max_rank + 1 − 排名) / max_rank × 100<br>
+      team编号 ≤ team1791 取最佳7场，> team1791 取最佳5场<br>
+      灰色底 = 未计入成绩的场次<br>
+      淡红底 = 违规，成绩作废<br>
+      淡橙色 = 因公事务缺席
+    </p>
+  </div>
 
     <div v-if="loading" class="loading">加载中...</div>
     <div v-else-if="error" class="error">加载失败: {{ error }}</div>
@@ -204,13 +204,13 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
             <div class="rule-card__icon"></div>
             <h4 class="rule-card__title">单场得分公式</h4>
             <div class="formula-box">
-              <div class="formula-text">得分 = 过题数 / baseline × (801 − 排名) / 800 × 100</div>
+              <div class="formula-text">得分 = 过题/baseline × (max_rank+1−排名)/max_rank × 100</div>
             </div>
             <ul class="rule-list rule-list--compact">
-              <li>排名使用 HDU 平台<strong>全场排名</strong></li>
+              <li>排名使用<strong>全场排名</strong></li>
               <li>若得分 &lt; 0 或未参赛，按 <strong>0 分</strong>计算</li>
-              <li><strong>Baseline 题数</strong>：全场最高过题数（University 组中除特邀嘉宾外的最高过题数）</li>
-              <li>排名基数为 <strong>800</strong>，理论上平均每场位于集训队内最后 10% 左右的选手，得分 = 0 分</li>
+              <li><strong>baseline 题数</strong>：全场最高过题数（University 组中除特邀嘉宾外的最高过题数）</li>
+              <li><strong>max_rank 队伍数</strong>：全场至少通过一题的队伍数目</li>
               <li>存在疑似违规现象的选手，其当场成绩作废，得分按 <strong>0 分</strong>计算，成绩表格中以 <strong style="background:#fee2e2;padding:2px 6px;border-radius:3px;">淡红色</strong> 标记</li>
             </ul>
           </div>
