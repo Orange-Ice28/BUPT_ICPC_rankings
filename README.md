@@ -3,7 +3,7 @@
 网址：https://orange-ice28.github.io/BUPT_ICPC_rankings/?v=1
 
 ## 一、总体评分规则
-总分 = 春季训练 $\times$ 10% + 暑期训练 $\times$ 60% + 网络赛 $\times$ 30%
+总分 = 春季训练 $\times$ 20% + 暑期训练 $\times$ 50% + 网络赛 $\times$ 30%
 
 ## 二、春季训练评分规则
 ### 2.1 总体规则
