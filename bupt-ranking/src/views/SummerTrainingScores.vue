@@ -57,8 +57,8 @@ function getRankClass(rank: number): string {
 }
 
 function getScoreClass(score: number): string {
-  if (score >= 60) return 'score-excellent'
-  if (score >= 40) return 'score-good'
+  if (score >= 45) return 'score-excellent'
+  if (score >= 30) return 'score-good'
   if (score >= 20) return 'score-medium'
   return 'score-low'
 }
@@ -124,8 +124,8 @@ function getRankColorClass(rank: string | number): string {
 function getScoreColorClass(score: string | number): string {
   if (score === '-') return ''
   const num = typeof score === 'number' ? score : parseFloat(score)
-  if (num >= 60) return 'score-excellent'
-  if (num >= 40) return 'score-good'
+  if (num >= 45) return 'score-excellent'
+  if (num >= 30) return 'score-good'
   if (num >= 20) return 'score-medium'
   return 'score-low'
 }
