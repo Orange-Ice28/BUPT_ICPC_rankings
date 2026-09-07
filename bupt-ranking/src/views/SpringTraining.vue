@@ -36,6 +36,10 @@ function isExcused(person: PersonalResult, contestIndex: number): boolean {
   return person.contests[contestIndex]?.excused === true
 }
 
+function isInvalid(person: PersonalResult, contestIndex: number): boolean {
+  return person.contests[contestIndex]?.invalid === true
+}
+
 function formatScore(score: number): string {
   if (score === 0 && score !== 0) return '0'
   return score.toFixed(2)
@@ -73,7 +77,8 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
       team编号 ≤ team1791 取最佳7场，> team1791 取最佳5场<br>
       灰色底 = 未计入成绩的场次<br>
       淡红底 = 违规，成绩作废<br>
-      淡橙色 = 因公事务缺席
+      淡橙色 = 因公事务缺席<br>
+      淡紫色 = 本场成绩无效，缺录屏或考勤
     </p>
   </div>
 
@@ -131,7 +136,12 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
                   v-for="(contest, ci) in person.contests"
                   :key="ci"
                   class="col-contest"
-                  :class="{ 'not-best': !isBest(person, ci), 'col-violation': isViolation(person, ci), 'col-excused': isExcused(person, ci) }"
+                  :class="{
+                    'not-best': !isBest(person, ci),
+                    'col-violation': isViolation(person, ci),
+                    'col-excused': isExcused(person, ci),
+                    'col-invalid': isInvalid(person, ci)
+                  }"
                 >
                   <span class="sub-item">{{ contest.solved }}</span>
                   <span class="sub-item">{{ contest.rank || '-' }}</span>
@@ -483,6 +493,19 @@ function getMemberScore(members: { total_score: number }[], index: number): stri
 
 .score-table tbody tr:hover .col-excused {
   background: #ffe0b2 !important;
+}
+
+.col-invalid {
+  background: #ede9fe !important;
+  color: #6d5a9e;
+}
+
+.col-invalid .score-low {
+  color: #6d5a9e;
+}
+
+.score-table tbody tr:hover .col-invalid {
+  background: #ddd6fe !important;
 }
 
 .score-table tbody tr:hover,

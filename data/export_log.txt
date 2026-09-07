@@ -1,4 +1,5 @@
 Personal count: 58
 Team count: 13
 Baselines: [10, 10, 9, 10, 10, 9, 11, 8, 8, 10]
+Invalid contest count: 184
 Done.
