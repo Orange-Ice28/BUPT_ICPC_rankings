@@ -63,7 +63,7 @@ const overallTeams = computed(() => {
     const spring = t.team_total
     const summer = summerTeamMap.get(t.name_cn) || 0
     const online = netTeamMap.get(t.name_cn) || 0
-    const overall = spring * 0.1 + summer * 0.6 + online * 0.3
+    const overall = spring * 0.2 + summer * 0.5 + online * 0.3
     return {
       name_cn: t.name_cn,
       name_en: t.name_en,
@@ -132,17 +132,17 @@ function getScoreClass(score: number): string {
         总成绩（备选方案）
       </h2>
       <p class="page-desc">
-        总成绩 = 春季训练 × 10% + 暑期训练 × 60% + 网络赛 × 30% |
+        总成绩 = 春季训练 × 20% + 暑期训练 × 50% + 网络赛 × 30% |
         暑期训练采用<strong>默认评分规则</strong>：取最好 80% 场次成绩的平均值
       </p>
       <div class="formula-cards">
         <div class="formula-card formula-card--spring">
           <div class="formula-label">春季训练</div>
-          <div class="formula-weight">× 10%</div>
+          <div class="formula-weight">× 20%</div>
         </div>
         <div class="formula-card formula-card--summer" :class="{ pending: !hasSummerData }">
           <div class="formula-label">暑期训练（默认规则）</div>
-          <div class="formula-weight">× 60%</div>
+          <div class="formula-weight">× 50%</div>
         </div>
         <div class="formula-card formula-card--net" :class="{ pending: !hasNetData }">
           <div class="formula-label">网络赛</div>
@@ -161,8 +161,8 @@ function getScoreClass(score: number): string {
               <th class="col-rank">排名</th>
               <th class="col-team-name">队名</th>
               <th class="col-members">队员</th>
-              <th class="col-score">春季训练 (×10%)</th>
-              <th class="col-score">暑期训练 (×60%)</th>
+              <th class="col-score">春季训练 (×20%)</th>
+              <th class="col-score">暑期训练 (×50%)</th>
               <th class="col-score">网络赛 (×30%)</th>
               <th class="col-total">总成绩</th>
             </tr>
