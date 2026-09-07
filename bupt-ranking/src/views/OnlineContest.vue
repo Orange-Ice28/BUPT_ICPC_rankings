@@ -225,13 +225,13 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
             <div class="rule-card__icon"></div>
             <h4 class="rule-card__title">单场得分公式</h4>
             <div class="formula-box">
-              <div class="formula-text">网络赛得分 = 过题数 / baseline × (1001 − 排名) / 1000 × 100</div>
+              <div class="formula-text">得分 = 过题数/baseline × (max_rank+1−排名)/max_rank × 100</div>
             </div>
             <ul class="rule-list rule-list--compact">
               <li>排名使用<strong>全场排名</strong></li>
               <li>若得分 &lt; 0 或未参赛，按 <strong>0 分</strong>计算</li>
-              <li><strong>Baseline 题数</strong>：全场第 1 名过题数</li>
-              <li>由于网络赛参与队伍数约 2000+，排名基数设为 <strong>1000</strong></li>
+              <li><strong>Baseline 题数</strong>：全场最高过题数</li>
+              <li><strong>max_rank 队伍数</strong>：全场至少通过一题的队伍数目</li>
             </ul>
           </div>
         </div>

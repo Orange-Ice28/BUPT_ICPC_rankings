@@ -3,9 +3,9 @@
 ==================
 用法:
   python scripts/update_net_contest.py 1          # 更新网络赛第1场
-  python scripts/update_net_contest.py 1 12       # 更新网络赛第1场，指定 baseline=12
+  python scripts/update_net_contest.py 1 12 1000  # 更新网络赛第1场，指定 baseline=12, max_rank=1000
   python scripts/update_net_contest.py 2          # 更新网络赛第2场
-  python scripts/update_net_contest.py 3 10       # 更新网络赛第3场，指定 baseline=10
+  python scripts/update_net_contest.py 3 10 800   # 更新网络赛第3场，指定 baseline=10, max_rank=800
 
 功能:
   1. 读取对应 Excel sheet 的队伍数据
@@ -33,17 +33,18 @@ os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 EXCEL_FILE = "data/net_contest.xlsx"
 SHEET_TEMPLATE = "net{num}"       # net1, net2, net3
 JSON_FILE = os.path.join("data", "net_score_data.json")
-RANK_OFFSET = 1001                # 公式中的排名上限参数
 DEFAULT_BASELINE = 12
+DEFAULT_MAX_RANK = 1000
 CONTEST_COUNT = 3                 # 总共 3 场网络赛
 
-# Excel 列映射（0-based）: 队名, 学校, 过题数, 排名, Baseline, 得分
+# Excel 列映射（0-based）: 队名(0), 学校(1), 过题数(2), 排名(3), Baseline(4), Max Rank(5), 得分(6)
 COL_NAME = 0
 COL_SCHOOL = 1
 COL_SOLVED = 2
 COL_RANK = 3
 COL_BASELINE = 4
-COL_SCORE = 5
+COL_MAX_RANK = 5
+COL_SCORE = 6
 
 # 前端同步目录
 FRONTEND_DIRS = [
@@ -79,14 +80,14 @@ def parse_special_value(val):
         return 0, None
 
 
-def calc_score(solved, rank, baseline):
+def calc_score(solved, rank, baseline, max_rank):
     """计算网络赛单场得分
-    公式: 得分 = 过题数 / baseline × (1001 − 排名) / 1000 × 100
+    公式: 得分 = 过题数 / baseline × (max_rank + 1 − 排名) / max_rank × 100
     得分 clamp 到 [0, 100]
     """
-    if baseline == 0:
+    if baseline == 0 or max_rank <= 0:
         return 0.0
-    score = (solved / baseline) * (RANK_OFFSET - rank) / (RANK_OFFSET - 1) * 100
+    score = (solved / baseline) * ((max_rank + 1) - rank) / max_rank * 100
     if score < 0 or score > 100:
         return 0.0
     return round(score, 2)
@@ -128,6 +129,7 @@ def load_excel_teams(sheet_name):
             "solved": solved_val,
             "rank": rank_val,
             "baseline": int(row[COL_BASELINE]) if COL_BASELINE < len(row) and row[COL_BASELINE] else 0,
+            "max_rank": int(row[COL_MAX_RANK]) if COL_MAX_RANK < len(row) and row[COL_MAX_RANK] else 0,
             "score": row[COL_SCORE] if COL_SCORE < len(row) else None,
             "excused": is_excused,
             "absent": is_absent,
@@ -157,24 +159,20 @@ def save_net_data(data):
 
 def match_team(excel_name, net_teams):
     """将 Excel 中的队伍名匹配到 net_score_data.json 中的队伍"""
-    # 先检查映射表
     if excel_name in NAME_MAPPING:
         mapped = NAME_MAPPING[excel_name]
         for t in net_teams:
             if t["name_cn"] == mapped:
                 return t
 
-    # 精确匹配中文名
     for t in net_teams:
         if t["name_cn"] == excel_name:
             return t
 
-    # 模糊匹配中文名
     for t in net_teams:
         if excel_name in t["name_cn"] or t["name_cn"] in excel_name:
             return t
 
-    # 匹配英文名（标准化后比较）
     def normalize(s):
         return s.replace(" ", "").replace("://", "").replace("!", "").lower()
 
@@ -195,22 +193,18 @@ def recalc_team_totals(data):
         scores = []
         for c in team["contests"]:
             if c.get("excused", False):
-                # 因公出差：不计入
                 continue
             if c.get("absent", False):
-                # 未参加：按 0 分计入
                 scores.append(0.0)
                 continue
             if c["solved"] > 0 or c["score"] > 0:
                 scores.append(c["score"])
-            # 如果过题数和得分都为 0，视为尚未参赛，不计入
 
         if len(scores) == 0:
             team["team_total"] = 0.0
         else:
             team["team_total"] = round(sum(scores) / 3, 2)
 
-    # 排序并更新排名
     data["teams"].sort(key=lambda x: x["team_total"], reverse=True)
     for i, team in enumerate(data["teams"]):
         team["rank"] = i + 1
@@ -243,6 +237,7 @@ def init_net_data():
 
     data = {
         "baselines": [0] * CONTEST_COUNT,
+        "max_ranks": [0] * CONTEST_COUNT,
         "teams": teams,
     }
 
@@ -256,15 +251,12 @@ def init_net_data():
 # ============================================================
 
 def main():
-    # 解析命令行参数
     if len(sys.argv) < 2:
-        print("用法: python scripts/update_net_contest.py <场次> [baseline]")
+        print("用法: python scripts/update_net_contest.py <场次> [baseline] [max_rank]")
         print()
         print("示例:")
-        print("  python scripts/update_net_contest.py 1       # 网络赛第1场")
-        print("  python scripts/update_net_contest.py 1 12    # 网络赛第1场，baseline=12")
-        print("  python scripts/update_net_contest.py 2       # 网络赛第2场")
-        print("  python scripts/update_net_contest.py 3 10    # 网络赛第3场，baseline=10")
+        print("  python scripts/update_net_contest.py 1         # 网络赛第1场")
+        print("  python scripts/update_net_contest.py 1 12 1000 # 网络赛第1场，baseline=12, max_rank=1000")
         sys.exit(1)
 
     try:
@@ -278,8 +270,9 @@ def main():
         sys.exit(1)
 
     sheet_name = SHEET_TEMPLATE.format(num=contest_num)
-    contest_idx = contest_num - 1  # net1 → index 0, net2 → index 1, net3 → index 2
+    contest_idx = contest_num - 1
     default_baseline = int(sys.argv[2]) if len(sys.argv) >= 3 else None
+    default_max_rank = int(sys.argv[3]) if len(sys.argv) >= 4 else None
 
     print("=" * 65)
     print(f"  更新网络赛第 {contest_num} 场 (sheet: {sheet_name}, idx: {contest_idx})")
@@ -295,43 +288,41 @@ def main():
 
     # ---- 第2步：计算得分 ----
     print()
-    formula_desc = f"(solved/baseline) × ({RANK_OFFSET} - rank) / {RANK_OFFSET - 1} × 100"
-    print(f"[2/5] 计算得分 — 公式: {formula_desc}")
+    print("[2/5] 计算得分 — 公式: (solved/baseline) × (max_rank + 1 - rank) / max_rank × 100")
     print()
 
     for team in excel_teams:
+        baseline = default_baseline or team["baseline"] or DEFAULT_BASELINE
+        team["baseline"] = baseline
+
+        max_rank = default_max_rank or team["max_rank"] or DEFAULT_MAX_RANK
+        team["max_rank"] = max_rank
+
         if team["excused"]:
             team["score"] = 0.0
-            team["baseline"] = default_baseline or team["baseline"] or DEFAULT_BASELINE
             print(f"  {team['name']:<35s}  ⚠ 因公出差 → 不计入成绩")
         elif team["absent"]:
             team["score"] = 0.0
-            team["baseline"] = default_baseline or team["baseline"] or DEFAULT_BASELINE
             print(f"  {team['name']:<35s}  ✘ 未参加 → 得分=0.00")
         else:
-            baseline = default_baseline or team["baseline"] or DEFAULT_BASELINE
-            if team["baseline"] == 0 or team["baseline"] is None:
-                team["baseline"] = baseline
-
-            score = calc_score(team["solved"], team["rank"], baseline)
+            score = calc_score(team["solved"], team["rank"], baseline, max_rank)
             team["score"] = score
-            team["baseline"] = baseline
             print(f"  {team['name']:<35s}  "
                   f"solved={team['solved']:<3d}  rank={team['rank']:<6d}  "
-                  f"baseline={baseline}  →  score={score:>7.2f}")
+                  f"baseline={baseline}  max_rank={max_rank}  →  score={score:>7.2f}")
 
     # ---- 第3步：写回 Excel ----
     print()
     print("[3/5] 写回 Excel...")
-    score_col = COL_SCORE + 1    # openpyxl 1-indexed
+    score_col = COL_SCORE + 1
     baseline_col = COL_BASELINE + 1
+    max_rank_col = COL_MAX_RANK + 1
 
     for i, team in enumerate(excel_teams):
-        row_idx = i + 2  # 第1行是表头
+        row_idx = i + 2
         ws.cell(row=row_idx, column=score_col).value = team["score"]
-        existing_baseline = ws.cell(row=row_idx, column=baseline_col).value
-        if existing_baseline is None or existing_baseline == 0:
-            ws.cell(row=row_idx, column=baseline_col).value = team["baseline"]
+        ws.cell(row=row_idx, column=baseline_col).value = team["baseline"]
+        ws.cell(row=row_idx, column=max_rank_col).value = team["max_rank"]
 
     wb.save(EXCEL_FILE)
     wb.close()
@@ -341,14 +332,12 @@ def main():
     print()
     print("[4/5] 更新 net_score_data.json...")
 
-    # 如果 JSON 文件不存在，先初始化
     if not os.path.exists(JSON_FILE):
         print("  首次运行，正在初始化网络赛数据模板...")
         data = init_net_data()
     else:
         data = load_net_data()
 
-    # 确保 baselines 数组长度足够
     while len(data["baselines"]) <= contest_idx:
         data["baselines"].append(0)
 
@@ -356,14 +345,21 @@ def main():
     data["baselines"][contest_idx] = used_baseline
     print(f"  baselines[{contest_idx}] = {used_baseline}")
 
-    # 更新每支队伍的 contest 数据
+    if "max_ranks" not in data:
+        data["max_ranks"] = [0] * len(data["baselines"])
+    while len(data["max_ranks"]) <= contest_idx:
+        data["max_ranks"].append(0)
+
+    used_max_rank = excel_teams[0]["max_rank"] if excel_teams else DEFAULT_MAX_RANK
+    data["max_ranks"][contest_idx] = used_max_rank
+    print(f"  max_ranks[{contest_idx}] = {used_max_rank}")
+
     matched_count = 0
     unmatched = []
 
     for excel_team in excel_teams:
         matched = match_team(excel_team["name"], data["teams"])
         if matched:
-            # 确保 contests 数组足够长
             while len(matched["contests"]) <= contest_idx:
                 matched["contests"].append({
                     "solved": 0, "rank": 0, "score": 0.0,
@@ -396,7 +392,6 @@ def main():
     print("[5/5] 重新计算队伍总成绩...")
     recalc_team_totals(data)
 
-    # 打印排名
     print()
     print("  Top 10 队伍总成绩:")
     for team in data["teams"][:10]:
@@ -408,7 +403,6 @@ def main():
 
     save_net_data(data)
 
-    # ---- 完成 ----
     print()
     print("=" * 65)
     print(f"  网络赛第 {contest_num} 场更新完成! 共处理 {len(excel_teams)} 支队伍")
