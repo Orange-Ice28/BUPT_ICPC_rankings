@@ -1,7 +1,7 @@
 {
   "baselines": [
     12,
-    0,
+    10,
     0
   ],
   "teams": [
@@ -19,7 +19,7 @@
           "name": "潘毅恒"
         }
       ],
-      "team_total": 24.44,
+      "team_total": 43.79,
       "rank": 1,
       "contests": [
         {
@@ -30,49 +30,9 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        }
-      ]
-    },
-    {
-      "name_cn": "异等小队",
-      "name_en": "The bad batch",
-      "members": [
-        {
-          "name": "张嘉麒"
-        },
-        {
-          "name": "王天宇"
-        },
-        {
-          "name": "林锐思"
-        }
-      ],
-      "team_total": 21.53,
-      "rank": 2,
-      "contests": [
-        {
-          "solved": 8,
-          "rank": 78,
-          "score": 64.6,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 6,
+          "rank": 82,
+          "score": 58.05,
           "excused": false,
           "absent": false
         },
@@ -99,8 +59,8 @@
           "name": "李奕澎"
         }
       ],
-      "team_total": 18.38,
-      "rank": 3,
+      "team_total": 34.35,
+      "rank": 2,
       "contests": [
         {
           "solved": 7,
@@ -110,9 +70,49 @@
           "absent": false
         },
         {
+          "solved": 5,
+          "rank": 105,
+          "score": 47.91,
+          "excused": false,
+          "absent": false
+        },
+        {
           "solved": 0,
           "rank": 0,
           "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "异等小队",
+      "name_en": "The bad batch",
+      "members": [
+        {
+          "name": "张嘉麒"
+        },
+        {
+          "name": "王天宇"
+        },
+        {
+          "name": "林锐思"
+        }
+      ],
+      "team_total": 33.77,
+      "rank": 3,
+      "contests": [
+        {
+          "solved": 8,
+          "rank": 78,
+          "score": 64.6,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 4,
+          "rank": 207,
+          "score": 36.7,
           "excused": false,
           "absent": false
         },
@@ -139,7 +139,7 @@
           "name": "安澍"
         }
       ],
-      "team_total": 15.06,
+      "team_total": 27.23,
       "rank": 4,
       "contests": [
         {
@@ -150,129 +150,9 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        }
-      ]
-    },
-    {
-      "name_cn": "永远别放弃",
-      "name_en": "nevergonnagiveyouup",
-      "members": [
-        {
-          "name": "王义轩"
-        },
-        {
-          "name": "杨鑫"
-        },
-        {
-          "name": "刘芯羽"
-        }
-      ],
-      "team_total": 14.88,
-      "rank": 5,
-      "contests": [
-        {
-          "solved": 6,
-          "rank": 267,
-          "score": 44.65,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        }
-      ]
-    },
-    {
-      "name_cn": "三只企鹅",
-      "name_en": "Gu Gu Ga Ga",
-      "members": [
-        {
-          "name": "丁培钊"
-        },
-        {
-          "name": "张哲源"
-        },
-        {
-          "name": "李子俊"
-        }
-      ],
-      "team_total": 14.76,
-      "rank": 6,
-      "contests": [
-        {
-          "solved": 6,
-          "rank": 286,
-          "score": 44.27,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        }
-      ]
-    },
-    {
-      "name_cn": "超时空代码姬",
-      "name_en": "Chou Code-hime",
-      "members": [
-        {
-          "name": "丁有艺"
-        },
-        {
-          "name": "孙祥延"
-        },
-        {
-          "name": "魏胜新"
-        }
-      ],
-      "team_total": 14.57,
-      "rank": 7,
-      "contests": [
-        {
-          "solved": 6,
-          "rank": 314,
-          "score": 43.7,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 4,
+          "rank": 219,
+          "score": 36.5,
           "excused": false,
           "absent": false
         },
@@ -299,8 +179,8 @@
           "name": "雷童"
         }
       ],
-      "team_total": 13.53,
-      "rank": 8,
+      "team_total": 25.82,
+      "rank": 5,
       "contests": [
         {
           "solved": 6,
@@ -310,9 +190,129 @@
           "absent": false
         },
         {
+          "solved": 4,
+          "rank": 196,
+          "score": 36.87,
+          "excused": false,
+          "absent": false
+        },
+        {
           "solved": 0,
           "rank": 0,
           "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "永远别放弃",
+      "name_en": "nevergonnagiveyouup",
+      "members": [
+        {
+          "name": "王义轩"
+        },
+        {
+          "name": "杨鑫"
+        },
+        {
+          "name": "刘芯羽"
+        }
+      ],
+      "team_total": 25.79,
+      "rank": 6,
+      "contests": [
+        {
+          "solved": 6,
+          "rank": 267,
+          "score": 44.65,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 4,
+          "rank": 454,
+          "score": 32.73,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "超时空代码姬",
+      "name_en": "Chou Code-hime",
+      "members": [
+        {
+          "name": "丁有艺"
+        },
+        {
+          "name": "孙祥延"
+        },
+        {
+          "name": "魏胜新"
+        }
+      ],
+      "team_total": 25.29,
+      "rank": 7,
+      "contests": [
+        {
+          "solved": 6,
+          "rank": 314,
+          "score": 43.7,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 4,
+          "rank": 490,
+          "score": 32.16,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 0,
+          "rank": 0,
+          "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "三只企鹅",
+      "name_en": "Gu Gu Ga Ga",
+      "members": [
+        {
+          "name": "丁培钊"
+        },
+        {
+          "name": "张哲源"
+        },
+        {
+          "name": "李子俊"
+        }
+      ],
+      "team_total": 22.4,
+      "rank": 8,
+      "contests": [
+        {
+          "solved": 6,
+          "rank": 286,
+          "score": 44.27,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 3,
+          "rank": 589,
+          "score": 22.93,
           "excused": false,
           "absent": false
         },
@@ -339,7 +339,7 @@
           "name": "朱致远"
         }
       ],
-      "team_total": 10.17,
+      "team_total": 21.42,
       "rank": 9,
       "contests": [
         {
@@ -350,9 +350,9 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 4,
+          "rank": 390,
+          "score": 33.76,
           "excused": false,
           "absent": false
         },
@@ -379,7 +379,7 @@
           "name": "吴宗阳"
         }
       ],
-      "team_total": 6.9,
+      "team_total": 17.64,
       "rank": 10,
       "contests": [
         {
@@ -390,49 +390,9 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        }
-      ]
-    },
-    {
-      "name_cn": "重生之忘带前世记忆打acm",
-      "name_en": "Re0：acm without memories",
-      "members": [
-        {
-          "name": "成伟业"
-        },
-        {
-          "name": "程博睿"
-        },
-        {
-          "name": "李梓安"
-        }
-      ],
-      "team_total": 6.32,
-      "rank": 11,
-      "contests": [
-        {
           "solved": 4,
-          "rank": 1072,
-          "score": 18.97,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "rank": 486,
+          "score": 32.22,
           "excused": false,
           "absent": false
         },
@@ -459,8 +419,8 @@
           "name": "刘林果"
         }
       ],
-      "team_total": 5.81,
-      "rank": 12,
+      "team_total": 9.41,
+      "rank": 11,
       "contests": [
         {
           "solved": 4,
@@ -470,9 +430,49 @@
           "absent": false
         },
         {
+          "solved": 2,
+          "rank": 1148,
+          "score": 10.8,
+          "excused": false,
+          "absent": false
+        },
+        {
           "solved": 0,
           "rank": 0,
           "score": 0.0,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "重生之忘带前世记忆打acm",
+      "name_en": "Re0：acm without memories",
+      "members": [
+        {
+          "name": "成伟业"
+        },
+        {
+          "name": "程博睿"
+        },
+        {
+          "name": "李梓安"
+        }
+      ],
+      "team_total": 7.46,
+      "rank": 12,
+      "contests": [
+        {
+          "solved": 4,
+          "rank": 1072,
+          "score": 18.97,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 2,
+          "rank": 2068,
+          "score": 3.42,
           "excused": false,
           "absent": false
         },
@@ -511,7 +511,7 @@
           "rank": 0,
           "score": 0.0,
           "excused": false,
-          "absent": false
+          "absent": true
         },
         {
           "solved": 0,
@@ -525,7 +525,7 @@
   ],
   "max_ranks": [
     2486,
-    0,
+    2494,
     0
   ]
 }
