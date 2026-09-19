@@ -46,6 +46,46 @@
       ]
     },
     {
+      "name_cn": "异等小队",
+      "name_en": "The bad batch",
+      "members": [
+        {
+          "name": "张嘉麒"
+        },
+        {
+          "name": "王天宇"
+        },
+        {
+          "name": "林锐思"
+        }
+      ],
+      "team_total": 52.33,
+      "rank": 2,
+      "contests": [
+        {
+          "solved": 8,
+          "rank": 78,
+          "score": 64.6,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 4,
+          "rank": 207,
+          "score": 36.7,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 8,
+          "rank": 201,
+          "score": 55.7,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
       "name_cn": "橙雨星瞳",
       "name_en": "Gold Astral Oculus",
       "members": [
@@ -60,7 +100,7 @@
         }
       ],
       "team_total": 49.12,
-      "rank": 2,
+      "rank": 3,
       "contests": [
         {
           "solved": 6,
@@ -86,46 +126,6 @@
       ]
     },
     {
-      "name_cn": "异等小队",
-      "name_en": "The bad batch",
-      "members": [
-        {
-          "name": "张嘉麒"
-        },
-        {
-          "name": "王天宇"
-        },
-        {
-          "name": "林锐思"
-        }
-      ],
-      "team_total": 48.16,
-      "rank": 3,
-      "contests": [
-        {
-          "solved": 8,
-          "rank": 78,
-          "score": 64.6,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 4,
-          "rank": 207,
-          "score": 36.7,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 8,
-          "rank": 630,
-          "score": 43.17,
-          "excused": false,
-          "absent": false
-        }
-      ]
-    },
-    {
       "name_cn": "二阶堂艾玛",
       "name_en": "Nikaidou Ema",
       "members": [
@@ -139,7 +139,7 @@
           "name": "李奕澎"
         }
       ],
-      "team_total": 47.27,
+      "team_total": 48.81,
       "rank": 4,
       "contests": [
         {
@@ -158,8 +158,8 @@
         },
         {
           "solved": 7,
-          "rank": 591,
-          "score": 38.77,
+          "rank": 410,
+          "score": 43.39,
           "excused": false,
           "absent": false
         }
