@@ -7,15 +7,15 @@ const router = useRouter()
 
 const contests = [
   { name: 'ICPC 网络赛 第1场', date: '2026-09-06', weekday: '周日', platform: 'PTA', problemSetter: '北京大学' },
-  { name: 'ICPC 网络赛 第2场', date: '2026-09-12', weekday: '周六', platform: 'PTA', problemSetter: '杭州师范大学、浙江大学' },
-  { name: 'CCPC 网络赛', date: '2026-09-19', weekday: '周六', platform: '', problemSetter: '' },
+  { name: 'ICPC 网络赛 第2场', date: '2026-09-12', weekday: '周六', platform: 'PTA', problemSetter: '杭州电子科技大学' },
+  { name: 'CCPC 网络赛', date: '2026-09-19', weekday: '周六', platform: 'PTA', problemSetter: '' },
 ]
 
 const icpcContests = [
   { station: '西安', date: '2026.10.17-18', host: '西北工业大学', expectedTeams: 380, problemSetter: '' },
   { station: '成都', date: '2026.10.24-25', host: '电子科技大学', expectedTeams: 320, problemSetter: '' },
   { station: '武汉', date: '2026.10.31-11.01', host: '武汉大学', expectedTeams: '不超过400（正式）', problemSetter: '' },
-  { station: '南京', date: '2026.11.07-08', host: '南京航空航天大学', expectedTeams: 320, problemSetter: '' },
+  { station: '南京', date: '2026.11.07-08', host: '南京航空航天大学', expectedTeams: 320, problemSetter: 'SUA命题组' },
   { station: '沈阳', date: '2026.11.14-15', host: '东北大学', expectedTeams: 400, problemSetter: '' },
   { station: '上海', date: '2026.12.05-06', host: '上海大学', expectedTeams: '336（正式）+48（打星）', problemSetter: '' },
   { station: '南昌', date: '2026.12.19-20', host: '江西师范大学', expectedTeams: 360, problemSetter: '' },
@@ -24,19 +24,19 @@ const icpcContests = [
 ]
 
 const ccpcContests = [
-  { station: '长春', date: '2026.10.17-18', host: '东北师范大学', expectedTeams: '300', problemSetter: '' },
-  { station: '荆州', date: '2026.11.07-08', host: '长江大学', expectedTeams: '300', problemSetter: '' },
-  { station: '乐山', date: '2026.11.14-15', host: '乐山师范学院', expectedTeams: '300', problemSetter: '' },
-  { station: '厦门', date: '2026.11.21-22', host: '厦门大学', expectedTeams: '300', problemSetter: '' },
+  { station: '长春', date: '2026.10.17-18', host: '东北师范大学', expectedTeams: '300', problemSetter: '清华大学' },
+  { station: '荆州', date: '2026.11.07-08', host: '长江大学', expectedTeams: '300', problemSetter: '南京大学' },
+  { station: '乐山', date: '2026.11.14-15', host: '乐山师范学院', expectedTeams: '300', problemSetter: '电子科技大学' },
+  { station: '厦门', date: '2026.11.21-22', host: '厦门大学', expectedTeams: '300', problemSetter: '上海交通大学' },
   { station: '总决赛', date: '', host: '', expectedTeams: '', problemSetter: '' },
 ]
 
 const ccspContests = [
-  { station: '成都', date: '2026.10.21-22', host: '', expectedTeams: '500' },
+  { station: '成都', date: '2026.10.21-22', host: '西华大学', expectedTeams: '500' },
 ]
 
 const caccContests = [
-  { station: '北京（区域赛）', date: '2026年12月', host: '北京邮电大学', expectedTeams: '' },
+  { station: '北京（区域赛）', date: '2026年12月6日', host: '北京邮电大学', expectedTeams: '' },
   { station: '宁波（总决赛）', date: '2027年4月', host: '宁波海曙区委党校', expectedTeams: '500' },
 ]
 
@@ -96,6 +96,14 @@ function parseContestDate(dateStr: string): { start: Date; end: Date } | null {
       start: new Date(year, month - 1, day1),
       end: new Date(year, month - 1, day2),
     }
+  }
+  const match3 = dateStr.match(/^(\d{4})年(\d{1,2})月(\d{1,2})日$/)
+  if (match3) {
+    const year = parseInt(match3[1]!)
+    const month = parseInt(match3[2]!)
+    const day = parseInt(match3[3]!)
+    const date = new Date(year, month - 1, day)
+    return { start: date, end: date }
   }
   return null
 }

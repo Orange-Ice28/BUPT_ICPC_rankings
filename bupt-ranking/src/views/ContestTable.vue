@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, inject } from 'vue'
+import { inject } from 'vue'
 import icpcLogo from '@/assets/ICPC_logo.png'
 import ccpcLogo from '@/assets/CCPC_logo.png'
 import ccspLogo from '@/assets/CCSP_logo.png'
@@ -12,12 +12,6 @@ const ccspContests = inject<any[]>('ccspContests', [])
 const caccContests = inject<any[]>('caccContests', [])
 const formatDate = inject<(dateStr: string) => string>('formatDate', () => '-')
 const formatContestDate = inject<(dateStr: string) => string>('formatContestDate', () => '-')
-
-const showCCPCSubtables = ref(false)
-
-function toggleCCPCSubtables() {
-  showCCPCSubtables.value = !showCCPCSubtables.value
-}
 </script>
 
 <template>
@@ -108,10 +102,9 @@ function toggleCCPCSubtables() {
     </div>
 
     <div class="section">
-      <div class="section-header ccpc-header" @click="toggleCCPCSubtables" title="点击展开/收起 CCSP 和 CACC 赛站信息">
-        <img :src="ccpcLogo" class="section-logo ccpc-logo-clickable" alt="CCPC">
+      <div class="section-header">
+        <img :src="ccpcLogo" class="section-logo" alt="CCPC">
         <h3 class="section-title">CCPC 中国大学生程序设计竞赛</h3>
-        <span class="expand-arrow" :class="{ expanded: showCCPCSubtables }">▶</span>
       </div>
       <div class="table-wrapper">
         <table class="contest-table">
@@ -149,83 +142,79 @@ function toggleCCPCSubtables() {
       </div>
     </div>
 
-    <Transition name="section-fade">
-      <div v-if="showCCPCSubtables" class="section">
-        <div class="section-header">
-          <img :src="ccspLogo" class="section-logo" alt="CCSP">
-          <h3 class="section-title">CCSP  大学生计算机系统与程序设计竞赛</h3>
-        </div>
-        <div class="table-wrapper">
-          <table class="contest-table">
-            <thead>
-              <tr>
-                <th class="col-index">序号</th>
-                <th class="col-station">赛站</th>
-                <th class="col-date">办赛日期</th>
-                <th class="col-host">承办方</th>
-                <th class="col-teams">赛站规模</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(item, i) in ccspContests" :key="i">
-                <td class="col-index">{{ i + 1 }}</td>
-                <td class="col-station">
-                  <span class="contest-name">{{ item.station || '-' }}</span>
-                </td>
-                <td class="col-date">
-                  <span class="date-text">{{ item.date ? formatContestDate(item.date) : '-' }}</span>
-                </td>
-                <td class="col-host">
-                  <span class="host-text">{{ item.host || '-' }}</span>
-                </td>
-                <td class="col-teams">
-                  <span class="teams-text">{{ item.expectedTeams || '-' }}</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <div class="section">
+      <div class="section-header">
+        <img :src="ccspLogo" class="section-logo" alt="CCSP">
+        <h3 class="section-title">CCSP  大学生计算机系统与程序设计竞赛</h3>
       </div>
-    </Transition>
+      <div class="table-wrapper">
+        <table class="contest-table">
+          <thead>
+            <tr>
+              <th class="col-index">序号</th>
+              <th class="col-station">赛站</th>
+              <th class="col-date">办赛日期</th>
+              <th class="col-host">承办方</th>
+              <th class="col-teams">赛站规模</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, i) in ccspContests" :key="i">
+              <td class="col-index">{{ i + 1 }}</td>
+              <td class="col-station">
+                <span class="contest-name">{{ item.station || '-' }}</span>
+              </td>
+              <td class="col-date">
+                <span class="date-text">{{ item.date ? formatContestDate(item.date) : '-' }}</span>
+              </td>
+              <td class="col-host">
+                <span class="host-text">{{ item.host || '-' }}</span>
+              </td>
+              <td class="col-teams">
+                <span class="teams-text">{{ item.expectedTeams || '-' }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-    <Transition name="section-fade">
-      <div v-if="showCCPCSubtables" class="section">
-        <div class="section-header">
-          <img :src="caccLogo" class="section-logo" alt="CACC">
-          <h3 class="section-title">CACC 算法能力大赛</h3>
-        </div>
-        <div class="table-wrapper">
-          <table class="contest-table">
-            <thead>
-              <tr>
-                <th class="col-index">序号</th>
-                <th class="col-station">赛站</th>
-                <th class="col-date">办赛日期</th>
-                <th class="col-host">承办方</th>
-                <th class="col-teams">赛站规模</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(item, i) in caccContests" :key="i">
-                <td class="col-index">{{ i + 1 }}</td>
-                <td class="col-station">
-                  <span class="contest-name">{{ item.station || '-' }}</span>
-                </td>
-                <td class="col-date">
-                  <span class="date-text">{{ item.date ? formatContestDate(item.date) : '-' }}</span>
-                </td>
-                <td class="col-host">
-                  <span class="host-text">{{ item.host || '-' }}</span>
-                </td>
-                <td class="col-teams">
-                  <span class="teams-text">{{ item.expectedTeams || '-' }}</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <div class="section">
+      <div class="section-header">
+        <img :src="caccLogo" class="section-logo" alt="CACC">
+        <h3 class="section-title">CACC 算法能力大赛</h3>
       </div>
-    </Transition>
+      <div class="table-wrapper">
+        <table class="contest-table">
+          <thead>
+            <tr>
+              <th class="col-index">序号</th>
+              <th class="col-station">赛站</th>
+              <th class="col-date">办赛日期</th>
+              <th class="col-host">承办方</th>
+              <th class="col-teams">赛站规模</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, i) in caccContests" :key="i">
+              <td class="col-index">{{ i + 1 }}</td>
+              <td class="col-station">
+                <span class="contest-name">{{ item.station || '-' }}</span>
+              </td>
+              <td class="col-date">
+                <span class="date-text">{{ item.date ? formatContestDate(item.date) : '-' }}</span>
+              </td>
+              <td class="col-host">
+                <span class="host-text">{{ item.host || '-' }}</span>
+              </td>
+              <td class="col-teams">
+                <span class="teams-text">{{ item.expectedTeams || '-' }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -326,7 +315,8 @@ function toggleCCPCSubtables() {
 }
 
 .platform-text {
-  color: var(--text-muted);
+  color: var(--text-primary);
+  font-weight: 500;
   font-size: 14px;
 }
 
@@ -348,7 +338,8 @@ function toggleCCPCSubtables() {
 }
 
 .problem-setter-text {
-  color: var(--text-muted);
+  color: var(--text-primary);
+  font-weight: 500;
   font-size: 14px;
 }
 
@@ -396,53 +387,6 @@ function toggleCCPCSubtables() {
   color: #db2777;
 }
 
-.ccpc-header {
-  cursor: pointer;
-  user-select: none;
-  transition: background 0.2s;
-}
-
-.ccpc-header:hover {
-  background: #e8ecf1;
-}
-
-.ccpc-logo-clickable {
-  transition: transform 0.2s;
-}
-
-.ccpc-header:hover .ccpc-logo-clickable {
-  transform: scale(1.08);
-}
-
-.expand-arrow {
-  margin-left: auto;
-  font-size: 12px;
-  color: var(--text-muted);
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-}
-
-.expand-arrow.expanded {
-  transform: rotate(90deg);
-}
-
-.section-fade-enter-active {
-  transition: all 0.4s ease;
-}
-
-.section-fade-leave-active {
-  transition: all 0.3s ease;
-}
-
-.section-fade-enter-from {
-  opacity: 0;
-  transform: translateY(-12px);
-}
-
-.section-fade-leave-to {
-  opacity: 0;
-  transform: translateY(-8px);
-}
 
 @media (max-width: 600px) {
   .section-header {

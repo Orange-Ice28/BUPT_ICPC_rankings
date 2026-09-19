@@ -3,7 +3,7 @@ import { ref, computed, inject } from 'vue'
 
 interface ContestEvent {
   label: string
-  type: 'icpc' | 'ccpc' | 'online'
+  type: 'icpc' | 'ccpc' | 'online' | 'ccsp' | 'cacc'
   startDate: Date
   endDate: Date
 }
@@ -19,6 +19,8 @@ interface CalendarDay {
 const contests = inject<any[]>('contests', [])
 const icpcContests = inject<any[]>('icpcContests', [])
 const ccpcContests = inject<any[]>('ccpcContests', [])
+const ccspContests = inject<any[]>('ccspContests', [])
+const caccContests = inject<any[]>('caccContests', [])
 const parseContestDate = inject<(dateStr: string) => { start: Date; end: Date } | null>('parseContestDate', () => null)
 
 const WEEK_DAYS = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
@@ -49,6 +51,24 @@ const allEvents = computed<ContestEvent[]>(() => {
     const parsed = parseContestDate(c.date)
     if (parsed) {
       events.push({ label: `CCPC ${c.station}`, type: 'ccpc', startDate: parsed.start, endDate: parsed.end })
+    }
+  }
+
+  for (const c of ccspContests) {
+    const parsed = parseContestDate(c.date)
+    if (parsed) {
+      events.push({ label: `CCSP ${c.station}`, type: 'ccsp', startDate: parsed.start, endDate: parsed.end })
+    }
+  }
+
+  for (const c of caccContests) {
+    const parsed = parseContestDate(c.date)
+    let label = `CACC ${c.station}`
+    if (label.includes('北京（区域赛）')) {
+      label = 'CACC 区域赛'
+    }
+    if (parsed) {
+      events.push({ label, type: 'cacc', startDate: parsed.start, endDate: parsed.end })
     }
   }
 
@@ -159,8 +179,15 @@ const monthHasEvents = computed(() =>
                   'has-icpc': day.contests.some(c => c.type === 'icpc'),
                   'has-ccpc': day.contests.some(c => c.type === 'ccpc'),
                   'has-online': day.contests.some(c => c.type === 'online'),
-                  'has-both': day.contests.filter(c => c.type === 'icpc' || c.type === 'ccpc').length >= 2
-                    || (day.contests.some(c => c.type === 'icpc') && day.contests.some(c => c.type === 'ccpc')),
+                  'has-ccsp': day.contests.some(c => c.type === 'ccsp'),
+                  'has-cacc': day.contests.some(c => c.type === 'cacc'),
+                  'has-both': day.contests.filter(c => c.type === 'icpc' || c.type === 'ccpc' || c.type === 'ccsp' || c.type === 'cacc').length >= 2
+                    || (day.contests.some(c => c.type === 'icpc') && day.contests.some(c => c.type === 'ccpc'))
+                    || (day.contests.some(c => c.type === 'icpc') && day.contests.some(c => c.type === 'ccsp'))
+                    || (day.contests.some(c => c.type === 'icpc') && day.contests.some(c => c.type === 'cacc'))
+                    || (day.contests.some(c => c.type === 'ccpc') && day.contests.some(c => c.type === 'ccsp'))
+                    || (day.contests.some(c => c.type === 'ccpc') && day.contests.some(c => c.type === 'cacc'))
+                    || (day.contests.some(c => c.type === 'ccsp') && day.contests.some(c => c.type === 'cacc')),
                 }"
               >
                 <div class="day-date">
@@ -175,6 +202,8 @@ const monthHasEvents = computed(() =>
                       'tag-icpc': c.type === 'icpc',
                       'tag-ccpc': c.type === 'ccpc',
                       'tag-online': c.type === 'online',
+                      'tag-ccsp': c.type === 'ccsp',
+                      'tag-cacc': c.type === 'cacc',
                     }"
                   >
                     {{ c.label.length > 20 ? c.label.slice(0, 20) + '…' : c.label }}
@@ -200,6 +229,14 @@ const monthHasEvents = computed(() =>
         <div class="legend-item">
           <div class="legend-swatch legend-online-swatch"></div>
           <span>网络赛</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch legend-ccsp-swatch"></div>
+          <span>CCSP 赛站</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch legend-cacc-swatch"></div>
+          <span>CACC 赛站</span>
         </div>
         <div class="legend-item">
           <div class="legend-swatch legend-both-swatch"></div>
@@ -354,19 +391,29 @@ const monthHasEvents = computed(() =>
   color: var(--text-muted);
 }
 
-.calendar-day.has-icpc:not(.has-both):not(.has-online) {
+.calendar-day.has-icpc:not(.has-both):not(.has-online):not(.has-ccsp):not(.has-cacc) {
   background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
   border-color: #93c5fd;
 }
 
-.calendar-day.has-ccpc:not(.has-both):not(.has-online) {
+.calendar-day.has-ccpc:not(.has-both):not(.has-online):not(.has-ccsp):not(.has-cacc) {
   background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
   border-color: #f9a8d4;
 }
 
-.calendar-day.has-online:not(.has-icpc):not(.has-ccpc) {
+.calendar-day.has-online:not(.has-icpc):not(.has-ccpc):not(.has-ccsp):not(.has-cacc) {
   background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
   border-color: #6ee7b7;
+}
+
+.calendar-day.has-ccsp:not(.has-both):not(.has-online):not(.has-icpc):not(.has-ccpc) {
+  background: linear-gradient(135deg, #cffafe 0%, #a5f3fc 100%);
+  border-color: #22d3ee;
+}
+
+.calendar-day.has-cacc:not(.has-both):not(.has-online):not(.has-icpc):not(.has-ccpc) {
+  background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+  border-color: #f9a8d4;
 }
 
 .calendar-day.has-both,
@@ -415,6 +462,16 @@ const monthHasEvents = computed(() =>
 
 .tag-ccpc {
   background: #db2777;
+  color: white;
+}
+
+.tag-ccsp {
+  background: #0891b2;
+  color: white;
+}
+
+.tag-cacc {
+  background: #ec4899;
   color: white;
 }
 
@@ -470,6 +527,16 @@ const monthHasEvents = computed(() =>
 .legend-both-swatch {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border: 2px solid #fdba74;
+}
+
+.legend-ccsp-swatch {
+  background: linear-gradient(135deg, #cffafe 0%, #a5f3fc 100%);
+  border: 2px solid #22d3ee;
+}
+
+.legend-cacc-swatch {
+  background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+  border: 2px solid #f9a8d4;
 }
 
 @media (max-width: 768px) {

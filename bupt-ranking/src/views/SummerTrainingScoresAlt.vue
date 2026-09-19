@@ -277,7 +277,7 @@ function formatContestValue(value: string | number, isScore: boolean = false): s
             <div class="rule-card__icon"></div>
             <h4 class="rule-card__title">单场得分公式</h4>
             <div class="formula-box">
-              <div class="formula-text">得分 = 过题数/baseline × (max_rank+1−排名)/max_rank × 100</div>
+              <div class="formula-text">得分 = 过题数 / baseline × (max_rank+1−排名) / max_rank × 100</div>
             </div>
             <ul class="rule-list rule-list--compact">
               <li>排名使用<strong>全场排名</strong></li>
