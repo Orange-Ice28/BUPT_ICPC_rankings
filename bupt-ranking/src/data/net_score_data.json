@@ -2,7 +2,7 @@
   "baselines": [
     12,
     10,
-    0
+    13
   ],
   "teams": [
     {
@@ -19,7 +19,7 @@
           "name": "潘毅恒"
         }
       ],
-      "team_total": 43.79,
+      "team_total": 68.77,
       "rank": 1,
       "contests": [
         {
@@ -37,89 +37,9 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        }
-      ]
-    },
-    {
-      "name_cn": "二阶堂艾玛",
-      "name_en": "Nikaidou Ema",
-      "members": [
-        {
-          "name": "邢瑞林"
-        },
-        {
-          "name": "缪宸瀚"
-        },
-        {
-          "name": "李奕澎"
-        }
-      ],
-      "team_total": 34.35,
-      "rank": 2,
-      "contests": [
-        {
-          "solved": 7,
-          "rank": 137,
-          "score": 55.14,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 5,
-          "rank": 105,
-          "score": 47.91,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        }
-      ]
-    },
-    {
-      "name_cn": "异等小队",
-      "name_en": "The bad batch",
-      "members": [
-        {
-          "name": "张嘉麒"
-        },
-        {
-          "name": "王天宇"
-        },
-        {
-          "name": "林锐思"
-        }
-      ],
-      "team_total": 33.77,
-      "rank": 3,
-      "contests": [
-        {
-          "solved": 8,
-          "rank": 78,
-          "score": 64.6,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 4,
-          "rank": 207,
-          "score": 36.7,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 10,
+          "rank": 55,
+          "score": 74.95,
           "excused": false,
           "absent": false
         }
@@ -139,8 +59,8 @@
           "name": "安澍"
         }
       ],
-      "team_total": 27.23,
-      "rank": 4,
+      "team_total": 49.12,
+      "rank": 2,
       "contests": [
         {
           "solved": 6,
@@ -157,49 +77,89 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 9,
+          "rank": 109,
+          "score": 65.68,
           "excused": false,
           "absent": false
         }
       ]
     },
     {
-      "name_cn": "在学校咱们就练起来！",
-      "name_en": "SEISHUN://NO_HACKING",
+      "name_cn": "异等小队",
+      "name_en": "The bad batch",
       "members": [
         {
-          "name": "吴显熠"
+          "name": "张嘉麒"
         },
         {
-          "name": "詹笙平"
+          "name": "王天宇"
         },
         {
-          "name": "雷童"
+          "name": "林锐思"
         }
       ],
-      "team_total": 25.82,
-      "rank": 5,
+      "team_total": 48.16,
+      "rank": 3,
       "contests": [
         {
-          "solved": 6,
-          "rank": 469,
-          "score": 40.59,
+          "solved": 8,
+          "rank": 78,
+          "score": 64.6,
           "excused": false,
           "absent": false
         },
         {
           "solved": 4,
-          "rank": 196,
-          "score": 36.87,
+          "rank": 207,
+          "score": 36.7,
           "excused": false,
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 8,
+          "rank": 630,
+          "score": 43.17,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "二阶堂艾玛",
+      "name_en": "Nikaidou Ema",
+      "members": [
+        {
+          "name": "邢瑞林"
+        },
+        {
+          "name": "缪宸瀚"
+        },
+        {
+          "name": "李奕澎"
+        }
+      ],
+      "team_total": 47.27,
+      "rank": 4,
+      "contests": [
+        {
+          "solved": 7,
+          "rank": 137,
+          "score": 55.14,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 5,
+          "rank": 105,
+          "score": 47.91,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 7,
+          "rank": 591,
+          "score": 38.77,
           "excused": false,
           "absent": false
         }
@@ -219,8 +179,8 @@
           "name": "刘芯羽"
         }
       ],
-      "team_total": 25.79,
-      "rank": 6,
+      "team_total": 44.13,
+      "rank": 5,
       "contests": [
         {
           "solved": 6,
@@ -237,89 +197,49 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 8,
+          "rank": 225,
+          "score": 55.0,
           "excused": false,
           "absent": false
         }
       ]
     },
     {
-      "name_cn": "超时空代码姬",
-      "name_en": "Chou Code-hime",
+      "name_cn": "在学校咱们就练起来！",
+      "name_en": "SEISHUN://NO_HACKING",
       "members": [
         {
-          "name": "丁有艺"
+          "name": "吴显熠"
         },
         {
-          "name": "孙祥延"
+          "name": "詹笙平"
         },
         {
-          "name": "魏胜新"
+          "name": "雷童"
         }
       ],
-      "team_total": 25.29,
-      "rank": 7,
+      "team_total": 43.41,
+      "rank": 6,
       "contests": [
         {
           "solved": 6,
-          "rank": 314,
-          "score": 43.7,
+          "rank": 469,
+          "score": 40.59,
           "excused": false,
           "absent": false
         },
         {
           "solved": 4,
-          "rank": 490,
-          "score": 32.16,
+          "rank": 196,
+          "score": 36.87,
           "excused": false,
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
-          "excused": false,
-          "absent": false
-        }
-      ]
-    },
-    {
-      "name_cn": "三只企鹅",
-      "name_en": "Gu Gu Ga Ga",
-      "members": [
-        {
-          "name": "丁培钊"
-        },
-        {
-          "name": "张哲源"
-        },
-        {
-          "name": "李子俊"
-        }
-      ],
-      "team_total": 22.4,
-      "rank": 8,
-      "contests": [
-        {
-          "solved": 6,
-          "rank": 286,
-          "score": 44.27,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 3,
-          "rank": 589,
-          "score": 22.93,
-          "excused": false,
-          "absent": false
-        },
-        {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 8,
+          "rank": 301,
+          "score": 52.78,
           "excused": false,
           "absent": false
         }
@@ -339,8 +259,8 @@
           "name": "朱致远"
         }
       ],
-      "team_total": 21.42,
-      "rank": 9,
+      "team_total": 42.99,
+      "rank": 7,
       "contests": [
         {
           "solved": 5,
@@ -357,9 +277,89 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 9,
+          "rank": 139,
+          "score": 64.7,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "三只企鹅",
+      "name_en": "Gu Gu Ga Ga",
+      "members": [
+        {
+          "name": "丁培钊"
+        },
+        {
+          "name": "张哲源"
+        },
+        {
+          "name": "李子俊"
+        }
+      ],
+      "team_total": 39.95,
+      "rank": 8,
+      "contests": [
+        {
+          "solved": 6,
+          "rank": 286,
+          "score": 44.27,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 3,
+          "rank": 589,
+          "score": 22.93,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 8,
+          "rank": 305,
+          "score": 52.66,
+          "excused": false,
+          "absent": false
+        }
+      ]
+    },
+    {
+      "name_cn": "超时空代码姬",
+      "name_en": "Chou Code-hime",
+      "members": [
+        {
+          "name": "丁有艺"
+        },
+        {
+          "name": "孙祥延"
+        },
+        {
+          "name": "魏胜新"
+        }
+      ],
+      "team_total": 38.21,
+      "rank": 9,
+      "contests": [
+        {
+          "solved": 6,
+          "rank": 314,
+          "score": 43.7,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 4,
+          "rank": 490,
+          "score": 32.16,
+          "excused": false,
+          "absent": false
+        },
+        {
+          "solved": 7,
+          "rank": 591,
+          "score": 38.77,
           "excused": false,
           "absent": false
         }
@@ -379,7 +379,7 @@
           "name": "吴宗阳"
         }
       ],
-      "team_total": 17.64,
+      "team_total": 27.32,
       "rank": 10,
       "contests": [
         {
@@ -397,9 +397,9 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 6,
+          "rank": 782,
+          "score": 29.05,
           "excused": false,
           "absent": false
         }
@@ -419,7 +419,7 @@
           "name": "刘林果"
         }
       ],
-      "team_total": 9.41,
+      "team_total": 14.23,
       "rank": 11,
       "contests": [
         {
@@ -437,9 +437,9 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 5,
+          "rank": 1316,
+          "score": 14.46,
           "excused": false,
           "absent": false
         }
@@ -459,7 +459,7 @@
           "name": "李梓安"
         }
       ],
-      "team_total": 7.46,
+      "team_total": 10.25,
       "rank": 12,
       "contests": [
         {
@@ -477,9 +477,9 @@
           "absent": false
         },
         {
-          "solved": 0,
-          "rank": 0,
-          "score": 0.0,
+          "solved": 4,
+          "rank": 1535,
+          "score": 8.37,
           "excused": false,
           "absent": false
         }
@@ -518,7 +518,7 @@
           "rank": 0,
           "score": 0.0,
           "excused": false,
-          "absent": false
+          "absent": true
         }
       ]
     }
@@ -526,6 +526,6 @@
   "max_ranks": [
     2486,
     2494,
-    0
+    2107
   ]
 }
