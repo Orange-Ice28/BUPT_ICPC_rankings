@@ -3,6 +3,7 @@ import { onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useScoreData } from '@/composables/useScoreData'
 import { recalcTeam } from '@/utils/summerAltScoring'
+import * as XLSX from 'xlsx'
 
 const route = useRoute()
 const router = useRouter()
@@ -113,6 +114,43 @@ function getRankClass(rank: number): string {
   return ''
 }
 
+function exportToXlsx(): void {
+  const wb = XLSX.utils.book_new()
+
+  const headerRow = ['排名', '队名（中文）', '队名（英文）', '队长', '队员1', '队员2', '春季训练 (×20%)', '暑期训练 (×50%)', '网络赛 (×30%)', '总成绩']
+  const dataRows = overallTeams.value.map((t) => [
+    t.rank,
+    t.name_cn,
+    t.name_en,
+    t.members[0] || '',
+    t.members[1] || '',
+    t.members[2] || '',
+    Math.round(t.spring_score * 100) / 100,
+    Math.round(t.summer_score * 100) / 100,
+    Math.round(t.online_score * 100) / 100,
+    t.overall_score,
+  ])
+
+  const ws = XLSX.utils.aoa_to_sheet([headerRow, ...dataRows])
+
+  // 设置列宽
+  ws['!cols'] = [
+    { wch: 6 },   // 排名
+    { wch: 16 },  // 队名（中文）
+    { wch: 24 },  // 队名（英文）
+    { wch: 10 },  // 队长
+    { wch: 10 },  // 队员1
+    { wch: 10 },  // 队员2
+    { wch: 18 },  // 春季训练
+    { wch: 18 },  // 暑期训练
+    { wch: 18 },  // 网络赛
+    { wch: 10 },  // 总成绩
+  ]
+
+  XLSX.utils.book_append_sheet(wb, ws, '总成绩排名')
+  XLSX.writeFile(wb, `总成绩排名_${new Date().toISOString().slice(0, 10)}.xlsx`)
+}
+
 function getScoreClass(score: number): string {
   if (score >= 60) return 'score-excellent'
   if (score >= 40) return 'score-good'
@@ -150,6 +188,12 @@ function getScoreClass(score: number): string {
           <div class="formula-label">网络赛</div>
           <div class="formula-weight">× 30%</div>
         </div>
+      </div>
+      <div class="export-area">
+        <span class="export-hint">💡 点击按钮可将当前排名导出为 Excel 文件</span>
+        <button class="export-btn" @click="exportToXlsx" :disabled="!data || loading">
+          📥 导出 Excel
+        </button>
       </div>
     </div>
 
@@ -460,5 +504,41 @@ function getScoreClass(score: number): string {
 
 .error {
   color: var(--danger);
+}
+
+.export-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.export-hint {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.export-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.export-btn:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.export-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 </style>
